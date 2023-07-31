@@ -1,12 +1,10 @@
 ## Abstract class
 
-| Статус    | Ожидание                                                                                      | Реальность                                                           |
-| --------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| :warning: | Можно наследоваться от абстрактного класса, IDE подсказывает какие методы надо переопределить | В IDE нет подсказок о необходимости переопределить абстрактный метод |
+TL;DR: IDE has no hints to override abstract methods.
 
-### Пояснения
+### Explanations
 
-Опишем простой абстрактный класс на Kotlin-е:
+Let's describe a simple abstract class in Kotlin:
 
 ```kotlin
 abstract class AbstractClassExample(
@@ -16,26 +14,24 @@ abstract class AbstractClassExample(
 }
 ```
 
-В Swift-коде мы можем сделать наследника этого класса, но IDE не подсказывает нам, что метод `forOverride` нужно переопределить.
+In Swift code, we can make this class inherit, but the IDE does not tell us that the method forOverride needs to be overridden.
 
 ```swift
 class MySwiftChild : AbstractClassExample {
-    
-    // Можно не переопределять метод forOverride, код успешно скомпилируется.
 
+    // You don't have to override the forOverride method, the code will
+    // compile successfully
+    
 }
 ```
 
-При попытке использовать этот метод приложение упадёт с `NSGenericException`.
+When trying to use this method, the application will crash with NSGenericException.
 
-[В Objective-C, похоже, нет понятия abstract class](https://stackoverflow.com/questions/1034373/creating-an-abstract-class-in-objective-c), 
-и [в Swift - тоже](https://stackoverflow.com/questions/24110396/abstract-classes-in-swift-language). 
+[Objective-C doesn't seem to have the concept of abstract class](https://stackoverflow.com/questions/1034373/creating-an-abstract-class-in-objective-c), and [neither does Swift](https://stackoverflow.com/questions/24110396/abstract-classes-in-swift-language).
 
-В отказе от абстрактных классов есть смысл, что-то вроде "предпочитайте композицию, а не наследование", но после Java 
-это может оказаться неудобным.
+It makes sense to avoid abstract classes, something along the lines of "prefer composition over inheritance", but after Java, this can be awkward.
 
-Самое близкое понятие к абстрактному классу в Swift - это `@protocol`. Поверх протокола можно описать extension-ы, 
-можно описывать дефолтные реализации методов. И будет примерно то же самое, что и абстрактный класс.
+The closest concept to an abstract class in Swift is @protocol. On top of the protocol, you can describe extensions, you can describe default implementations of methods. And it will be about the same as the abstract class.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

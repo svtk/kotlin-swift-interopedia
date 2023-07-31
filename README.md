@@ -1,12 +1,5 @@
 # Kotlin-Swift interopedia
 
-We created this repository to help developers interested in KMM technology understand what the public module API they describe would look like.
-
-The network has [detailed documentation from JetBrains](https://kotlinlang.org/docs/native-objc-interop.html)
-about the interop between Kotlin and Swift, but it does not cover in detail all the features of the Kotlin language.
-
-Therefore, we have summarized the list of Kotlin features into a single table and noted which features can be used without any problems, and which ones will require certain improvements.
-
 ## Common
 <ul>
   <li><a href="/docs/common/InternalModifier.md">Internal modifier</a></li>
