@@ -23,9 +23,9 @@ annotation class RuntimeAnnotationClass
 annotation class SourceAnnotationClass
 ```
 
-Regardless of the specified retentions, the annotations did not get into .h the -file, and they cannot be used in Swift.
+Regardless of the specified retentions, the annotations did not get into the .h file, and they cannot be used in Swift.
 
-Swift does not have annotations in the sense that they exist in Kotlin, but [there are attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html) that are used for specific purposes.
+Swift does not have annotations in the sense that they exist in Kotlin, but [there are attributes](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/attributes/) that are used for specific purposes.
 
 ---
 [Table of contents](/README.md)
