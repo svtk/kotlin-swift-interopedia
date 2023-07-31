@@ -1,12 +1,10 @@
 ## Annotation class
 
-| Статус          | Ожидание                             | Реальность                    |
-| --------------- | ------------------------------------ | ----------------------------- |
-| :no_entry_sign: | Аннотации можно использовать в Swift | Аннотации не попали в .h-файл |
+TL;DR: Annotations were not included in the .h file
 
-### Пояснения
+### Explanations
 
-Добавим аннотации в Kotlin-е:
+Let's add annotations in Kotlin:
 
 ```kotlin
 @Target(AnnotationTarget.CLASS)
@@ -25,11 +23,9 @@ annotation class RuntimeAnnotationClass
 annotation class SourceAnnotationClass
 ```
 
-Вне зависимости от указанных retention-ов, аннотации не попали в `.h`-файл, и их нельзя использовать в Swift.  
+Regardless of the specified retentions, the annotations did not get into .h the -file, and they cannot be used in Swift.
 
-В Swift-е нет аннотаций в том смысле, в котором они присутствуют в Kotlin, но 
-[есть атрибуты](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html), которые используются для 
-определённых целей.
+Swift does not have annotations in the sense that they exist in Kotlin, but [there are attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html) that are used for specific purposes.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
