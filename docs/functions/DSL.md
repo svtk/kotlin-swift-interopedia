@@ -1,21 +1,16 @@
 ## DSL
 
-| Статус    | Ожидание                                                | Реальность                                                                      |
-| --------- | ------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| :warning: | Надеемся, что DSL в Kotlin-е превратится в DSL на Swift | Сгенерировались функции с receiver-ами, выглядит не так удобно, как хотелось бы |
+TL;DR: DSLs in Kotlin are not DSLs in Swift. More specifically, functions with receivers were generated, it does not look as convenient as we would like.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е есть возможность создать DSL на основе множества extension-функций, 
-которые нужно передавать внутрь других функций. Для примера - [DSL для UI-тестов](https://habr.com/ru/company/hh/blog/455042/).
+In Kotlin, it is possible to create a DSL based on many extension functions that need to be passed inside other functions. For example - [DSL for UI tests](https://habr.com/ru/company/hh/blog/455042/).
 
 ```kotlin
 @DslMarker
 annotation class DslMarkerExample
 
-interface Experiment {
-    val key: String
-    val description: String
+data class Experiment(val key: String, val description: String){
 }
 
 @DslMarkerExample
@@ -41,34 +36,29 @@ class Dsl {
 private fun example() {
     Dsl().apply {
         experiments {
-            enable(object : Experiment {
-                override val key: String get() = "key1"
-                override val description: String  get() = "desc1"
-            })
+            enable(Experiment(key = "key1", description = "desc1"))
         }
     }
 }
 ```
 
-Но при переходе в Swift extension-функции в аргументах превращаются в функции с параметрами, 
-что выглядит не так, как хотелось бы:
+But when moving to Swift, extension functions in arguments turn into functions with parameters, which does not look the way we would like:
 
 ```swift
-dslBlock { dsl in
-    dsl.experiments { experimentsDsl in
-        experimentsDsl.enable(...)
-    }   
-}
-
 private func dslBlock(block: (Dsl) -> Dsl) -> Dsl {
     var dsl = Dsl()
     dsl = block(dsl)
     return dsl
 }
+
+func example(){
+    Dsl().experiments { experimentsDsl in
+        experimentsDsl.enable(experiment: Experiment(key: "key1", description: "desc1"))
+    }
+}
 ```
 
-[В Swift-е можно статейка на Habr-е про DSL в Swift](https://habr.com/ru/company/tinkoff/blog/455760/), 
-а ещё есть [github-репозиторий со списком Swift-библиотек, построенных на DSL](https://github.com/carson-katri/awesome-result-builders).
+In Swift, you can find an [article](https://habr.com/ru/company/tinkoff/blog/455760/) on Habr about DSL in Swift , and there is also a [GitHub repository](https://github.com/carson-katri/awesome-result-builders) with a list of Swift libraries built on DSL .
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
