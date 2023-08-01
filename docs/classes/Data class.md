@@ -1,55 +1,41 @@
 ## Data class
 
-| Статус    | Ожидание                                                    | Реальность                                                             |
-| --------- | ----------------------------------------------------------- | ---------------------------------------------------------------------- |
-| :warning: | Data class-ы сохраняют свои свойства после перехода в Swift | Не все возможности data class-ов сохраняются / есть особенности с copy |
+TL;DR: Not all features of data classes are preserved / there are features with copy
 
-### Пояснения
+### Explanations
 
-Опишем обычный data class в Kotlin-е:
+Let's describe the usual data class in Kotlin:
 
 ```kotlin
-data class DataClassExample(
+data class DataClass(
     val param1: String,
     val param2: Int,
     val param3: Boolean
 )
 ```
 
-#### Метод `copy`
+#### Method `copy`
 
-Метод `copy` переносится в Swift с названием `doCopy`, работает аналогично методу в Kotlin, но
-есть неудобство [с необходимостью указывать все аргументы функции](/docs/usual-workflow/Function%20with%20default%20arguments.md).
+The method copy is ported to Swift with the name doCopy, works similarly to the method in Kotlin, but there is an inconvenience [with the need to specify all the function arguments](https://github.com/pahill/kotlin-swift-interopedia/blob/main/docs/usual-workflow/Function%20with%20default%20arguments.md).
 
-#### Метод `equals`
+#### Method `equals`
 
-Сравнение двух экземпляров data class-а работает аналогично Kotlin-у, включая сравнение коллекций.
+Comparing two instances of a data class works similarly to Kotlin, including comparing collections. The equivalent function is isEquals in Swift.
 
-#### Метод `toString`
+#### Method `toString`
 
-При использовании объекта data class-а в строчке вывод такой же, как в Kotlin:
+When using a data class object in a line, the output is the same as in Kotlin:
 
 ```swift
-let dc = DataClassExample(param1: "123", param2: 10, param3: true)
-print("dc = \(dc)")
+let data = DataClass(param1: "abc", param2: 123, param3: true)
+print("data = \(data)")
 ```
+
+The equivalent function is description in Swift.
 
 #### Destructuring
 
-Эта фича Kotlin-а не работает. Но функции `component1()`, `component2`, ... `componentN()` доступны, 
-и при желании можно описать свой метод для деструктуризации:
-
-```swift
-extension DataClassExample {
-    func destruct() -> (String, Int32, Bool) {
-        return (component1(), component2(), component3())
-    }
-}
-
-func example() {
-    val (param1, param2, param3) = DataClassExample("", 100, true).destruct()
-}
-```
+This feature of Kotlin does not work.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

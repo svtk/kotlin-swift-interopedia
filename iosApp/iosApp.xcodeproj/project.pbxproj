@@ -11,10 +11,9 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		66CD08F82A6A5C0E00D66EFD /* DefaultArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD08F72A6A5C0E00D66EFD /* DefaultArguments.swift */; };
-		66CD08FA2A6FAF8400D66EFD /* InlineClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD08F92A6FAF8400D66EFD /* InlineClass.swift */; };
-		66CD08FC2A6FB26000D66EFD /* InternalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD08FB2A6FB26000D66EFD /* InternalModifier.swift */; };
 		66CD08FF2A71559000D66EFD /* JavaDocComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD08FE2A71559000D66EFD /* JavaDocComments.swift */; };
 		66CD09082A780B0C00D66EFD /* AbstractClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09072A780B0C00D66EFD /* AbstractClass.swift */; };
+		66CD090A2A78109A00D66EFD /* DataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09092A78109A00D66EFD /* DataClass.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +35,9 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		66CD08F72A6A5C0E00D66EFD /* DefaultArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultArguments.swift; sourceTree = "<group>"; };
-		66CD08F92A6FAF8400D66EFD /* InlineClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineClass.swift; sourceTree = "<group>"; };
-		66CD08FB2A6FB26000D66EFD /* InternalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalModifier.swift; sourceTree = "<group>"; };
 		66CD08FE2A71559000D66EFD /* JavaDocComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaDocComments.swift; sourceTree = "<group>"; };
 		66CD09072A780B0C00D66EFD /* AbstractClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractClass.swift; sourceTree = "<group>"; };
+		66CD09092A78109A00D66EFD /* DataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClass.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 		66CD08FD2A71556800D66EFD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				66CD08FB2A6FB26000D66EFD /* InternalModifier.swift */,
 				66CD08FE2A71559000D66EFD /* JavaDocComments.swift */,
 			);
 			path = Common;
@@ -84,8 +81,24 @@
 			isa = PBXGroup;
 			children = (
 				66CD09072A780B0C00D66EFD /* AbstractClass.swift */,
+				66CD09092A78109A00D66EFD /* DataClass.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		66CD090B2A78FD7800D66EFD /* UsualWorkflow */ = {
+			isa = PBXGroup;
+			children = (
+				66CD08F72A6A5C0E00D66EFD /* DefaultArguments.swift */,
+			);
+			path = UsualWorkflow;
+			sourceTree = "<group>";
+		};
+		66CD090C2A78FF8500D66EFD /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -108,6 +121,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				66CD090C2A78FF8500D66EFD /* Functions */,
+				66CD090B2A78FD7800D66EFD /* UsualWorkflow */,
 				66CD09062A780AF800D66EFD /* Classes */,
 				66CD09002A715BA500D66EFD /* DataTypes */,
 				66CD08FD2A71556800D66EFD /* Common */,
@@ -116,8 +131,6 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				66CD08F72A6A5C0E00D66EFD /* DefaultArguments.swift */,
-				66CD08F92A6FAF8400D66EFD /* InlineClass.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -223,8 +236,7 @@
 			files = (
 				66CD09082A780B0C00D66EFD /* AbstractClass.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				66CD08FA2A6FAF8400D66EFD /* InlineClass.swift in Sources */,
-				66CD08FC2A6FB26000D66EFD /* InternalModifier.swift in Sources */,
+				66CD090A2A78109A00D66EFD /* DataClass.swift in Sources */,
 				66CD08F82A6A5C0E00D66EFD /* DefaultArguments.swift in Sources */,
 				66CD08FF2A71559000D66EFD /* JavaDocComments.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

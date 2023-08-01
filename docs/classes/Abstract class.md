@@ -7,7 +7,7 @@ TL;DR: IDE has no hints to override abstract methods.
 Let's describe a simple abstract class in Kotlin:
 
 ```kotlin
-abstract class AbstractClassExample(
+abstract class AbstractClass(
     val param1: String
 ) {
     abstract fun forOverride(): String
@@ -17,7 +17,7 @@ abstract class AbstractClassExample(
 In Swift code, we can make this class inherit, but the IDE does not tell us that the method forOverride needs to be overridden.
 
 ```swift
-class MySwiftChild : AbstractClassExample {
+class ConcreteClass : AbstractClass {
 
     // You don't have to override the forOverride method, the code will
     // compile successfully

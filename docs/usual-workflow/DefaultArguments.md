@@ -8,32 +8,32 @@ default values.
 ```kotlin
 class DefaultArguments(val arg1: Int = 1) {
 
-    fun callFunctionWithDefaultArgument(arg2: Int = 2) {
+    fun functionWithDefaultArgument(arg2: Int = 2) {
     }
 
 }
 
 fun main(){
     val defaultArguments = DefaultArguments()
-    defaultArguments.callFunctionWithDefaultArgument()
+    defaultArguments.functionWithDefaultArgument()
 }
 ```
 
 However, this is not possible in Swift. It's necessary to either provide values as arguments explicitly,
-or use a bridge function.
+or use a bridge function (if this is used frequently).
 
 ```swift
 fun main(){
     let defaultArguments = DefaultArguments(arg1: 1)
-    defaultArguments.callFunctionWithDefaultArgument(arg2: 2)
+    defaultArguments.functionWithDefaultArgument(arg2: 2)
 ```
 OR
 
 ```swift
 fun main(){
-    let bridge = DefaultArgumentsBridge()
-    let defaultArguments = bridge.createDefaultArguments()
-    bridge.callDefaultArguments(defaultArguments: defaultArguments)
+    let defaultArguments = DefaultArgumentsBridgeKt.createDefaultArguments()
+    DefaultArgumentsBridgeKt.functionWithDefaultArgument(defaultArguments: defaultArguments)
+}
 ```
 
 ---

@@ -1,6 +1,6 @@
 package com.jetbrains.swiftinteropplayground.classes
 
-abstract class AbstractClassExample(
+abstract class AbstractClass(
     val param1: String
 ) {
     abstract fun forOverride(): String

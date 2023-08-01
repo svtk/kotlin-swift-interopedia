@@ -33,8 +33,8 @@
   <li><a href="/docs/usual-workflow/Usual%20class%20functions.md">Usual class functions</a></li>
   <li><a href="/docs/usual-workflow/Companion%20object.md">Companion object</a></li>
   <li><a href="/docs/usual-workflow/Objects.md">Objects</a></li>
-  <li><a href="/docs/usual-workflow/Function%20with%20default%20arguments.md">Function with default arguments</a></li>
-  <li><a href="/docs/usual-workflow/Constructor%20with%20default%20arguments.md">Constructor with default arguments</a></li>
+  <li><a href="/docs/usual-workflow/DefaultArguments.md">Function with default arguments</a></li>
+  <li><a href="/docs/usual-workflow/DefaultArguments.md">Constructor with default arguments</a></li>
 </ul>
 
 ## Classes
@@ -46,7 +46,7 @@
   <li><a href="/docs/classes/Inner%20class.md">Inner class</a></li>
   <li><a href="/docs/classes/Open%20class.md">Open class</a></li>
   <li><a href="/docs/classes/Sealed%20class.md">Sealed class</a></li>
-  <li><a href="/docs/classes/Value%20class.md">Value class</a></li>
+  <li><a href="/docs/classes/InlineClass.md">Value class</a></li>
 </ul>
 
 ## Interfaces

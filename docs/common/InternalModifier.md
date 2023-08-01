@@ -7,7 +7,7 @@ are only visible within their compilation unit.
 
 ```kotlin
 internal class InternalModifier {
-    internal fun callInternalFunction() {
+    internal fun internalFunction() {
     }
 
     internal val internalProperty = 1
