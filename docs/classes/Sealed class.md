@@ -1,36 +1,33 @@
 ## Sealed class
 
-| Статус          | Ожидание                                                                                               | Реальность                                                                      |
-| --------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| :no_entry_sign: | Корректно конвертируется в структуру, которую можно передать в switch-конструкцию и сделать exhaustive | Генерируется класс с наследниками. Передав в switch нет подсказок об exhaustive |
+TL;DR: A class with heirs is generated. By passing to switch there are no hints about exhaustive
 
-### Пояснения
+### Explanations
 
-В Kotlin-е sealed-классы могут использоваться в `when`-выражениях, которые могут подсказывать программисту 
-о забытых ветках:
+In Kotlin, sealed classes can be used in when-expressions, which can hint to the programmer about forgotten branches:
 
 ```kotlin
-sealed class MySealed {
-    object Object : MySealed()
+sealed class SealedClass {
+    object Object : SealedClass()
 
-    class Simple(val param1: String) : MySealed()
+    class Simple(val param1: String) : SealedClass()
 
-    data class Data(val param1: String, val param2: Boolean) : MySealed()
+    data class Data(val param1: String, val param2: Boolean) : SealedClass()
 }
 
-private fun example(s: MySealed) {
+private fun example(s: SealedClass) {
     when (s) {
-        MySealed.Object -> TODO()
-        is MySealed.Simple -> TODO()
-        is MySealed.Data -> TODO()
+        SealedClass.Object -> TODO()
+        is SealedClass.Simple -> TODO()
+        is SealedClass.Data -> TODO()
     }
 }
 ```
 
-Но в Swift такой класс сконвертируется как обычный класс с наследниками, который бесполезен при подстановке в `switch`:
+But in Swift, such a class will be converted as a normal class with descendants, which is useless when substituting in switch:
 
 ```switch
-func example(s: MySealed) {
+func example(s: SealedClass) {
     switch s {
     default:
         print("Sad")
@@ -38,52 +35,41 @@ func example(s: MySealed) {
 }
 ```
 
-В Swift-е роль sealed-классов выполняют enum-ы, и можно было бы написать специальный bridge-код для конвертации 
-sealed-классов в Swift-овый enum.
+In Swift, enums take on the role of sealed classes, and custom bridge code could be written to convert sealed classes to Swift enums.
 
 ```swift
-enum MySealedSwift {
-	
-	case object 
-	case simple(String)
-	case data(String, Bool)
+enum SealedSwift {
+    
+    case object
+    case simple(String)
+    case data(String, Bool)
 
-	public init(_ obj: MySealed) { 
-		if obj is MySealed.Object { 
-			self = .object
-		} else if let obj = obj as? MySealed.Simple { 
-			self = .simple(obj.param1) 
-		} else if let obj = obj as? MySealed.Data { 
-			self = .data(obj.param1, obj.param2) 
-		} else { 
-			fatalError("MySealedSwift not syncronized with MySealed class") 
-		}
-	}
+    public init(_ obj: SealedClass) {
+        if obj is SealedClass.Object {
+            self = .object
+        } else if let obj = obj as? SealedClass.Simple {
+            self = .simple(obj.param1)
+        } else if let obj = obj as? SealedClass.Data {
+            self = .data(obj.param1, obj.param2)
+        } else {
+            fatalError("SealedSwift not syncronized with SealedClass class")
+        }
+    }
 
 }
 
-// Использование
-func switchUsage(mySealed: MySealed) {
-	switch MySealedSwift(mySealed)
-	case .obj:
-		// do stuff
-	case let .simple(param1):
-		// do stuff
-	case let .data(param1, param2):
-		// do stuff
-}
-```
-
-Плагин [moko-kwift](https://github.com/icerockdev/moko-kswift/) умеет генерировать такой маппинг 
-[с помощью фичи](https://github.com/icerockdev/moko-kswift/blob/master/kswift-gradle-plugin/src/main/kotlin/dev/icerock/moko/kswift/plugin/feature/SealedToSwiftEnumFeature.kt).
-
-```kotlin
-kswift {
-    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+// Usage
+func switchUsage(sealedClass: SealedClass) {
+    switch SealedSwift(sealedClass){
+    case .object:
+        print("object")
+    case let .simple(param1):
+        print("simple")
+    case let .data(param1, param2):
+        print("data")
+    }
 }
 ```
-
-Но есть некоторые особенности, см. [moko-kswift overview](/docs/moko-kswift/Overview.md)
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

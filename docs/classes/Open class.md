@@ -1,51 +1,50 @@
 ## Open class
 
-| Статус             | Ожидание                                                                                              | Реальность                          |
-| ------------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| :white_check_mark: | Можно наследоваться от open-класса / есть доступ к protected-полям / можно переопределять open-методы | Можно переопределять и final-методы |
+TL;DR: Can inherit from open class, use its protected properties, override open, and even override final methods.
 
-### Пояснения
+### Explanations
 
-Опишем open class на Kotlin:
+Let's describe Kotlin's open class:
 
 ```kotlin
 open class OpenClassWithConstructorParams(
     val param1: String,
     val param2: Boolean
 ) {
-
     protected val someField: String get() = "14"
 
-    fun finalMethodInClass() {
+    fun finalFunctionInClass() {
         println("Final method in open class")
     }
 
-    open fun methodCanBeOverride() {
-        println("OpenClassWithConstructorParams | methodCanBeOverride")
+    open fun functionCanBeOverridden() {
+        println("Open method in open class")
     }
 
 }
 ```
 
-На стороне Swift-а мы можем наследоваться от этого класса, использовать его protected-свойства,
-переопределять open и даже переопределять **final**-методы:
+On the Swift side, we can inherit from this class, use its protected properties, override open, and even override final methods:
 
 ```swift
-class OpenSwiftClass : OpenClassWithConstructorParams {
-    override func methodCanBeOverride() {
-        print("methodCanBeOverride in SwiftOpen2")
+class OpenClassExample : OpenClassWithConstructorParams {
+    override func finalFunctionInClass() {
+        print("Final function was overridden")
     }
     
-    override func finalMethodInClass() {
-        print("I can override final method")
+    override func functionCanBeOverridden() {
+        print("Open function was overridden")
     }
+    
 }
 
 func example() {
-    let osc = OpenSwiftClass(param1: "123", param2: true)
-    let _ = osc.someField
+    let example = OpenClassExample(param1: "123", param2: true)
+    let _ = example.someField
+    example.finalFunctionInClass()
+    example.functionCanBeOverridden()
 }
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
