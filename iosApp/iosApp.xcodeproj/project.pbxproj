@@ -15,6 +15,7 @@
 		66CD09082A780B0C00D66EFD /* AbstractClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09072A780B0C00D66EFD /* AbstractClass.swift */; };
 		66CD090A2A78109A00D66EFD /* DataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09092A78109A00D66EFD /* DataClass.swift */; };
 		66CD090E2A79052C00D66EFD /* EnumClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD090D2A79052C00D66EFD /* EnumClass.swift */; };
+		66CD09102A790BEC00D66EFD /* InnerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD090F2A790BEC00D66EFD /* InnerClass.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		66CD09072A780B0C00D66EFD /* AbstractClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractClass.swift; sourceTree = "<group>"; };
 		66CD09092A78109A00D66EFD /* DataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataClass.swift; sourceTree = "<group>"; };
 		66CD090D2A79052C00D66EFD /* EnumClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumClass.swift; sourceTree = "<group>"; };
+		66CD090F2A790BEC00D66EFD /* InnerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerClass.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				66CD09072A780B0C00D66EFD /* AbstractClass.swift */,
 				66CD09092A78109A00D66EFD /* DataClass.swift */,
 				66CD090D2A79052C00D66EFD /* EnumClass.swift */,
+				66CD090F2A790BEC00D66EFD /* InnerClass.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				66CD090E2A79052C00D66EFD /* EnumClass.swift in Sources */,
 				66CD090A2A78109A00D66EFD /* DataClass.swift in Sources */,
 				66CD08F82A6A5C0E00D66EFD /* DefaultArguments.swift in Sources */,
+				66CD09102A790BEC00D66EFD /* InnerClass.swift in Sources */,
 				66CD08FF2A71559000D66EFD /* JavaDocComments.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);

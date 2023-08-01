@@ -1,37 +1,35 @@
 ## Inner class
 
-| Статус    | Ожидание                                                                                     | Реальность                              |
-| --------- | -------------------------------------------------------------------------------------------- | --------------------------------------- |
-| :warning: | Можно создать инстанс inner-класса / прямого доступа к родительским свойствам и функциям нет | Небольшие отличия в синтаксисе создания |
+TL;DR: Minor differences in creation syntax
 
-### Пояснения
+### Explanations
 
-Создадим небольшой inner-класс на Kotlin-е:
+Let's create a small inner class in Kotlin:
 
 ```kotlin
-class InnerClassExample(
+class OuterClass(
     val param: String
 ) {
 
     fun parentFunc() {}
 
-    inner class MyInnerClass {
+    inner class InnerClass {
         fun useSomeFunction() {
-            println("this@InnerClassExample.param == ${this@InnerClassExample.param}")
+            println("this@OuterClass.param == ${this@OuterClass.param}")
         }
     }
 }
 
 private fun example() {
-    val inner = InnerClassExample("12").MyInnerClass()
+    val inner = OuterClass("12").InnerClass()
 }
 ```
 
-В Swift-е немного меняется синтаксис создания экземпляра inner-класса, нужно явно передавать родительский класс в конструктор:
+In Swift, the syntax for creating an instance of the inner class changes slightly, you need to explicitly pass the parent class to the constructor:
 
 ```swift
-let _ = InnerClassExample.MyInnerClass(InnerClassExample(param: "1323"))
+let _ = OuterClass.InnerClass(OuterClass(param: "1323"))
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
