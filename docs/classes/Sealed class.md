@@ -1,6 +1,6 @@
 ## Sealed class
 
-TL;DR: A class with heirs is generated. By passing to switch there are no hints about exhaustive
+A class with heirs is generated. Passing to a switch statement requires a default case.
 
 ### Explanations
 
@@ -24,13 +24,15 @@ private fun example(s: SealedClass) {
 }
 ```
 
-But in Swift, such a class will be converted as a normal class with descendants, which is useless when substituting in switch:
+But in Swift, such a class will be converted as a normal class with descendants, and a default case is required for a switch statement.
 
 ```switch
 func example(s: SealedClass) {
     switch s {
-    default:
-        print("Sad")
+    case is SealedClass.Object: print("object")
+    case is SealedClass.Simple: print("simple")
+    case is SealedClass.Data: print("data")
+    default: print("Sad")
     }
 }
 ```

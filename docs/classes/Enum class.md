@@ -1,6 +1,6 @@
 ## Enum class
 
-TL;DR: Doesn't work as expected. But an object with static elements was generated
+Doesn't work as expected. But an object with static elements was generated.
 
 ### Explanations
 

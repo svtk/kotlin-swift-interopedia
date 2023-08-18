@@ -1,6 +1,6 @@
 ## Annotation class
 
-TL;DR: Annotations were not included in the .h file
+Annotations were not included in the .h file.
 
 ### Explanations
 

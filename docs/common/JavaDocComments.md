@@ -12,7 +12,7 @@ kotlin {
 }
 ```
 
-After that, on the XCode side, you can see comments on the class and methods in autocompletions. If you go to the definition of functions (in the .h file), you can see comments on @param / @return, etc.
+After that, on the XCode side, you can see comments on the class and methods in autocompletion. If you go to the definition of functions (in the .h file), you can see comments on @param / @return, etc.
 
 Note: many KDoc features are not supported, such as @property.
 

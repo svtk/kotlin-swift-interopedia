@@ -1,6 +1,6 @@
 ## Abstract class
 
-TL;DR: IDE has no hints to override abstract methods.
+IDE has no hints to override abstract methods.
 
 ### Explanations
 
@@ -31,7 +31,7 @@ When trying to use this method, the application will crash with NSGenericExcepti
 
 It makes sense to avoid abstract classes, something along the lines of "prefer composition over inheritance", but after Java, this can be awkward.
 
-The closest concept to an abstract class in Swift is @protocol. On top of the protocol, you can describe extensions, you can describe default implementations of methods. And it will be about the same as the abstract class.
+The closest concept to an abstract class in Swift is @protocol. On top of the protocol, you can describe extensions, you can describe default implementations of methods. It will be about the same as the abstract class.
 
 ---
 [Table of contents](/README.md)

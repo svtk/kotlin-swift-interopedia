@@ -1,6 +1,6 @@
 ## Data class
 
-TL;DR: Not all features of data classes are preserved / there are features with copy
+Not all features of data classes are preserved.
 
 ### Explanations
 

@@ -1,6 +1,6 @@
 ## Inner class
 
-TL;DR: Minor differences in creation syntax
+Minor differences in creation syntax.
 
 ### Explanations
 

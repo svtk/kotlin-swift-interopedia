@@ -10,11 +10,10 @@ class OpenClassExample : OpenClassWithConstructorParams {
         print("Open function was overridden")
     }
     
-}
-
-func example() {
-    let example = OpenClassExample(param1: "123", param2: true)
-    let _ = example.someField
-    example.finalFunctionInClass()
-    example.functionCanBeOverridden()
+    static func example() {
+        let example = OpenClassExample(param1: "123", param2: true)
+        let _ = example.someField
+        example.finalFunctionInClass()
+        example.functionCanBeOverridden()
+    }
 }
