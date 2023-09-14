@@ -21,6 +21,12 @@ struct ContentView: View {
 //                SealedClassExample().switchUsage(sealedClass: SealedClass.Object())
 //                SealedClassExample().switchUsage(sealedClass: SealedClass.Simple(param1: "param1"))
 //                SealedClassExample().switchUsage(sealedClass: SealedClass.Data(param1: "param1", param2: true))
+         
+            //Functions
+//            DslExample().example()
+//                FunctionReturnsLambdaExample().example()
+//                FunctionReturnsPrimitiveExample().example()
+                FunctionWithExtensionExample().example()
             })
         }
 	}

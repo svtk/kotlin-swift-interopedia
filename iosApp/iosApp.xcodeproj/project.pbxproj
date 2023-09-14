@@ -10,6 +10,9 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		662673B02AB28FBF009934DD /* FunctionWithExtensionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662673AF2AB28FBF009934DD /* FunctionWithExtensionExample.swift */; };
+		665A18952A9614E9000087BE /* FunctionReturnsLambda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665A18942A9614E9000087BE /* FunctionReturnsLambda.swift */; };
+		665A18972A961812000087BE /* FunctionReturnsPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665A18962A961812000087BE /* FunctionReturnsPrimitive.swift */; };
 		66CD08F82A6A5C0E00D66EFD /* DefaultArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD08F72A6A5C0E00D66EFD /* DefaultArguments.swift */; };
 		66CD08FF2A71559000D66EFD /* JavaDocComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD08FE2A71559000D66EFD /* JavaDocComments.swift */; };
 		66CD09082A780B0C00D66EFD /* AbstractClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09072A780B0C00D66EFD /* AbstractClass.swift */; };
@@ -39,6 +42,9 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		662673AF2AB28FBF009934DD /* FunctionWithExtensionExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionWithExtensionExample.swift; sourceTree = "<group>"; };
+		665A18942A9614E9000087BE /* FunctionReturnsLambda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionReturnsLambda.swift; sourceTree = "<group>"; };
+		665A18962A961812000087BE /* FunctionReturnsPrimitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionReturnsPrimitive.swift; sourceTree = "<group>"; };
 		66CD08F72A6A5C0E00D66EFD /* DefaultArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultArguments.swift; sourceTree = "<group>"; };
 		66CD08FE2A71559000D66EFD /* JavaDocComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaDocComments.swift; sourceTree = "<group>"; };
 		66CD09072A780B0C00D66EFD /* AbstractClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractClass.swift; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				66CD09152A7925B800D66EFD /* DSL.swift */,
+				665A18942A9614E9000087BE /* FunctionReturnsLambda.swift */,
+				665A18962A961812000087BE /* FunctionReturnsPrimitive.swift */,
+				662673AF2AB28FBF009934DD /* FunctionWithExtensionExample.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -253,11 +262,14 @@
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				66CD09162A7925B800D66EFD /* DSL.swift in Sources */,
 				66CD090E2A79052C00D66EFD /* EnumClass.swift in Sources */,
+				662673B02AB28FBF009934DD /* FunctionWithExtensionExample.swift in Sources */,
 				66CD09122A790D9900D66EFD /* OpenClass.swift in Sources */,
 				66CD090A2A78109A00D66EFD /* DataClass.swift in Sources */,
 				66CD08F82A6A5C0E00D66EFD /* DefaultArguments.swift in Sources */,
 				66CD09142A790FF300D66EFD /* SealedClass.swift in Sources */,
+				665A18952A9614E9000087BE /* FunctionReturnsLambda.swift in Sources */,
 				66CD09102A790BEC00D66EFD /* InnerClass.swift in Sources */,
+				665A18972A961812000087BE /* FunctionReturnsPrimitive.swift in Sources */,
 				66CD08FF2A71559000D66EFD /* JavaDocComments.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);

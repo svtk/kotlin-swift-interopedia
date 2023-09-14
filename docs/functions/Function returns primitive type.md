@@ -1,30 +1,31 @@
 ## Function returns primitive type
 
-| Статус             | Ожидание                                                   | Реальность                       |
-| ------------------ | ---------------------------------------------------------- | -------------------------------- |
-| :white_check_mark: | Функция, возвращающая примитивный тип, работает без ошибок | Реальность совпадает с ожиданием |
+A function returning a primitive type works without error.
 
-### Пояснения
+### Explanations
 
-Опишем функцию, возвращающую примитивный тип, на Kotlin-е:
+Let's describe a function that returns a primitive type in Kotlin:
 
 ```kotlin
-// Functions.kt
+// FunctionsReturnsPrimitive.kt
 
 fun simpleFunction(): String {
-    return "FunctionsExample.simpleFunction()"
+    return "FunctionsReturnsPrimitive.simpleFunction()"
 }
 
-private fun example() {
-    val result = simpleFunction()
+class FunctionReturnsPrimitiveExample {
+    fun example() {
+        val result = simpleFunction()
+        println(result)
+    }
 }
 ```
 
-На стороне Swift-а использование тоже выглядит удобным:
+On the Swift side, this works correctly:
 
 ```swift
-let _ = FunctionsKt.simpleFunction()
+print(FunctionsReturnsPrimitiveKt.simpleFunction())
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

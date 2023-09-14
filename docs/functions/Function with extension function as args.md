@@ -1,15 +1,13 @@
 ## Function with extension function as args
 
-| Статус    | Ожидание                                   | Реальность                                           |
-| --------- | ------------------------------------------ | ---------------------------------------------------- |
-| :warning: | Можно вызвать функцию так же, как в Kotlin | Extension-функция превращается в лямбду с параметром |
+Extension function turns into a lambda with a parameter.
 
-### Пояснения
+### Explanations
 
-В Kotlin мы можем легко [делать красивые API](https://youtu.be/A2LukgT2mKc?t=1645) вокруг неудобного Android API. 
+In Kotlin, we can easily [create beautiful APIs](https://youtu.be/A2LukgT2mKc?t=1645) around an inconvenient Android API.
 
 ```kotlin
-// Functions.kt
+// FunctionWithExtensionExampke.kt
 
 fun funcWithExtension(extension: UsualClassExample.() -> Unit) {
     val someObject = UsualClassExample(
@@ -20,23 +18,35 @@ fun funcWithExtension(extension: UsualClassExample.() -> Unit) {
         param5 = 800.0,
         param6 = false
     )
-    someObject.apply(extension)
+    someObject.extension()
 }
 
 private fun example() {
     funcWithExtension {
-        this.publicMutableProperty = "changed"
+        this.param1 = "changed"
+        this.param2 = 2
+        this.param3 = 3L
+        this.param4 = 4.0f
+        this.param5 = 5.0
+        this.param6 = true
+        println("$param1 $param2 $param3 $param4 $param5 $param6")
     }
 }
 ```
 
-В Swift extension-функция превратилась в лямбду, где первым параметром идёт receiver:
+In Swift, the extension function has turned into a lambda, where the first parameter is receiver:
 
 ```swift
-let _ = FunctionsKt.funcWithExtension(extension: { usualClassExample in
-    usualClassExample.publicMutableProperty = "5000"
+FunctionWithExtensionKt.funcWithExtension(extension: { usualClassExample in
+    usualClassExample.param1 = "changed"
+    usualClassExample.param2 = 2
+    usualClassExample.param3 = 3
+    usualClassExample.param4 = 4.0
+    usualClassExample.param5 = 5.0
+    usualClassExample.param6 = true
+    print("\(usualClassExample.param1) \(usualClassExample.param2) \(usualClassExample.param3) \(usualClassExample.param4) \(usualClassExample.param5) \(usualClassExample.param6)")
 })
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

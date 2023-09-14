@@ -1,15 +1,13 @@
 ## Function returns lambda
 
-| Статус             | Ожидание                                                             | Реальность                       |
-| ------------------ | -------------------------------------------------------------------- | -------------------------------- |
-| :white_check_mark: | Функция, вернувшая лямбду, работает без крашей; лямбду можно вызвать | Реальность совпадает с ожиданием |
+The function that returned the lambda works without crashes; lambda can be called.
 
-### Пояснения
+### Explanations
 
-Опишем функцию, возвращающую какую-нибудь лямбду, на Kotlin-е:
+Let's describe a function that returns some kind of lambda in Kotlin:
 
 ```kotlin
-// Functions.kt
+// FunctionReturnsLambda.kt
 
 fun returnLambda(): () -> Unit {
     println("Function that returns lambda")
@@ -27,18 +25,21 @@ fun returnParametrizedLambda(): (String) -> Unit {
     }
 }
 
-private fun example() {
-    FunctionsKt.returnLambda().invoke()
-    FunctionsKt.returnParametrizedLambda().invoke("123")
+class FunctionReturnsLambdaExample() {
+    fun example() {
+        returnLambda().invoke()
+        returnParametrizedLambda().invoke("123")
+        println("FunctionReturnsLambdaExample: All ok")
+    }
 }
 ```
 
-На стороне Swift-а использование тоже выглядит удобным:
+On the Swift side, this works correctly:
 
 ```swift
-functionsExample.returnLambda()()
-let _ = functionsExample.returnParametrizedLambda()("123")
+FunctionReturnsLambdaKt.returnLambda()()
+let _ = FunctionReturnsLambdaKt.returnParametrizedLambda()("123")
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

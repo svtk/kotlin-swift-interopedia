@@ -9,8 +9,7 @@ class DslExample{
     }
     
     func example(){
-        Dsl().experiments { experimentsDsl in
-            experimentsDsl.enable(experiment: Experiment(key: "key1", description: "desc1"))
-        }
+//        let dsl = dslBlock { $0.experiments {e in e.enable(experiment: Experiment(key: "key1", description: "desc1"))}}
+//        print(dsl)
     }
 }

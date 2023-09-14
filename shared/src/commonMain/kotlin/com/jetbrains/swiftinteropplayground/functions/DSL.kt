@@ -26,7 +26,7 @@ class Dsl {
     }
 }
 
-private fun example() {
+fun example() {
     Dsl().apply {
         experiments {
             enable(Experiment(key = "key1", description = "desc1"))
