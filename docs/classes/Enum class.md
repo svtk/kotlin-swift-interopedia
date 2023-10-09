@@ -1,6 +1,6 @@
 ## Enum class
 
-Doesn't work as expected. But an object with static elements was generated.
+Doesn't work as expected. But an object with static elements was generated. Improved interop available with SKIE.
 
 ### Explanations
 
@@ -37,6 +37,8 @@ func useEnumClass() {
 
 private func switchEnumClass(enumClassExample: EnumClass) {
     switch enumClassExample {
+    case .entryOne: print("entryOne")
+    case .entryTwo: print("entryTwo")
     default:
         print("Sad")
     }
@@ -44,6 +46,10 @@ private func switchEnumClass(enumClassExample: EnumClass) {
 ```
 
 [Kotlin/Native does not yet support enum generation.](https://youtrack.jetbrains.com/issue/KT-48068).
+
+### SKIE
+
+SKIE creates real Swift enums, and automatically converts them from Kotlin enums. Enums are exhaustive, so the default is no longer required.
 
 ---
 [Table of contents](/README.md)

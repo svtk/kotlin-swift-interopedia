@@ -11,9 +11,9 @@ class OpenClassExample : OpenClassWithConstructorParams {
     }
     
     static func example() {
-        let example = OpenClassExample(param1: "123", param2: true)
-        let _ = example.someField
-        example.finalFunctionInClass()
-        example.functionCanBeOverridden()
+//        let example = OpenClassExample(param1: "123", param2: true)
+//        let _ = example.someField
+//        //example.finalFunctionInClass()
+//        example.functionCanBeOverridden()
     }
 }

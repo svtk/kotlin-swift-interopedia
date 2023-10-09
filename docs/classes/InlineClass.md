@@ -1,5 +1,7 @@
 ## Inline classes
 
+The class was not included in the .h file and cannot be used.
+
 ### Explanation
 
 In Kotlin, you can create an inline (value) class to wrap around a single value, without the performance
