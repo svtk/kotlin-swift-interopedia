@@ -24,7 +24,7 @@ open class OpenClassWithConstructorParams(
 }
 ```
 
-On the Swift side, we can inherit from this class, use its protected properties, override open, but not override final methods (this will give an exception at runtime):
+On the Swift side, we can inherit from this class, use its protected properties, override open, but not override final methods (this will give an exception at runtime on construction):
 
 ```swift
 class OpenClassExample : OpenClassWithConstructorParams {

@@ -1,5 +1,7 @@
 ## JavaDoc comments
 
+Some KDoc comments are visible if you add a special compiler argument.
+
 ### Explanation
 
 [As of Kotlin 1.5.20, it is possible to forward JavaDoc comments.](https://kotlinlang.org/docs/whatsnew1520.html#opt-in-export-of-kdoc-comments-to-generated-objective-c-headers) To do this, you need to enable comment generation in the shared module's build.gradle.kts file:

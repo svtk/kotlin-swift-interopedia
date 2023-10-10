@@ -1,10 +1,10 @@
 # Kotlin-Swift interopedia
 
 ## Common
-<ul>
-  <li><a href="/docs/common/InternalModifier.md">Internal modifier</a></li>
-  <li><a href="/docs/common/JavaDocComments.md">JavaDoc comments</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/common/InternalModifier.md">Internal modifier</a></td><td>Internal functions and classes are not visible in Swift</td></tr>
+  <tr><td><a href="/docs/common/JavaDocComments.md">JavaDoc comments</a></td><td>Some KDoc comments are visible if you add a special compiler argument</td></tr>
+</table>
 
 ## Data types
 <ul>
@@ -38,16 +38,16 @@
 </ul>
 
 ## Classes
-<ul>
-  <li><a href="/docs/classes/Abstract%20class.md">Abstract class</a></li>
-  <li><a href="/docs/classes/Annotation%20class.md">Annotation class</a></li>
-  <li><a href="/docs/classes/Data%20class.md">Data class</a></li>
-  <li><a href="/docs/classes/Enum%20class.md">Enum class</a></li>
-  <li><a href="/docs/classes/Inner%20class.md">Inner class</a></li>
-  <li><a href="/docs/classes/Open%20class.md">Open class</a></li>
-  <li><a href="/docs/classes/Sealed%20class.md">Sealed class</a></li>
-  <li><a href="/docs/classes/InlineClass.md">Value class</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/classes/Abstract%20class.md">Abstract class</a></td><td>IDE has no hints to override abstract methods, rather we get a crash when trying to use the method during runtime.</td></tr>
+  <tr><td><a href="/docs/classes/Annotation%20class.md">Annotation class</a></td><td>Annotations were not included in the .h file.</td></tr>
+  <tr><td><a href="/docs/classes/Data%20class.md">Data class</a></td><td>Not all features of data classes are preserved, some are renamed. Improved interop available with SKIE.</td></tr>
+  <tr><td><a href="/docs/classes/Enum%20class.md">Enum class</a></td><td>Doesn't work as expected. But an object with static elements was generated. Improved interop available with SKIE.</td></tr>
+  <tr><td><a href="/docs/classes/Inner%20class.md">Inner class</a></td><td>Minor differences in creation syntax.</td></tr>
+  <tr><td><a href="/docs/classes/Open%20class.md">Open class</a></td><td>Can inherit from open class, use its protected properties, override open, but not override final methods.</td></tr>
+  <tr><td><a href="/docs/classes/Sealed%20class.md">Sealed class</a></td><td>A class with heirs is generated. Passing to a switch statement requires a default case. Improved interop available with SKIE.</td></tr>
+  <tr><td><a href="/docs/classes/InlineClass.md">Value class</a></td><td>The class was not included in the .h file and cannot be used.</td></tr>
+</table>
 
 ## Interfaces
 <ul>

@@ -1,6 +1,6 @@
 ## Sealed class
 
-A class with heirs is generated. Passing to a switch statement requires a default case.
+A class with heirs is generated. Passing to a switch statement requires a default case. Improved interop available with SKIE.
 
 ### Explanations
 
@@ -17,9 +17,9 @@ sealed class SealedClass {
 
 private fun example(s: SealedClass) {
     when (s) {
-        SealedClass.Object -> TODO()
-        is SealedClass.Simple -> TODO()
-        is SealedClass.Data -> TODO()
+        SealedClass.Object -> println("Object")
+        is SealedClass.Simple -> println("Simple")
+        is SealedClass.Data -> println("Data")
     }
 }
 ```
@@ -63,12 +63,26 @@ enum SealedSwift {
 // Usage
 func switchUsage(sealedClass: SealedClass) {
     switch SealedSwift(sealedClass){
-    case .object:
-        print("object")
-    case let .simple(param1):
-        print("simple")
-    case let .data(param1, param2):
-        print("data")
+        case .object:
+            print("object")
+        case let .simple(param1):
+            print("simple \(param1)")
+        case let .data(param1, param2):
+            print("data \(param1) \(param2)")
+    }
+}
+```
+
+### SKIE
+
+SKIE creates Swift enum hierarchies to match the sealed class, and a function (onEnum) to access them. Access a sealed class in Swift as if it was an enum.
+
+```swift
+func example(s: SealedClass) {
+    switch onEnum(of: s) {
+        case .object: print("object")
+    case .simple(let simple): print("simple \(simple.param1)")
+    case .data(let data): print("data \(data.param1) \(data.param2)")
     }
 }
 ```

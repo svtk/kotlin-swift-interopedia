@@ -1,6 +1,6 @@
 ## Abstract class
 
-IDE has no hints to override abstract methods.
+IDE has no hints to override abstract methods, rather we get a crash when trying to use the method during runtime.
 
 ### Explanations
 

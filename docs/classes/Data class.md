@@ -1,6 +1,6 @@
 ## Data class
 
-Not all features of data classes are preserved.
+Not all features of data classes are preserved, some are renamed. Improved interop available with SKIE.
 
 ### Explanations
 
@@ -16,7 +16,7 @@ data class DataClass(
 
 #### Method `copy`
 
-The method copy is ported to Swift with the name doCopy, works similarly to the method in Kotlin, but there is an inconvenience [with the need to specify all the function arguments](https://github.com/pahill/kotlin-swift-interopedia/blob/main/docs/usual-workflow/Function%20with%20default%20arguments.md).
+The method copy is ported to Swift with the name doCopy, works similarly to the method in Kotlin, but there is an inconvenience [with the need to specify all the function arguments](https://github.com/pahill/kotlin-swift-interopedia/blob/main/docs/usual-workflow/Function%20with%20default%20arguments.md). This can be improved with SKIE.
 
 #### Method `equals`
 
@@ -36,6 +36,21 @@ The equivalent function is description in Swift.
 #### Destructuring
 
 This feature of Kotlin does not work.
+
+## SKIE
+
+If SKIE's default argument interop is enabled as below, it's possible to overcome the inconvenience of having to provide all the arguments for the doCopy function invocation. However, the SKIE documentation discourages blanket enabling default arguments in the app due to the increase in compilation time.
+
+```kotlin
+skie {
+    features {
+        group {
+            DefaultArgumentInterop.Enabled(true)
+        }
+    }
+}
+
+```
 
 ---
 [Table of contents](/README.md)

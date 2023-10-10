@@ -1,5 +1,7 @@
 ## Internal modifier
 
+Internal functions and classes are not visible in Swift.
+
 ### Explanation
 
 In Kotlin, you can mark classes, functions, and properties with the keyword internal. This means these
