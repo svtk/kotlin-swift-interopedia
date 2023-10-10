@@ -2,8 +2,8 @@
 
 ## Common
 <table>
-  <tr><td><a href="/docs/common/InternalModifier.md">Internal modifier</a></td><td>Internal functions and classes are not visible in Swift</td></tr>
-  <tr><td><a href="/docs/common/JavaDocComments.md">JavaDoc comments</a></td><td>Some KDoc comments are visible if you add a special compiler argument</td></tr>
+  <tr><td><a href="/docs/common/InternalModifier.md">Internal modifier</a></td><td>Internal functions and classes are not visible in Swift.</td></tr>
+  <tr><td><a href="/docs/common/JavaDocComments.md">JavaDoc comments</a></td><td>Some KDoc comments are visible if you add a special compiler argument.</td></tr>
 </table>
 
 ## Data types
@@ -46,7 +46,7 @@
   <tr><td><a href="/docs/classes/Inner%20class.md">Inner class</a></td><td>Minor differences in creation syntax.</td></tr>
   <tr><td><a href="/docs/classes/Open%20class.md">Open class</a></td><td>Can inherit from open class, use its protected properties, override open, but not override final methods.</td></tr>
   <tr><td><a href="/docs/classes/Sealed%20class.md">Sealed class</a></td><td>A class with heirs is generated. Passing to a switch statement requires a default case. Improved interop available with SKIE.</td></tr>
-  <tr><td><a href="/docs/classes/InlineClass.md">Value class</a></td><td>The class was not included in the .h file and cannot be used.</td></tr>
+  <tr><td><a href="/docs/classes/InlineClass.md">Inline class</a></td><td>The class was not included in the .h file and cannot be used.</td></tr>
 </table>
 
 ## Interfaces
