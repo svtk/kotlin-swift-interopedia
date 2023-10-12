@@ -1,12 +1,10 @@
 ## Generic interfaces
 
-| Статус          | Ожидание                                                       | Реальность                                 |
-| --------------- | -------------------------------------------------------------- | ------------------------------------------ |
-| :no_entry_sign: | Можно реализовать протокол с generic-ом после перехода в Swift | Generic-и на интерфейсах не поддерживаются |
+Generic interfaces are not supported.
 
-### Пояснения
+### Explanations
 
-Опишем интерфейс с generic-ом на Kotlin-е:
+Let's describe an interface with a Kotlin generic:
 
 ```kotlin
 interface SocketConverter<T : Any> {  
@@ -14,18 +12,17 @@ interface SocketConverter<T : Any> {
 }
 ```
 
-При интеропе информация о generic-е на этом интерфейсе теряется, это видно из `.h`-файла:
+When interopping, information about the generic on this interface is lost, this can be seen from `.h` the file:
 
 ```objective-c
 __attribute__((swift_name("SocketConverter")))
-@protocol HHMSSocketConverter
+@protocol SharedSocketConverter
 @required
 - (id)convertElement:(NSString *)element __attribute__((swift_name("convert(element:)")));
-@end;
+@end
 ```
 
-Но generic-и на интерфейсах [пока не поддерживаются](https://kotlinlang.org/docs/native-objc-interop.html#generics). 
-В самом Swift-е создать протокол с generic-ом можно.
+But generics are [not yet supported](https://kotlinlang.org/docs/native-objc-interop.html#generics) on interfaces. In Swift itself, you can create a protocol with a generic one.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

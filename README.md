@@ -72,13 +72,13 @@
 </table>
 
 ## Generics
-<ul>
-  <li><a href="/docs/generics/Generic%20classes.md">Generic classes</a></li>
-  <li><a href="/docs/generics/Generic%20functions.md">Generic functions</a></li>
-  <li><a href="/docs/generics/Generic%20interfaces.md">Generic interfaces</a></li>
-  <li><a href="/docs/generics/Bounded%20generics.md">Bounded generics</a></li>
-  <li><a href="/docs/generics/Contravariant%20generics.md">Contravariant generics</a></li>
-  <li><a href="/docs/generics/Covariant%20generics.md">Covariant generics</a></li>
-  <li><a href="/docs/generics/Star%20projection.md">Star projection</a></li>
-  <li><a href="/docs/generics/Reified%20functions.md">Reified functions</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/generics/Bounded%20generics.md">Bounded generics</a></td><td>The generic type restriction doesn't work.</td></tr>
+  <tr><td><a href="/docs/generics/Contravariant%20generics.md">Contravariant generics</a></td><td>Doesn't work as expected, you have to use a type cast.</td></tr>
+  <tr><td><a href="/docs/generics/Covariant%20generics.md">Covariant generics</a></td><td>Doesn't work as expected, you have to use a type cast.</td></tr>
+  <tr><td><a href="/docs/generics/Generic%20classes.md">Generic classes</a></td><td>There are some features of using types.</td></tr>
+  <tr><td><a href="/docs/generics/Generic%20functions.md">Generic functions</a></td><td>No automatic type inference, nullability features.</td></tr>
+  <tr><td><a href="/docs/generics/Generic%20interfaces.md">Generic interfaces</a></td><td>Generic interfaces are not supported.</td></tr>
+  <tr><td><a href="/docs/generics/Reified%20functions.md">Reified functions</a></td><td>The reified function crashes at runtime.</td></tr>
+  <tr><td><a href="/docs/generics/Star%20projection.md">Star projection</a></td><td>Doesn't work as expected, you have to use a type cast.</td></tr>
+ </table>

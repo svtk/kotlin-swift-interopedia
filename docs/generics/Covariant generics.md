@@ -1,12 +1,9 @@
 ## Covariant generics
+Doesn't work as expected, you have to use a type cast.
 
-| Статус          | Ожидание                                                                                                         | Реальность                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| :no_entry_sign: | При указании ключевого слова out на generic-е, сгенерируется generic со схожим поведением (ковариантный generic) | Не работает как ожидается, приходится использовать приведение типов |
+### Explanations
 
-### Пояснения
-
-В Kotlin–е ключевое слово `out` определяет *ковариантный* generic, который может производить данные.
+In Kotlin, a keyword `out` defines a covariant generic that can produce data.
 
 ```kotlin
 class OutGeneric<out T>(data: T) {  
@@ -15,23 +12,23 @@ class OutGeneric<out T>(data: T) {
 }  
   
 private fun example(param: OutGeneric<String>) {  
-    val t: OutGeneric<Any> = param    // без out-а не компилируется  
+    val t: OutGeneric<Any> = param    // Doesn't compile without out 
 }
 ```
 
-В Objective-C есть указание на то, что generic - ковариантный:
+In Objective-C there is an indication that generic is covariant:
 
 ```objective-c
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("OutGeneric")))
-@interface HHMSOutGeneric<__covariant T> : HHMSBase
+@interface SharedOutGeneric<__covariant T> : SharedBase
 - (instancetype)initWithData:(T _Nullable)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer));
 - (T _Nullable)pullState __attribute__((swift_name("pullState()")));
 @property (readonly) T _Nullable myState __attribute__((swift_name("myState")));
-@end;
+@end
 ```
 
-Но в Swift-е эта ковариантность теряется, приходится использовать приведение типов:
+But in Swift this covariance is lost, you have to use type casting:
 
 ```swift
 private func outGenericUsage(generic: OutGeneric<NSString>) {
@@ -40,4 +37,4 @@ private func outGenericUsage(generic: OutGeneric<NSString>) {
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

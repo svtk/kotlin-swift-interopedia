@@ -1,12 +1,10 @@
 ## Generic functions
 
-| Статус          | Ожидание                                                       | Реальность                                               |
-| --------------- | -------------------------------------------------------------- | -------------------------------------------------------- |
-| :no_entry_sign: | Обычная функция-generic позволяет принять аргумент любого типа | Нет автоматического вывода типа, особенности nullability |
+No automatic type inference, nullability features.
 
-### Пояснения
+### Explanations
 
-Напишем простую generic-функцию, которая принимает generic на вход и возвращает его же.
+Let's write a simple generic function that takes generic as input and returns the same.
 
 ```kotlin
 fun <T> convert(data: T): T {  
@@ -20,17 +18,14 @@ private fun example() {
 }
 ```
 
-На стороне Swift-а тип `T` интерпретируется как `Any?`, из-за этого приходится вводить дополнительные приведения типов:
+On the Swift side, the type `T` is interpreted as `Any?`, which means that additional type casts have to be introduced:
 
 ```swift
-let _: Int = GenericFunctionExampleKt.convert(data: 12) as! Int
-let _: String = GenericFunctionExampleKt.convert(data: "'222'") as! String
-let _: NotPrimitiveType = GenericFunctionExampleKt.convert(
-	data: NotPrimitiveType(item: "122")
-) as! NotPrimitiveType
+let result1: Int = GenericFunctionsKt.convert(data: 12) as! Int
+let result2: String = GenericFunctionsKt.convert(data: "'222'") as! String
 ```
 
-Чтобы Swift увидел, что тип точно является not null, нужно использовать boundary-синтаксис на Kotlin-стороне:
+In order for Swift to see that the type is definitely not null, you need to use the boundary syntax on the Kotlin side:
 
 ```kotlin
 fun <T : Any> strictedGeneric(data: T): T {  
@@ -38,9 +33,9 @@ fun <T : Any> strictedGeneric(data: T): T {
 }
 ```
 
-Тогда функция `strictedGeneric` на стороне Swift-а возвращает уже `Any`, а не `Any?`.
+Then the function `strictedGeneric` on the Swift side returns `Any`, not `Any?`.
 
-Но автоматический вывод типа отсутствует.
+But there is no automatic type inference.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

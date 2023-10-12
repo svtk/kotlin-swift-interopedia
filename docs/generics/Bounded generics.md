@@ -1,18 +1,15 @@
 ## Bounded generics
 
-| Статус          | Ожидание                                                              | Реальность               |
-| --------------- | --------------------------------------------------------------------- | ------------------------ |
-| :no_entry_sign: | Ограничение типа generic-а, объявленное в Kotlin, сработает и в Swift | Ограничение не сработало |
+The generic type restriction doesn't work.
 
-### Пояснения
+### Explanations
 
-Опишем ограниченный определённым классом generic-класс в Kotlin-е:
+Let's describe a generic class limited to a specific class in Kotlin:
 
 ```kotlin
 open class ForStricted  
   
-class ChildStricted : ForStricted()  
-  
+class ChildStricted : ForStricted()
   
 class StrictedGeneric<T : ForStricted>(val data: T) {  
     fun fetch(): T {  
@@ -24,32 +21,30 @@ private fun example() {
     val s1 = StrictedGeneric(ForStricted())  
     val s2 = StrictedGeneric(ChildStricted())  
 	
-	// val s3 = StrictedGeneric("123") // не компилируется
+	// val s3 = StrictedGeneric("123") // Doesn't compile
 }
 ```
 
-В Objective-C `.h`-файле нет информации об ограничении generic-а:
+.h There is no information about the generic limitation in the Objective-C file:
 
 ```objectivec
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("StrictedGeneric")))
-@interface HHMSStrictedGeneric<T> : HHMSBase
+@interface SharedStrictedGeneric<T> : SharedBase
 - (instancetype)initWithData:(T)data __attribute__((swift_name("init(data:)"))) __attribute__((objc_designated_initializer));
 - (T)fetch __attribute__((swift_name("fetch()")));
 @property (readonly) T data __attribute__((swift_name("data")));
-@end;
+@end
 ```
 
-Поэтому в Swift-е мы можем скомпилировать и вот такой код:
+Therefore, in Swift we can compile the following code:
 
 ```swift
-private func boundedGeneric() {
-	class MyStricted : ForStricted {}
+class MyStricted : ForStricted {}
 
-	let _ = StrictedGeneric(data: MyStricted())
-	let _ = StrictedGeneric(data: NSString("1122")) // компилируется.
-}
+let _ = StrictedGeneric(data: MyStricted())
+let _ = StrictedGeneric(data: NSString("1122")) // Compiles
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

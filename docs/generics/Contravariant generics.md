@@ -1,12 +1,10 @@
 ## Contravariant generics
 
-| Статус          | Ожидание                                                                                                            | Реальность                                                          |
-| --------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| :no_entry_sign: | При указании ключевого слова in на generic-е, сгенерируется generic со схожим поведением (контравариантный generic) | Не работает как ожидается, приходится использовать приведение типов |
+Doesn't work as expected, you have to use a type cast.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е `in T` - это *контравариантный* generic.
+In Kotlin, `in T` this is a contravariant generic.
 
 ```kotlin
 open class SuperClass  
@@ -15,22 +13,22 @@ class Child : SuperClass()
 class InGenericItem<in T>
   
 private fun example(example: InGenericItem<SuperClass>) {  
-    val y: InGenericItem<Child> = example // без in - не скомпилируется
+    val y: InGenericItem<Child> = example // Won't compile without in
 }
 ```
 
-В objective-c `in` нам сгенерировал generiс с указанием на его contravariant:
+In objective-c `in` we generated a generic with an indication of its contravariant:
 
 ```objective-c
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("InGenericItem")))
-@interface HHMSInGenericItem<__contravariant T> : HHMSBase
+@interface SharedInGenericItem<__contravariant T> : SharedBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
-@end;
+@end
 ```
 
-И по идее, аналогичный код в Swift должен работать:
+And in theory, similar code in Swift should work:
 
 ```swift
 open class SuperClass {}
@@ -41,13 +39,14 @@ private func inGenericUsage(generic: InGenericItem<SuperClass>) {
 }
 ```
 
-Но он не компилируется с ошибкой:
+But it doesn't compile, and gives the error:
 
 ```
-Cannot assign value of type 'InGenericItem<HHMobileSdkExperiment.SuperClass>' to type 'InGenericItem<HHMobileSdkExperiment.ChildClass>'
+Cannot assign value of type 'InGenericItem<SuperClass>' to type 'InGenericItem<ChildClass>'
+
 ```
 
-Через приведение типа - работает:
+Through type casting it works:
 
 ```swift
 inGenericUsage(
@@ -61,4 +60,4 @@ private func inGenericUsage(generic: InGenericItem<SuperClass>) {
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -1,12 +1,10 @@
 ## Reified functions
 
-| Статус          | Ожидание                                                                     | Реальность                  |
-| --------------- | ---------------------------------------------------------------------------- | --------------------------- |
-| :no_entry_sign: | Функции с reified нормально вызываются из Swift + работают ожидаемым образом | В рантайме функция крашится |
+The reified function crashes at runtime.
 
-### Пояснения
+### Explanations
 
-Опишем reified-функцию в Kotlin-е:
+Let's describe the reified function in Kotlin:
 
 ```kotlin
 inline fun<reified T> reifiedExample(marks: Int): T {
@@ -18,30 +16,28 @@ inline fun<reified T> reifiedExample(marks: Int): T {
 }
 ```
 
-Пытаемся вызвать из Swift-а:
+We are trying to call from Swift:
 
 ```swift
-private func reifiedExample() {
-    let c = ReifiedExampleKt.reifiedExample(marks: 23)
-    print("c = \(String(describing: c))")
-}
+let c = ReifiedFunctionsKt.reifiedFunction(marks: 23)
+print("c = \(String(describing: c))")
 ```
 
-При попытке вызова приложение падает с ошибкой:
+When I try to call the application crashes with the error:
 
 ```
 Function doesn't have or inherit @Throws annotation and thus exception isn't propagated from Kotlin to Objective-C/Swift as NSError.
 It is considered unexpected and unhandled instead. Program will be terminated.
-Uncaught Kotlin exception: kotlin.IllegalStateException: unsupported call of reified inlined function `ru.hh.hh_mobile_sdk.generics.reifiedExample`
+Uncaught Kotlin exception: kotlin.IllegalStateException: unsupported call of reified inlined function `com.jetbrains.swiftinteropplayground.generics.reifiedFunction`
 ```
 
-Добавляем на стороне Kotlin-а аннотацию `@Throws(IllegalStateException)`, получаем другую ошибку:
+We add an annotation on the Kotlin side `@Throws(IllegalStateException)` and get another error:
 
 ```
 My error messasge 
-Error Domain=KotlinException Code=0 "unsupported call of reified inlined function `ru.hh.hh_mobile_sdk.reifiedExample`" 
-UserInfo={NSLocalizedDescription=unsupported call of reified inlined function `ru.hh.hh_mobile_sdk.reifiedExample`, 
-KotlinException=kotlin.IllegalStateException: unsupported call of reified inlined function `ru.hh.hh_mobile_sdk.reifiedExample`, 
+Error Domain=KotlinException Code=0 "unsupported call of reified inlined function `com.jetbrains.swiftinteropplayground.generics.reifiedFunction`" 
+UserInfo={NSLocalizedDescription=unsupported call of reified inlined function `com.jetbrains.swiftinteropplayground.generics.reifiedFunction`, 
+KotlinException=kotlin.IllegalStateException: unsupported call of reified inlined function `com.jetbrains.swiftinteropplayground.generics.reifiedFunction`, 
 KotlinExceptionOrigin=}
 ```
 

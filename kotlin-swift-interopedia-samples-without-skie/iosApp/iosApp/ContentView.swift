@@ -11,7 +11,9 @@ struct ContentView: View {
                 
                 //testClasses()
                 
-                testFunctions()
+                //testFunctions()
+                
+                testGenerics()
 
             })
         }
@@ -107,7 +109,36 @@ struct ContentView: View {
         //SuspendFunctionExample().example() (Needs to be uncommented in file)
         //SuspendFunctionKMPNativeCoroutinesExample().example()
     }
-
+    
+    func testGenerics(){
+        //Bounded generics
+        //The generic type restriction doesn't work.
+        //BoundedGenericsExample().example()
+        
+        //Contravariant generics
+        //Doesn't work as expected, you have to use a type cast.
+        //ContravariantGenericsExample().example()
+        
+        //Covariant generics
+        //Doesn't work as expected, you have to use a type cast.
+        //CovariantGenericsExample().example()
+        
+        //Generic classes
+        //There are some features of using types.
+        //GenericsClassesExample().example()
+        
+        //Generic functions
+        //No automatic type inference, nullability features.
+        //GenericFunctionsExample().example()
+        
+        //Reified functions
+        //NB: The reified function crashes at runtime.
+        //ReifiedFunctionsExample().example()
+        
+        //Star projections
+        //Doesn't work as expected, you have to use a type cast.
+        StarProjectionExample().example()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -1,12 +1,10 @@
 ## Generic classes
 
-| Статус    | Ожидание                                                          | Реальность                                     |
-| --------- | ----------------------------------------------------------------- | ---------------------------------------------- |
-| :warning: | Сгенерируется класс с generic-ом, пользоваться можно как в Kotlin | Есть некоторые особенности использования типов |
+There are some features of using types.
 
-### Пояснения
+### Explanations
 
-Опишем generic-класс в Kotlin-е:
+Let's describe a generic-class in Kotlin:
 
 ```kotlin
 class StateHolderWithoutAny<T>(data: T) {
@@ -15,30 +13,24 @@ class StateHolderWithoutAny<T>(data: T) {
 }
 ```
 
-[Нельзя сделать generic над примитивными типами](https://stackoverflow.com/questions/51196984/objective-c-generic-containing-a-scalar/51197180#51197180). 
-Интероп ведётся через Objective-c, который не даёт это сделать.
+[You can't make generic over primitive types](https://stackoverflow.com/questions/51196984/objective-c-generic-containing-a-scalar/51197180#51197180). The interop is carried out through Objective-c, which does not allow this to be done.
 
-Какие типы нельзя подставить:
+What types cannot be substituted:
 
 - `Int` / `Int8` / `Int16` / `Int32` / `Int64`
 - `Float` / `Double`
 - `String`
 - `Bool`
 
-Но можно обойтись `NSNumber`, `NSString`
+But you can get `NSNumber` by `NSString`.
 
-Ещё одна особенность связана с nullability - аналогично generic-функциям. 
-Тип `T` интерпретируется как `Any?`, из-за этого приходится вводить дополнительные приведения типов:
+Another feature is related to nullability - similar to generic functions. The type `T` is interpreted as `Any?`, so additional unwrapping has to be introduced:
 
 ```swift
-let _: Int = GenericFunctionExampleKt.convert(data: 12) as! Int
-let _: String = GenericFunctionExampleKt.convert(data: "'222'") as! String
-let _: NotPrimitiveType = GenericFunctionExampleKt.convert(
-	data: NotPrimitiveType(item: "122")
-) as! NotPrimitiveType
+let result1: NSString = StateHolderWithoutAny<NSString>(data:"'222'").pullState()!
 ```
 
-Чтобы Swift увидел, что тип точно является not null, нужно использовать boundary-синтаксис на Kotlin-стороне:
+In order for Swift to see that the type is definitely not null, you need to use the boundary syntax on the Kotlin side:
 
 ```kotlin
 class StateHolderWithAny<T : Any>(data: T) {
@@ -48,4 +40,4 @@ class StateHolderWithAny<T : Any>(data: T) {
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
