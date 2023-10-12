@@ -9,7 +9,9 @@ struct ContentView: View {
 
                 //testCommon()
                 
-                testClasses()
+                //testClasses()
+                
+                testFunctions()
 
             })
         }
@@ -50,12 +52,60 @@ struct ContentView: View {
         //OpenClassExample.example()
 
         //Sealed classes
-        SealedClassExample().example(s: SealedClass.Object())
-        SealedClassExample().example(s: SealedClass.Simple(param1: "param1"))
-        SealedClassExample().example(s: SealedClass.Data(param1: "param1", param2: true))
-        SealedClassExample().switchUsage(sealedClass: SealedClass.Object())
-        SealedClassExample().switchUsage(sealedClass: SealedClass.Simple(param1: "param1"))
-        SealedClassExample().switchUsage(sealedClass: SealedClass.Data(param1: "param1", param2: true))
+        //SealedClassExample().example(s: SealedClass.Object())
+        //SealedClassExample().example(s: SealedClass.Simple(param1: "param1"))
+        //SealedClassExample().example(s: SealedClass.Data(param1: "param1", param2: true))
+        //SealedClassExample().switchUsage(sealedClass: SealedClass.Object())
+        //SealedClassExample().switchUsage(sealedClass: SealedClass.Simple(param1: "param1"))
+        //SealedClassExample().switchUsage(sealedClass: SealedClass.Data(param1: "param1", param2: true))
+    }
+    
+    @MainActor func testFunctions(){
+        //DSL
+        //Functions with receivers have been generated, it doesn’t look as convenient as we would like.
+        //DslExample().example()
+        
+        //Function returns lamba
+        //The function that returned the lambda works without crashes; lambda can be called.
+        //FunctionReturnsLambdaExample().example()
+        
+        //Function returns primitive
+        //A function returning a primitive type works without error.
+        //FunctionReturnsPrimitiveExample().example()
+        
+        //Function with extension function as args
+        //The extension function turns into a lambda with a parameter
+        //FunctionWithExtensionExample().example()
+        
+        //Function with lamba arguments
+        //A function that takes one or more lambdas as arguments converts normally in Swift.
+        //FunctionWithLambaArgsExample().example()
+        
+        //Function with no return type
+        //Functions that return nothing can be safely called.
+        //FunctionWithNoReturnTypeExample().example()
+        
+        //Function with value class parameter
+        //The function appeared in the .h file, but the value class argument was turned into primitives.
+        //FunctionWithValueClassParameterExample().example()
+        
+        //Function with vararg parameter
+        //varargs are not mapped to Swift's variardic parameters, but instead to KotlinArray.
+        //FunctionWithVarargParameterExample().example()
+        
+        //Functions with overloads example
+        //There are some peculiarities when using the same parameter names.
+        //FunctionsWithOverloadsExample().example()
+        //FunctionsWithOverloadsExample2().example()
+        
+        //Inline function
+        //Inline functions are in the .h file, they can be called.
+        //InlineFunctionExample().example()
+        
+        //Suspend function
+        //Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
+        //SuspendFunctionExample().example() (Needs to be uncommented in file)
+        //SuspendFunctionKMPNativeCoroutinesExample().example()
     }
 
 }

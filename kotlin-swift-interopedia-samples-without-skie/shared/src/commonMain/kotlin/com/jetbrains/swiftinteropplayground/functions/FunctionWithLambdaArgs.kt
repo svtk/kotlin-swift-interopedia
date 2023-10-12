@@ -12,11 +12,11 @@ fun funcWithSeveralLambdas(
 }
 
 fun funcWithParametrizedLambda(parametrizedLambda: (String) -> String): String {
-    return "FunctionsExample.funcWithParametrizedLambda(resultFromLambda: ${parametrizedLambda.invoke("paramForLambda")})"
+    return "FunctionWithLambdaArgs.funcWithParametrizedLambda(resultFromLambda: ${parametrizedLambda.invoke("paramForLambda")})"
 }
 
-fun funcWithUnitLabmda(unitLambda: () -> Unit) {
-    println("FunctionsExample.funcWithUnitLabmda() begin")
+fun funcWithUnitLambda(unitLambda: () -> Unit) {
+    println("FunctionWithLambdaArgs.funcWithUnitLambda() begin")
     unitLambda.invoke()
-    println("FunctionsExample.funcWithUnitLabmda() end")
+    println("FunctionWithLambdaArgs.funcWithUnitLabmda() end")
 }

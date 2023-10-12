@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,19 @@
 		66CD09122A790D9900D66EFD /* OpenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09112A790D9900D66EFD /* OpenClass.swift */; };
 		66CD09142A790FF300D66EFD /* SealedClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09132A790FF300D66EFD /* SealedClass.swift */; };
 		66CD09162A7925B800D66EFD /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CD09152A7925B800D66EFD /* DSL.swift */; };
+		66D4CCD82AD6835D00552E0E /* FunctionWithLambaArgsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCD72AD6835D00552E0E /* FunctionWithLambaArgsExample.swift */; };
+		66D4CCDA2AD6A1C100552E0E /* FunctionWithNoReturnTypeExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCD92AD6A1C100552E0E /* FunctionWithNoReturnTypeExample.swift */; };
+		66D4CCDC2AD6B77B00552E0E /* FunctionWithValueClassParameterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCDB2AD6B77B00552E0E /* FunctionWithValueClassParameterExample.swift */; };
+		66D4CCDE2AD6BB2C00552E0E /* FunctionWithVarargParameterExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCDD2AD6BB2C00552E0E /* FunctionWithVarargParameterExample.swift */; };
+		66D4CCE02AD6BDA400552E0E /* FunctionsWithOverloadsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCDF2AD6BDA400552E0E /* FunctionsWithOverloadsExample.swift */; };
+		66D4CCE22AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCE12AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift */; };
+		66D4CCE42AD6D4C100552E0E /* InlineFunctionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCE32AD6D4C100552E0E /* InlineFunctionExample.swift */; };
+		66D4CCE62AD6DDC400552E0E /* SuspendFunctionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCE52AD6DDC400552E0E /* SuspendFunctionExample.swift */; };
+		66D4CCE82AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CCE72AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift */; };
+		66D4CCEB2AD6E40F00552E0E /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 66D4CCEA2AD6E40F00552E0E /* KMPNativeCoroutinesAsync */; };
+		66D4CCED2AD6E40F00552E0E /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 66D4CCEC2AD6E40F00552E0E /* KMPNativeCoroutinesCombine */; };
+		66D4CCEF2AD6E40F00552E0E /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 66D4CCEE2AD6E40F00552E0E /* KMPNativeCoroutinesCore */; };
+		66D4CCF12AD6E40F00552E0E /* KMPNativeCoroutinesRxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 66D4CCF02AD6E40F00552E0E /* KMPNativeCoroutinesRxSwift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +67,15 @@
 		66CD09112A790D9900D66EFD /* OpenClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenClass.swift; sourceTree = "<group>"; };
 		66CD09132A790FF300D66EFD /* SealedClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SealedClass.swift; sourceTree = "<group>"; };
 		66CD09152A7925B800D66EFD /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
+		66D4CCD72AD6835D00552E0E /* FunctionWithLambaArgsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionWithLambaArgsExample.swift; sourceTree = "<group>"; };
+		66D4CCD92AD6A1C100552E0E /* FunctionWithNoReturnTypeExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionWithNoReturnTypeExample.swift; sourceTree = "<group>"; };
+		66D4CCDB2AD6B77B00552E0E /* FunctionWithValueClassParameterExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionWithValueClassParameterExample.swift; sourceTree = "<group>"; };
+		66D4CCDD2AD6BB2C00552E0E /* FunctionWithVarargParameterExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionWithVarargParameterExample.swift; sourceTree = "<group>"; };
+		66D4CCDF2AD6BDA400552E0E /* FunctionsWithOverloadsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsWithOverloadsExample.swift; sourceTree = "<group>"; };
+		66D4CCE12AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsWithOverloadsExample2.swift; sourceTree = "<group>"; };
+		66D4CCE32AD6D4C100552E0E /* InlineFunctionExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineFunctionExample.swift; sourceTree = "<group>"; };
+		66D4CCE52AD6DDC400552E0E /* SuspendFunctionExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendFunctionExample.swift; sourceTree = "<group>"; };
+		66D4CCE72AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendFunctionKMPNativeCoroutinesExample.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +86,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D4CCEB2AD6E40F00552E0E /* KMPNativeCoroutinesAsync in Frameworks */,
+				66D4CCED2AD6E40F00552E0E /* KMPNativeCoroutinesCombine in Frameworks */,
+				66D4CCEF2AD6E40F00552E0E /* KMPNativeCoroutinesCore in Frameworks */,
+				66D4CCF12AD6E40F00552E0E /* KMPNativeCoroutinesRxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +147,15 @@
 				665A18942A9614E9000087BE /* FunctionReturnsLambda.swift */,
 				665A18962A961812000087BE /* FunctionReturnsPrimitive.swift */,
 				662673AF2AB28FBF009934DD /* FunctionWithExtensionExample.swift */,
+				66D4CCD72AD6835D00552E0E /* FunctionWithLambaArgsExample.swift */,
+				66D4CCD92AD6A1C100552E0E /* FunctionWithNoReturnTypeExample.swift */,
+				66D4CCDB2AD6B77B00552E0E /* FunctionWithValueClassParameterExample.swift */,
+				66D4CCDD2AD6BB2C00552E0E /* FunctionWithVarargParameterExample.swift */,
+				66D4CCDF2AD6BDA400552E0E /* FunctionsWithOverloadsExample.swift */,
+				66D4CCE12AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift */,
+				66D4CCE32AD6D4C100552E0E /* InlineFunctionExample.swift */,
+				66D4CCE52AD6DDC400552E0E /* SuspendFunctionExample.swift */,
+				66D4CCE72AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -184,6 +219,12 @@
 			dependencies = (
 			);
 			name = iosApp;
+			packageProductDependencies = (
+				66D4CCEA2AD6E40F00552E0E /* KMPNativeCoroutinesAsync */,
+				66D4CCEC2AD6E40F00552E0E /* KMPNativeCoroutinesCombine */,
+				66D4CCEE2AD6E40F00552E0E /* KMPNativeCoroutinesCore */,
+				66D4CCF02AD6E40F00552E0E /* KMPNativeCoroutinesRxSwift */,
+			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* iosApp.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +253,9 @@
 				Base,
 			);
 			mainGroup = 7555FF72242A565900829871;
+			packageReferences = (
+				66D4CCE92AD6E40F00552E0E /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */,
+			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,11 +309,20 @@
 				662673B02AB28FBF009934DD /* FunctionWithExtensionExample.swift in Sources */,
 				66CD09122A790D9900D66EFD /* OpenClass.swift in Sources */,
 				66CD090A2A78109A00D66EFD /* DataClass.swift in Sources */,
+				66D4CCE42AD6D4C100552E0E /* InlineFunctionExample.swift in Sources */,
+				66D4CCE02AD6BDA400552E0E /* FunctionsWithOverloadsExample.swift in Sources */,
 				66CD08F82A6A5C0E00D66EFD /* DefaultArguments.swift in Sources */,
 				66CD09142A790FF300D66EFD /* SealedClass.swift in Sources */,
+				66D4CCE82AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift in Sources */,
+				66D4CCE62AD6DDC400552E0E /* SuspendFunctionExample.swift in Sources */,
 				665A18952A9614E9000087BE /* FunctionReturnsLambda.swift in Sources */,
+				66D4CCD82AD6835D00552E0E /* FunctionWithLambaArgsExample.swift in Sources */,
+				66D4CCDC2AD6B77B00552E0E /* FunctionWithValueClassParameterExample.swift in Sources */,
+				66D4CCE22AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift in Sources */,
 				66CD09102A790BEC00D66EFD /* InnerClass.swift in Sources */,
+				66D4CCDE2AD6BB2C00552E0E /* FunctionWithVarargParameterExample.swift in Sources */,
 				665A18972A961812000087BE /* FunctionReturnsPrimitive.swift in Sources */,
+				66D4CCDA2AD6A1C100552E0E /* FunctionWithNoReturnTypeExample.swift in Sources */,
 				66CD08FF2A71559000D66EFD /* JavaDocComments.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);
@@ -472,6 +525,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		66D4CCE92AD6E40F00552E0E /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rickclephas/KMP-NativeCoroutines.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		66D4CCEA2AD6E40F00552E0E /* KMPNativeCoroutinesAsync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66D4CCE92AD6E40F00552E0E /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesAsync;
+		};
+		66D4CCEC2AD6E40F00552E0E /* KMPNativeCoroutinesCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66D4CCE92AD6E40F00552E0E /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesCombine;
+		};
+		66D4CCEE2AD6E40F00552E0E /* KMPNativeCoroutinesCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66D4CCE92AD6E40F00552E0E /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesCore;
+		};
+		66D4CCF02AD6E40F00552E0E /* KMPNativeCoroutinesRxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 66D4CCE92AD6E40F00552E0E /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesRxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

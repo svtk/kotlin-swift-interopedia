@@ -1,15 +1,13 @@
 ## Functions with overloads
 
-| Статус    | Ожидание                                                            | Реальность                                                    |
-| --------- | ------------------------------------------------------------------- | ------------------------------------------------------------- |
-| :warning: | Использование перегруженных функций ничем не отличается от Kotlin-а | Есть особенности при использовании одинаковых имён параметров |
+There are some peculiarities when using the same parameter names.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е мы можем спокойно перегружать какие-то функции аргументами с тем же самым именем, никаких изменений в сигнатуре не будет:
+In Kotlin, we can easily overload some functions with arguments with the same name, there will be no changes in the signature:
 
 ```kotlin
-// OverloadExample.kt
+// FunctionsWithOverloads.kt
 
 fun overloadFunction(param: Int) {  
     println("Utility.overloadFunction(param: Int) | $param")  
@@ -33,36 +31,26 @@ fun overloadFunction(param: String) {
   
 fun overloadFunction(param: Boolean) {  
     println("Utility.overloadFunction(param: Boolean) | $param")  
-}  
-  
-  
-private fun example() {  
-    overloadFunction(param = "1222")  
-    overloadFunction(true)  
-    overloadFunction(param = 2.0)  
-    overloadFunction(1.0f)  
-    overloadFunction(param = 1)  
-    overloadFunction(2L)  
 }
 ```
 
-При компиляции в Swift для того, чтобы функции отличались друг от друга, к имени параметра 
-добавляется нижнее подчёркивание. Для каждой последующей функции - добавляется ещё одно. 
+When compiled in Swift, an underscore is added to the parameter name to distinguish functions from each other. For each subsequent function, another one is added. 
 
 ```swift
-OverloadExampleKt.overloadFunction(param: true)  // Bool
-OverloadExampleKt.overloadFunction(param_: 2.0)  // Double
-OverloadExampleKt.overloadFunction(param__: 2.0) // Float
-OverloadExampleKt.overloadFunction(param___: 2)  // Int32
-OverloadExampleKt.overloadFunction(param____: 4) // Int64
-OverloadExampleKt.overloadFunction(param_____: "123")
+FunctionsWithOverloadsKt.overloadFunction(param: true)  // Bool
+FunctionsWithOverloadsKt.overloadFunction(param_: 2.0)  // Double
+FunctionsWithOverloadsKt.overloadFunction(param__: 2.0) // Float
+FunctionsWithOverloadsKt.overloadFunction(param___: 2)  // Int32
+FunctionsWithOverloadsKt.overloadFunction(param____: 4) // Int64
+FunctionsWithOverloadsKt.overloadFunction(param_____: "123")
 ```
 
-Соответственно, если каждый раз использовать разные имена параметров, то всё будет в порядке.
+Accordingly, if you use different parameter names each time, then everything will be fine.
 
-В Kotlin-е:
+In Kotlin it is:
 
 ```kotlin
+//FunctionsWithOverloads2.kt
 fun anotherOverload(intParam: Int) {
     println("anotherOverloadsWithDifferNames.kt.anotherOverload(param: Int) | $intParam")
 }
@@ -74,23 +62,17 @@ fun anotherOverload(longParam: Long) {
 fun anotherOverload(floatParam: Float) {
     println("anotherOverloadsWithDifferNames.anotherOverload(param: Float) | $floatParam")
 }
-
-private fun example() {
-    anotherOverload(intParam = 1)
-    anotherOverload(longParam = 1L)
-    anotherOverload(1.0f)
-}
 ```
 
-В Swift-е:
+In Swift it is:
 
 ```swift
-private funс example() {
-    OverloadExampleKt.anotherOverload(intParam: 1)
-    OverloadExampleKt.anotherOverload(longParam: 1)
-    OverloadExampleKt.anotherOverload(floatParam: 1.0)
+funс example() {
+    FunctionsWithOverloads2Kt.anotherOverload(intParam: 1)
+    FunctionsWithOverloads2Kt.anotherOverload(longParam: 1)
+    FunctionsWithOverloads2Kt.anotherOverload(floatParam: 1.0)
 }
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -10,31 +10,29 @@ In Kotlin, it is possible to create a DSL based on many extension functions that
 @DslMarker
 annotation class DslMarkerExample
 
-data class Experiment(val key: String, val description: String){
-}
+data class Experiment(val key: String, val description: String)
 
 @DslMarkerExample
-class ExperimentsDsl {
-
-    val list = mutableListOf<Experiment>()
+class ExperimentsDsl() {
+    val experimentList: MutableList<Experiment> = mutableListOf<Experiment>()
 
     fun enable(experiment: Experiment) {
-        list += experiment
+        experimentList += experiment
     }
 
 }
 
 @DslMarkerExample
-class Dsl {
-    val experiments = ExperimentsDsl()
+class Dsl() {
+    val experimentsDsl: ExperimentsDsl = ExperimentsDsl()
 
     fun experiments(block: ExperimentsDsl.() -> Unit = {}) {
-        experiments.block()
+        experimentsDsl.block()
     }
 }
 
-private fun example() {
-    Dsl().apply {
+fun example() {
+    val dsl = Dsl().apply {
         experiments {
             enable(Experiment(key = "key1", description = "desc1"))
         }
@@ -52,13 +50,14 @@ private func dslBlock(block: (Dsl) -> Dsl) -> Dsl {
 }
 
 func example(){
-    Dsl().experiments { experimentsDsl in
-        experimentsDsl.enable(experiment: Experiment(key: "key1", description: "desc1"))
+    dslBlock { dsl in
+        dsl.experiments { e in e.enable(experiment: Experiment(key: "key1", description: "param123")) }
+        return dsl
     }
 }
 ```
 
-In Swift, you can find an [article](https://habr.com/ru/company/tinkoff/blog/455760/) on Habr about DSL in Swift , and there is also a [GitHub repository](https://github.com/carson-katri/awesome-result-builders) with a list of Swift libraries built on DSL.
+In Swift, you can find an [article](https://habr.com/ru/company/tinkoff/blog/455760/) on Habr about DSL in Swift, and there is also a [GitHub repository](https://github.com/carson-katri/awesome-result-builders) with a list of Swift libraries built on DSL.
 
 ---
 [Table of contents](/README.md)

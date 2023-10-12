@@ -7,7 +7,7 @@ Extension function turns into a lambda with a parameter.
 In Kotlin, we can easily [create beautiful APIs](https://youtu.be/A2LukgT2mKc?t=1645) around an inconvenient Android API.
 
 ```kotlin
-// FunctionWithExtensionExampke.kt
+// FunctionWithExtensionExample.kt
 
 fun funcWithExtension(extension: UsualClassExample.() -> Unit) {
     val someObject = UsualClassExample(

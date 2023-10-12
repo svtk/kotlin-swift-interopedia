@@ -1,48 +1,90 @@
 ## Suspend functions
 
-| Статус             | Ожидание                                                     | Реальность                                                                                                                                      |
-| ------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| :white_check_mark: | Suspend-функции развернулись в удобную для Swift-конструкцию | Транслируется в callback, экспериментально - в async / await. Но для использования в реактивных фреймворках требуются дополнительный bridge-код |
+Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
 
-### Пояснения
+### Explanations
 
-Опишем класс, использующий suspend-функции Kotlin-а:
+Let's describe a class that uses Kotlin suspend functions:
 
 ```kotlin
 data class Thing(val item: Int)
 
 class ThingRepository {
-
     suspend fun getThing(succeed: Boolean): Thing {
-        delay(100)
+        delay(100.milliseconds)
         if (succeed) {
             return Thing(0)
         } else {
             error("oh no!")
         }
     }
-
 }
 ```
 
-На стороне Swift-а suspend-функция [превращается в completion handler](https://kotlinlang.org/docs/native-objc-interop.html#suspending-functions).
+On the Swift side, the suspend function [turns into a completion handler](https://kotlinlang.org/docs/native-objc-interop.html#suspending-functions).
 
 ```swift
-// suspend function
 ThingRepository().getThing(succeed: true, completionHandler: { thing, error in
     // do something
 })
 ```
 
-С Kotlin 1.5.30 [появилась экспериментальная возможность мапить suspend-функции в вид async/await](https://kotlinlang.org/docs/whatsnew1530.html#experimental-interoperability-with-swift-5-5-async-await). 
-Но, вероятно, iOS-команда не будет использовать эту фичу в ближайшее время, 
-потому что она будет нормально доступна только с iOS 15.
+With Kotlin 1.5.30, [an experimental opportunity has appeared to map suspend functions as async/await](https://kotlinlang.org/docs/whatsnew1530.html#experimental-interoperability-with-swift-5-5-async-await). 
 
-Про маппинг suspend-функций для реактивных фреймворков можно почитать серию статей:
+## KMP-NativeCoroutines
+[KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) is a library that can improve the interop. It is compatible with async/await, Combine, and RxSwift.
 
-- [Статья: Использование suspend в Swift - про неудобство с RxSwift](https://dev.to/touchlab/working-with-kotlin-coroutines-and-rxswift-24fa)
-- [Статья: Использование suspend в Swift в 2021 году](https://touchlab.co/kotlin-coroutines-swift-revisited/)
-- [Github: Пример работы корутин с RxSwift / Combine на основе статей от Touchlab](https://github.com/touchlab/SwiftCoroutines)
+In Kotlin it is:
+```kotlin
+@NativeCoroutines
+suspend fun getThing(succeed: Boolean): Thing {
+    delay(100.milliseconds)
+    if (succeed) {
+        return Thing(0)
+    } else {
+        error("oh no!")
+    }
+}
+```
+
+In Swift:
+```swift
+Task {
+    do {
+        let result = try await asyncFunction(for: ThingRepository().getThing(succeed: true))
+        print("Got result: \(result)")
+    } catch {
+        print("Failed with error: \(error)")
+    }
+}
+```
+
+Please follow the setup instructions on the KMP-NativeCoroutines landing page. 
+
+## SKIE
+SKIE is only compatible with async/await. 
+
+In Kotlin it is the same as the original:
+```kotlin
+suspend fun getThing(succeed: Boolean): Thing {
+    delay(100.milliseconds)
+    if (succeed) {
+        return Thing(0)
+    } else {
+        error("oh no!")
+    }
+}
+```
+
+In Swift:
+```swift
+Task {
+    let result = try await ThingRepository().getThing(succeed: true)
+    print("Got result: \(result)")
+}
+```
+
+Please follow the setup instructions on the SKIE landing page.
 
 ---
 [Оглавление](/README.md)

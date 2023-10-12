@@ -1,14 +1,13 @@
-## Function with no return type
+## Function with value class parameter
 
-| Статус          | Ожидание                                                                         | Реальность                                                                     |
-| --------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| :no_entry_sign: | Функция появится в .h-файле и её можно будет использовать, передавая value-класс | Функция появилась в .h-файле, но аргумент value-класса развернулся в примитивы |
+The function appeared in the .h file, but the value class argument was turned into primitives.
 
-### Пояснения
+### Explanations
 
-Опишем функцию, которая на вход принимает value-класс:
+Let's describe a function that takes a value class as input:
 
 ```kotlin
+@JvmInline
 value class ValueClassExample(val t: Int)
 
 fun valueClassUsageExample(v: ValueClassExample): String {
@@ -16,14 +15,12 @@ fun valueClassUsageExample(v: ValueClassExample): String {
 }
 ```
 
-На стороне Swift-а функция `valueClassUsageExample` присутствует, 
-но так как [сам value-класс в .h-файл не попал](/docs/classes/Value%20class.md), аргумент разворачивается 
-в отдельные примитивы:
+On the Swift side, the function valueClassUsageExampleis present, but since [the value class itself was not included in the .h file](/docs/classes/Inline%20class.md), the argument is expanded into separate primitives:
 
 ```swift
-// тип для v : Int32
-ValueClassExampleKt.valueClassUsageExample(v: 40)
+//Type of v is Int32
+FunctionWithValueClassParameterKt.valueClassUsageExample(v: 40)
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -3,14 +3,10 @@ package com.jetbrains.swiftinteropplayground.functions
 @DslMarker
 annotation class DslMarkerExample
 
-data class Experiment(val key: String, val description: String){
-}
+data class Experiment(val key: String, val description: String)
 
 @DslMarkerExample
-class ExperimentsDsl {
-
-    val list = mutableListOf<Experiment>()
-
+data class ExperimentsDsl(val list: MutableList<Experiment> = mutableListOf<Experiment>()) {
     fun enable(experiment: Experiment) {
         list += experiment
     }
@@ -18,18 +14,17 @@ class ExperimentsDsl {
 }
 
 @DslMarkerExample
-class Dsl {
-    val experiments = ExperimentsDsl()
-
+data class Dsl(val experiments: ExperimentsDsl = ExperimentsDsl()) {
     fun experiments(block: ExperimentsDsl.() -> Unit = {}) {
         experiments.block()
     }
 }
 
 fun example() {
-    Dsl().apply {
+    val dsl = Dsl().apply {
         experiments {
             enable(Experiment(key = "key1", description = "desc1"))
         }
     }
+    println(dsl)
 }

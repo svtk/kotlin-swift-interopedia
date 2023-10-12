@@ -38,7 +38,7 @@ On the Swift side, this works correctly:
 
 ```swift
 FunctionReturnsLambdaKt.returnLambda()()
-let _ = FunctionReturnsLambdaKt.returnParametrizedLambda()("123")
+FunctionReturnsLambdaKt.returnParametrizedLambda()("123")
 ```
 
 ---

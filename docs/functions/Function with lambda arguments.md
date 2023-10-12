@@ -1,16 +1,12 @@
 ## Function with lambda arguments
+A function that takes one or more lambdas as arguments converts normally in Swift.
 
-| Статус             | Ожидание                                                                                     | Реальность                       |
-| ------------------ | -------------------------------------------------------------------------------------------- | -------------------------------- |
-| :white_check_mark: | Функция, принимающая в аргументах одну или несколько лямбд, нормально конвертируется в Swift | Реальность совпадает с ожиданием |
+### Explanations
 
-### Пояснения
-
-Опишем несколько функций, использующих лямбды из своих аргументов, на Kotlin-е:
+Let's describe several functions that use lambdas from their arguments in Kotlin:
 
 ```kotlin
-// Functions.kt
-
+// FunctionWithLambdaArgs.kt
 fun funcWithLambda(calculation: () -> Int): Int {
     return 100 + calculation.invoke()
 }
@@ -24,73 +20,56 @@ fun funcWithSeveralLambdas(
 }
 
 fun funcWithParametrizedLambda(parametrizedLambda: (String) -> String): String {
-    return "FunctionsExample.funcWithParametrizedLambda(resultFromLambda: ${parametrizedLambda.invoke("paramForLambda")})"
+    return "FunctionWithLambdaArgs.funcWithParametrizedLambda(resultFromLambda: ${parametrizedLambda.invoke("paramForLambda")})"
 }
 
-fun funcWithUnitLabmda(unitLambda: () -> Unit) {
-    println("FunctionsExample.funcWithUnitLabmda() begin")
+fun funcWithUnitLambda(unitLambda: () -> Unit) {
+    println("FunctionWithLambdaArgs.funcWithUnitLambda() begin")
     unitLambda.invoke()
-    println("FunctionsExample.funcWithUnitLabmda() end")
-}
-
-private fun example() {
-    funcWithLambda {
-        20
-    }
-    funcWithSeveralLambdas(
-        calculation = { 400 },
-        formatting = { "formatted $it" }
-    )
-    funcWithParametrizedLambda {
-        "parametrized $it"
-    }
-
-    funcWithUnitLabmda {
-        // do something
-    }
+    println("FunctionWithLambdaArgs.funcWithUnitLabmda() end")
 }
 ```
 
-На стороне Swift-а использование тоже выглядит удобно:
+On the Swift side, use also looks convenient:
 
 ```swift
 // Lambda with result usage
-let result1 = FunctionsKt.funcWithLambda(calculation: {
-    print("FunctionsKt.funcWithLambda | inside lambda --> ")
+let result1 = FunctionWithLambdaArgsKt.funcWithLambda(calculation: {
+    print("FunctionWithLambdaArgsKt.funcWithLambda | inside lambda --> ")
     return 2
 })
-let result2 = FunctionsKt.funcWithLambda {
+let result2 = FunctionWithLambdaArgsKt.funcWithLambda {
     return 30
 }
 print("result1: \(result1) , result2: \(result2)")
 
-
 // Parametrized lambda example
-let result3 = FunctionsKt.funcWithParametrizedLambda(parametrizedLambda: { arg in
+let result3 = FunctionWithLambdaArgsKt.funcWithParametrizedLambda(parametrizedLambda: { arg in
     return "funcWithParametrizedLambda | arg: \(arg)"
 })
-let result4 = FunctionsKt.funcWithParametrizedLambda { arg in
+let result4 = FunctionWithLambdaArgsKt.funcWithParametrizedLambda { arg in
     return "funcWithParametrizedLambda | arg: \(arg)"
 }
-let result5 = FunctionsKt.funcWithParametrizedLambda {_ in
+let result5 = FunctionWithLambdaArgsKt.funcWithParametrizedLambda {_ in
     return "funcWithParametrizedLambda | skip argument using"
 }
 print("result3: \(result3) , result4: \(result4), result5: \(result5)")
 
 // Unit lambda in args
-FunctionsKt.funcWithUnitLabmda {
-    // do some stuff
+FunctionWithLambdaArgsKt.funcWithUnitLambda {
+    print("funcWithUnitLambda called")
 }
 
 // Several lambdas in args
-let _ = FunctionsKt.funcWithSeveralLambdas(
+let result6 = FunctionWithLambdaArgsKt.funcWithSeveralLambdas(
     calculation: {
         return 2
     }, formatting: { arg in
         return "Some \(arg)"
     }
 )
+print("funcWithSeveralLambdas \(result6)")
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

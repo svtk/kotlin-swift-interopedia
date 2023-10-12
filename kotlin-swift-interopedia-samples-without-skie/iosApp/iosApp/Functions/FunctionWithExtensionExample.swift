@@ -12,8 +12,5 @@ class FunctionWithExtensionExample {
             usualClassExample.param6 = true
             print("\(usualClassExample.param1) \(usualClassExample.param2) \(usualClassExample.param3) \(usualClassExample.param4) \(usualClassExample.param5) \(usualClassExample.param6)")
         })
-            
-            //println("$param1 $param2 $param3 $param4 $param5 $param6")
-        
     }
 }

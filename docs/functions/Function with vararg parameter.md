@@ -1,37 +1,30 @@
 ## Function with vararg parameter
 
-| Статус          | Ожидание                                                         | Реальность                     |
-| --------------- | ---------------------------------------------------------------- | ------------------------------ |
-| :no_entry_sign: | vararg смапился в Swift-овый variardic и используется аналогично | Не работает так, как ожидается |
+varargs are not mapped to Swift's variardic parameters, but instead to KotlinArray.
 
-### Пояснения
+### Explanations
 
-Опишем функцию, использующую `vararg`-аргументы, в Kotlin-е:
+Let's describe a function that uses vararg-arguments in Kotlin:
 
 ```kotlin
-// Functions.kt
+// FunctionWithVarargParameter.kt
 
-fun funcWithVararg(vararg item: String) {  
-    println(item.joinToString { "$it | " })  
-}
-
-private fun example() {
-    funcWithVararg("1", "2", "3")
+fun funcWithVararg(vararg item: String) {
+    println(item.joinToString { "$it | " })
 }
 ```
 
-В Swift-коде это превращается в функцию, которая на вход принимает `KotlinArray<NSString>`.
+In Swift code, this turns into a function that takes `KotlinArray<NSString>`.
 
 ```swift
 let arr = KotlinArray<NSString>(
-	size: 10, 
-	init: { index in "\(index)" as NSString }
+    size: 10,
+    init: { index in "\(index)" as NSString }
 )
-FunctionsKt.funcWithVararg(item: arr)
+FunctionWithVarargParameterKt.funcWithVararg(item: arr)
 ```
 
-[В YouTrack-е есть issue про эту проблему](https://youtrack.jetbrains.com/issue/KT-42925), но variardic-параметры 
-в Objective-C являются compile time-аргументами, и Kotlin не может просто взять и преобразовать vararg.
+[YouTrack has an issue about this problem](https://youtrack.jetbrains.com/issue/KT-42925), but variardic parameters in Objective-C are compile time arguments, and Kotlin cannot simply take and convert vararg.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -6,7 +6,9 @@ struct ContentView: View {
         VStack {
             Text("Swift Interop Playground")
             Button("Go", action: {
-                testClasses()
+                //testClasses()
+                
+                testFunctions()
             })
         }
 	}
@@ -20,10 +22,16 @@ struct ContentView: View {
         //SKIE creates real Swift enums, and automatically converts them from Kotlin enums. Enums are exhaustive.
         //EnumClassExample().useEnumClass()
 
-        SealedClassExample().example(s: SealedClass.Object())
-        SealedClassExample().example(s: SealedClass.Simple(param1: "param1"))
-        SealedClassExample().example(s: SealedClass.Data(param1: "param1", param2: true))
+        //SealedClassExample().example(s: SealedClass.Object())
+        //SealedClassExample().example(s: SealedClass.Simple(param1: "param1"))
+        //SealedClassExample().example(s: SealedClass.Data(param1: "param1", param2: true))
 	}
+    
+    @MainActor func testFunctions(){
+        //Suspend functions
+        //Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
+        SuspendFunctionExample().example()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

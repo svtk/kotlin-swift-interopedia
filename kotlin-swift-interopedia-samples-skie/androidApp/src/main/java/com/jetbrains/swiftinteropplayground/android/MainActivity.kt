@@ -10,11 +10,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
-import com.jetbrains.swiftinteropplayground.functions.funcWithExtension
-import com.jetbrains.swiftinteropplayground.functions.returnLambda
-import com.jetbrains.swiftinteropplayground.functions.returnParametrizedLambda
-import com.jetbrains.swiftinteropplayground.functions.simpleFunction
-
+import com.jetbrains.swiftinteropplayground.functions.example
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,37 +34,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun runTests(){
-//        FunctionReturnsLambdaExample().example()
-//        FunctionReturnsPrimitiveExample().example()
-        FunctionWithExtensionExample().example()
+       example()
     }
 }
 
-class FunctionReturnsLambdaExample() {
-    fun example() {
-        returnLambda().invoke()
-        returnParametrizedLambda().invoke("123")
-        println("FunctionReturnsLambdaExample: All ok")
-    }
-}
-
-class FunctionReturnsPrimitiveExample {
-    fun example() {
-        val result = simpleFunction()
-        println(result)
-    }
-}
-
-class FunctionWithExtensionExample {
-    fun example() {
-        funcWithExtension {
-            this.param1 = "changed"
-            this.param2 = 2
-            this.param3 = 3L
-            this.param4 = 4.0f
-            this.param5 = 5.0
-            this.param6 = true
-            println("$param1 $param2 $param3 $param4 $param5 $param6")
-        }
-    }
-}

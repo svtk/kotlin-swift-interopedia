@@ -4,6 +4,6 @@ import shared
 class FunctionReturnsLambdaExample {
     func example(){
         FunctionReturnsLambdaKt.returnLambda()()
-        let _ = FunctionReturnsLambdaKt.returnParametrizedLambda()("123")
+        FunctionReturnsLambdaKt.returnParametrizedLambda()("123")
     }
 }

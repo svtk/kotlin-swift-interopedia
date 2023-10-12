@@ -57,19 +57,19 @@
 </ul>
 
 ## Functions
-<ul>
-  <li><a href="/docs/functions/DSL.md">DSL</a></li>
-  <li><a href="/docs/functions/Function%20returns%20lambda.md">Function returns lambda</a></li>
-  <li><a href="/docs/functions/Function%20returns%20primitive%20type.md">Function returns primitive type</a></li>
-  <li><a href="/docs/functions/Function%20with%20extension%20function%20as%20args.md">Function with extension function as args</a></li>
-  <li><a href="/docs/functions/Function%20with%20lambda%20arguments.md">Function with lambda arguments</a></li>
-  <li><a href="/docs/functions/Function%20with%20no%20return%20type.md">Function with no return type</a></li>
-  <li><a href="/docs/functions/Function%20with%20value%20class%20parameter.md">Function with value class parameter</a></li>
-  <li><a href="/docs/functions/Function%20with%20vararg%20parameter.md">Function with vararg parameter</a></li>
-  <li><a href="/docs/functions/Functions%20with%20overloads.md">Functions with overloads</a></li>
-  <li><a href="/docs/functions/Inline%20functions.md">Inline functions</a></li>
-  <li><a href="/docs/functions/Suspend%20functions.md">Suspend functions</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/functions/DSL.md">DSL</a></td><td>Functions with receivers have been generated, it doesn’t look as convenient as we would like.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20returns%20lambda.md">Function returns lambda</a></td><td>The function that returned the lambda works without crashes; lambda can be called.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20returns%20primitive%20type.md">Function returns primitive type</a></td><td>A function returning a primitive type works without error.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20with%20extension%20function%20as%20args.md">Function with extension function as args</a></td><td>The extension function turns into a lambda with a parameter.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20with%20lambda%20arguments.md">Function with lambda arguments</a></td><td>A function that takes one or more lambdas as arguments converts normally in Swift.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20with%20no%20return%20type.md">Function with no return type</a></td><td>Functions that return nothing can be safely called.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20with%20value%20class%20parameter.md">Function with value class parameter</a></td><td>The function appeared in the .h file, but the value class argument was turned into primitives.</td></tr>
+  <tr><td><a href="/docs/functions/Function%20with%20vararg%20parameter.md">Function with vararg parameter</a></td><td>varargs are not mapped to Swift's variardic parameters, but instead to KotlinArray.</td></tr>
+  <tr><td><a href="/docs/functions/Functions%20with%20overloads.md">Functions with overloads</a></td><td>There are some peculiarities when using the same parameter names.</td></tr>
+  <tr><td><a href="/docs/functions/Inline%20functions.md">Inline functions</a></td><td>Inline functions are in the .h file, they can be called.</td></tr>
+  <tr><td><a href="/docs/functions/Suspend%20functions.md">Suspend functions</a></td><td>Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.</td></tr>
+</table>
 
 ## Generics
 <ul>

@@ -1,30 +1,24 @@
 ## Function with no return type
 
-| Статус             | Ожидание                                                      | Реальность                       |
-| ------------------ | ------------------------------------------------------------- | -------------------------------- |
-| :white_check_mark: | Функции, которые ничего не возвращают, можно спокойно вызвать | Реальность совпадает с ожиданием |
+Functions that return nothing can be safely called.
 
-### Пояснения
+### Explanations
 
-Опишем несколько функций, использующих лямбды из своих аргументов, на Kotlin-е:
+Let's describe several functions that use lambdas from their arguments in Kotlin:
 
 ```kotlin
-// Functions.kt
+// FunctionWithNoReturnType.kt
 
 fun noReturnFunction() {
     println("println -> noReturnFunction()")
 }
-
-private fun example() {
-    noReturnFunction()
-}
 ```
 
-На стороне Swift-а использование тоже выглядит удобно:
+On the Swift side, use also looks convenient:
 
 ```swift
-FunctionsKt.noReturnFunction()
+FunctionWithNoReturnTypeKt.noReturnFunction()
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

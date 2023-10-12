@@ -1,30 +1,28 @@
 ## Inline functions
 
-| Статус             | Ожидание                                         | Реальность                       |
-| ------------------ | ------------------------------------------------ | -------------------------------- |
-| :white_check_mark: | Инлайн-функции есть в .h-файле, их можно вызвать | Реальность совпадает с ожиданием |
+Inline functions are in the .h file, they can be called.
 
-### Пояснения
+### Explanations
 
-Опишем inline-функцию в Kotlin-е:
+Let's describe an inline function in Kotlin:
 
 ```kotlin
-// Functions.kt
+// InlineFunction.kt
 
 inline fun inlineFunction(action: () -> Unit) {
-    println("FunctionsExample.inlineFunction() begin")
+    println("InlineFunction.inlineFunction() begin")
     action.invoke()
-    println("FunctionsExample.inlineFunction() end")
+    println("InlineFunction.inlineFunction() end")
 }
 ```
 
-В Swift эта функция тоже доступна, её можно вызвать без проблем:
+In Swift, this function is also available, it can be called without problems:
 
 ```swift
-FunctionsKt.inlineFunction {
+InlineFunctionKt.inlineFunction {
     print("I'm inside inline!!!")
 }
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
