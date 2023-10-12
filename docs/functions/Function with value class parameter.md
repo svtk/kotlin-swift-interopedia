@@ -15,7 +15,7 @@ fun valueClassUsageExample(v: ValueClassExample): String {
 }
 ```
 
-On the Swift side, the function valueClassUsageExampleis present, but since [the value class itself was not included in the .h file](/docs/classes/Inline%20class.md), the argument is expanded into separate primitives:
+On the Swift side, the function valueClassUsageExampleis present, but since [the value class itself was not included in the .h file](/docs/classes/InlineClass.md), the argument is expanded into separate primitives:
 
 ```swift
 //Type of v is Int32
