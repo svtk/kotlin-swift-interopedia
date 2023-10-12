@@ -42,4 +42,4 @@ KotlinExceptionOrigin=}
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
