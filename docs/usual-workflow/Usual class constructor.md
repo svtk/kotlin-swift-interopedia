@@ -1,29 +1,26 @@
 ## Usual class constructor
 
-| Статус             | Ожидание                                         | Реальность                                  |
-| ------------------ | ------------------------------------------------ | ------------------------------------------- |
-| :white_check_mark: | Работа с конструктором не отличается от Kotlin-а | Реальность совпадает с ожиданием :thumbsup: |
+Works the same as Kotlin.
 
-### Пояснения
+### Explanations
 
-Объявим простой класс на стороне Kotlin-кода:
+Let's declare a simple class on the Kotlin code side:
 
 ```kotlin
-class MyClass(
+//UsualClassConstructor.kt
+
+class UsualClassConstructor(
     val param: String
 )
 ```
 
-На стороне Swift-а мы получим такой же класс с основным конструктором, 
-в котором [примитивные типы будут сконвертированы](/docs/types/Primitive%20types.md):
+On the Swift side, we will get the same class with a main constructor, in which [primitive types will be converted](/docs/types/Primitive%20types.md):
 
 ```swift
-func example() {
-    let _ = MyClass(param: "123")
-}
+let _ = UsualClassConstructor(param: "123")
 ```
 
-Небольшое отличие от Kotlin-классов: в Swift-версии все поля конструктора должны быть именованными.
+A slight difference from Kotlin classes: in the Swift version, all constructor fields must be named.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

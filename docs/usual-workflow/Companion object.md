@@ -1,33 +1,28 @@
 ## Companion object 
 
-| Статус    | Ожидание                                                                             | Реальность                                         |
-| --------- | ------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| :warning: | Доступ к свойствам и функциям, объявленным в companion object-е, аналогичен Kotlin-у | Доступ есть через вспомогательный объект companion |
+Access to functions and properties is available through the companion auxiliary object.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е работа с companion object-ом напоминает работу со статическими методами и константами в Java. То есть:
+In Kotlin, working with a companion object is reminiscent of working with static methods and constants in Java. That is:
 
 ```kotlin
-class MyClass {
+class CompanionObjectClass {
 	companion object {
 		const val CONST_VAL_EXAMPLE = "123"
 	}
 }
 
-fun usage() {
-	printn(MyClass.CONST_VAL_EXAMPLE)
+fun example() { 
+	println(CompanionObjectClass.CONST_VAL_EXAMPLE)
 }
 ```
 
-В Swift-е для доступа к внутренностям companion [появляется объект `companion`](https://kotlinlang.org/docs/whatsnew1530.html#improved-swift-objective-c-mapping-for-objects-and-companion-objects), 
-к которому можно получить доступ через класс:
+In Swift, to access the internals of a companion, [there is an object `companion`](https://kotlinlang.org/docs/whatsnew1530.html#improved-swift-objective-c-mapping-for-objects-and-companion-objects) that can be accessed through a class:
 
-```kotlin
-func usage() {
-	MyClass.companion.CONST_VAL_EXAMPLE
-}
+```swift
+CompanionObjectClass.companion.CONST_VAL_EXAMPLE
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

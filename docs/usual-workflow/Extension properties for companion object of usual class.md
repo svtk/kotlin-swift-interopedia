@@ -1,23 +1,25 @@
 ## Extension properties for companion object of usual class
 
-| Статус    | Ожидание                                     | Реальность                                              |
-| --------- | -------------------------------------------- | ------------------------------------------------------- |
-| :warning: | Доступ к свойству можно получить через класс | Доступ к свойству можно получить через объект companion |
+The property can be accessed through the companion object.
 
-### Пояснения
+### Explanations
 
-На стороне Kotlin-а объявили extension–свойство для companion object-а обычного класса:
+On the Kotlin side, they declared an extension property for the companion object of a regular class:
 
 ```kotlin
-val UsualClass.Companion.EXT_PROP: String get() = "123"
+class ExtensionPropertiesCompanionObjectUsualClass {
+    companion object {
+    }
+}
+
+val ExtensionPropertiesCompanionObjectUsualClass.Companion.EXT_PROP: String get() = "456"
 ```
 
-Из Swift-а доступ к этому свойству есть через объект `companion`, к которому 
-[можно получить доступ через класс](/docs/usual-workflow/Companion%20object.md):
+From Swift, this property is accessed through an object companion, which [can be accessed through a class]((/docs/usual-workflow/Companion%20object.md)):
 
 ```swift
-UsualClassExample.companion.extensionOverCompanion()
+ExtensionPropertiesCompanionObjectUsualClass.companion.EXT_PROP
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

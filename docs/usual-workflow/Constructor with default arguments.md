@@ -1,34 +1,36 @@
 ## Constructor with default arguments
 
-| Статус          | Ожидание                                                                 | Реальность                                                 |
-| --------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| :no_entry_sign: | Работа с конструктором, имеющим дефолтные аргументы, аналогична Kotlin-у | Всегда приходится указывать все аргументы для конструктора |
+You always have to specify all the arguments for a constructor. Improved interop available with SKIE.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е можно опускать указание значений полей конструктора, если у них имеются дефолтные значения:
+In Kotlin, you can omit specifying the values of constructor fields if they have default values:
 
 ```kotlin
-class MyClass(
+class ConstructorWithDefaultArgumentsClass(
     val param1: String,
     val param2: Int = 300,
     val param3: Boolean = false
 )
 
-private fun example() {
-    MyClass(param1 = "123")
+fun constructorWithDefaultArgumentsExample() {
+    ConstructorWithDefaultArgumentsClass(param1 = "123")
 }
 ```
 
-После перехода в Swift эта фича пропадает, и требуется указывать все аргументы при инициализации объекта:
+After switching to Swift, this feature disappears, and all arguments must be specified when initializing an object:
 
 ```swift
-func example() {
-    MyClass(param1: "123", param2: 500, param3: false)
-}
+ConstructorWithDefaultArgumentsClass(param1: "123", param2: 500, param3: false)
 ```
 
-См. [moko-kswift overview](/docs/moko-kswift/Overview.md)
+### SKIE
+
+By enabling default arguments on SKIE, it's possible to only specify a subset of the constructor's arguments. However, this is currently discouraged as it's not possible to annotate a specific class and therefore it's constructors, which may cause significant increase in compilation time.
+
+```swift
+ConstructorWithDefaultArgumentsClass(param1: "234")
+```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

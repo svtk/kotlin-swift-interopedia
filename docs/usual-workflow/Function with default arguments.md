@@ -1,37 +1,51 @@
 ## Function with default arguments
 
-| Статус          | Ожидание                                                              | Реальность                                        |
-| --------------- | --------------------------------------------------------------------- | ------------------------------------------------- |
-| :no_entry_sign: | Работа с функциями, имеющими дефолтные аргументы, аналогична Kotlin-у | Всегда приходится указывать все аргументы функции |
+You always have to specify all the function arguments. Improved interop available with SKIE.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е можно опускать указание значений аргументов функции, если у них имеются дефолтные значения:
+In Kotlin, you can omit specifying the values of function arguments if they have default values:
 
 ```kotlin
-class MyClass {
+class FunctionWithDefaultArgumentsClass {
 
     fun defaultParamsFunction(funcParam1: String, funcParam2: Int = 30): String {
-        return "123"
+        return "def"
     }
-    
 }
 
-private fun example() {
-    // funcParam2 имеет default-значение
-    MyClass().defaultParamsFunction(funcParam1 = "1")
+fun functionWithDefaultArgumentsExample() {
+    // funcParam2 will be the default parameter
+    FunctionWithDefaultArgumentsClass().defaultParamsFunction(funcParam1 = "1")
 }
 ```
 
-После перехода в Swift эта фича пропадает, и требуется указывать все аргументы при вызове функции:
+After switching to Swift, this feature disappears, and all arguments must be specified when calling the function:
 
 ```swift
-func example() {
-    MyClass().defaultParamsFunction(funcParam1: "1", funcParam2: 100)
+FunctionWithDefaultArgumentsClass().defaultParamsFunction(funcParam1: "1", funcParam2: 100)
+```
+
+### SKIE
+
+The recommended approach is to enable default argument interop using an annotation on individual functions where necessary.
+
+```kotlin
+class FunctionWithDefaultArgumentsClass(val arg1: Int = 1) {
+
+    @DefaultArgumentInterop.Enabled
+    fun functionWithDefaultArgument(arg2: Int = 2) {
+        println(arg2)
+    }
+
 }
 ```
 
-moko-kswift это [пока не чинит](https://github.com/icerockdev/moko-kswift/issues/8).
+This will allow specifying only a subset of the arguments when calling the function.
 
+```swift
+let defaultArguments = FunctionWithDefaultArgumentsClass(arg1: 123)
+defaultArguments.functionWithDefaultArgument()
+```
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

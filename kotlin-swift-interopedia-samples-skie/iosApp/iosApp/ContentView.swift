@@ -8,7 +8,9 @@ struct ContentView: View {
             Button("Go", action: {
                 //testClasses()
                 
-                testFunctions()
+                //testFunctions()
+                
+                testUsualWorkflow()
             })
         }
 	}
@@ -30,7 +32,17 @@ struct ContentView: View {
     @MainActor func testFunctions(){
         //Suspend functions
         //Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
-        SuspendFunctionExample().example()
+        //SuspendFunctionExample().example()
+    }
+    
+    func testUsualWorkflow(){
+        //Constructor with default arguments
+        //If default argument interop is enabled, it's notnecessary to specify all arguments.
+        //ConstructorWithDefaultArgumentsExample().example()
+        
+        //Function with default arguments
+        //If annotated, it's not necessary to specify all the arguments.
+        //FunctionWithDefaultArgumentsExample().example()
     }
 }
 

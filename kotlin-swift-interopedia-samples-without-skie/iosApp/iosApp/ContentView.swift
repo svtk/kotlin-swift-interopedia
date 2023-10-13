@@ -13,7 +13,9 @@ struct ContentView: View {
                 
                 //testFunctions()
                 
-                testGenerics()
+                //testGenerics()
+                
+                testUsualWorkflow()
 
             })
         }
@@ -137,7 +139,77 @@ struct ContentView: View {
         
         //Star projections
         //Doesn't work as expected, you have to use a type cast.
-        StarProjectionExample().example()
+        //StarProjectionExample().example()
+    }
+    
+    func testUsualWorkflow(){
+        //Companion object
+        //Access to functions and properties is available through the companion auxiliary object.
+        //CompanionObjectExample().example()
+        
+        //Constructor with default arguments
+        //You always have to specify all the arguments for a constructor.
+        //ConstructorWithDefaultArgumentsExample().example()
+        
+        //Extension function over platform class
+        //A wrapper class appears with a method that accepts an object of the desired class.
+        //ExtensionFunctionOverPlatformClassExample().example()
+        
+        //Extension function over usual class
+        //The function can be used on a class object.
+        //ExtensionFunctionOverUsualClassExample().example()
+        
+        //Extension property over companion object of platform class
+        //There is a property in the .h file, but in Swift it’s impossible to use
+        //ExtensionPropertyCompanionObjectPlatformClassExample().example()
+        
+        //Extension property over companion object of usual class
+        //The property can be accessed through the companion object.
+        //ExtensionPropertyCompanionObjectUsualClassExample().example()
+        
+        //Extension property on platform class
+        //A wrapper class appears with a method that accepts an object of the desired class.
+        //ExtensionPropertyPlatformClassExample().example()
+        
+        //Extension property on usual class
+        //The property can be accessed through the class object.
+        //ExtensionPropertyUsualClassExample().example()
+        
+        //Function with default arguments
+        //You have to specify all the function arguments.
+        //FunctionWithDefaultArgumentsExample().example()
+        
+        //Objects
+        //Access is available through the shared auxiliary object.
+        //ObjectsExample().example()
+        
+        //Top level function
+        //A wrapper class appears: TopLevelFunctionKt.topLevelFunction().
+        //TopLevelFunctionExample().example()
+        
+        //Top level property (read-only)
+        //A wrapper class for accessing the property appears: TopLevelPropertyKt.topLevelProperty.
+        //TopLevelPropertyExample().example()
+        
+        //Top level property (mutable)
+        //A wrapper class for accessing the property appears: TopLevelPropertyMutableKt.topLevelProperty.
+        //TopLevelPropertyMutableExample().example()
+        
+        //Usual class constructor
+        //Works the same as Kotlin.
+        //UsualClassConstructorExample().example()
+        
+        //Usual class function
+        //Works the same as Kotlin
+        //UsualClassFunctionExample().example()
+        
+        //Usual class val property (readonly)
+        //The property is accessible from the class object and is a readonly property
+        //UsualClassValPropertyExample().example()
+        
+        //Usual class var property (mutable)
+        //The property is accessible from the class object and is a mutable property
+        UsualClassPropertyMutableExample().example()
     }
 }
 

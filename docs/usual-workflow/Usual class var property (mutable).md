@@ -1,34 +1,28 @@
 ## Usual class var property (mutable)
 
-| Статус             | Ожидание                                                    | Реальность                                  |
-| ------------------ | ----------------------------------------------------------- | ------------------------------------------- |
-| :white_check_mark: | Доступ к свойству есть из объекта класса / свойство mutable | Реальность совпадает с ожиданием :thumbsup: |
+The property is accessible from a class object and is a mutable property.
 
-### Пояснения
+### Explanations
 
-Объявим простой класс на стороне Kotlin-кода:
+Let's declare a simple class on the Kotlin code side:
 
 ```kotlin
-class MyClass(
+class UsualClassPropertyMutable(
     var param: String
 ) {
-    
+
     var property: String = "123"
-    
 }
 ```
 
-На стороне Swift-а мы можем получить доступ и к полям, объявленным в конструкторе, и к свойствам,
-описанных внутри класса, свойства являются изменяемыми:
+On the Swift side, we can access both the fields declared in the constructor and the properties declared inside the class; the properties are mutable:
 
 ```swift
-func example() {
-    let myClass = MyClass(param: "123")
-    
-    myClass.param = "467"
-    myClass.property = "775"
-}
+let myClass = UsualClassPropertyMutable(param: "123")
+        
+myClass.param = "467"
+myClass.property = "775"
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

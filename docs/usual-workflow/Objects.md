@@ -1,14 +1,14 @@
 ## Objects 
 
-| Статус    | Ожидание                                                                   | Реальность                                      |
-| --------- | -------------------------------------------------------------------------- | ----------------------------------------------- |
-| :warning: | Доступ к свойствам и функциям, объявленным в object-е, аналогичен Kotlin-у | Доступ есть через вспомогательный объект shared |
+Access is available through the shared auxiliary object.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е работа с object-ом напоминает работу со статическими методами и константами в Java. То есть:
+In Kotlin, working with objects is reminiscent of working with static methods and constants in Java. That is:
 
 ```kotlin
+class DataClassExample(param1: String, param2: Int, param3: Boolean)
+
 object ObjectExample {
 
     const val CONST_VAL_EXAMPLE = "ObjectExample.CONST_VAL_EXAMPLE"
@@ -26,10 +26,9 @@ object ObjectExample {
     fun paramFunctionExample(funcParam1: String): String {
         return "ObjectExample.paramFunctionExample($funcParam1)"
     }
-
 }
 
-private fun example() {
+fun objectsExample() {
     ObjectExample.CONST_VAL_EXAMPLE
     ObjectExample.someVal
     ObjectExample.functionExample()
@@ -37,19 +36,16 @@ private fun example() {
 }
 ```
 
-В Swift-е для доступа к внутренностям object-а [появляется объект `shared`](https://kotlinlang.org/docs/whatsnew1530.html#improved-swift-objective-c-mapping-for-objects-and-companion-objects), 
-к которому можно получить доступ через класс:
+In Swift, to access the internals of an object, [an object appears `shared`](https://kotlinlang.org/docs/whatsnew1530.html#improved-swift-objective-c-mapping-for-objects-and-companion-objects), which can be accessed through a class:
 
-```kotlin
-func usage() {
-    ObjectExample.shared.CONST_VAL_EXAMPLE
-    ObjectExample.shared.someVal
-    ObjectExample.shared.functionExample()
-    ObjectExample.shared.paramFunctionExample("123")
-}
+```swift
+ObjectExample.shared.CONST_VAL_EXAMPLE
+ObjectExample.shared.someVal
+ObjectExample.shared.functionExample()
+ObjectExample.shared.paramFunctionExample(funcParam1: "123")
 ```
 
-И объект, кстати, даже если его создавать через `init`, будет являться синглетоном.
+And the object, by the way, even if created through `init`, will be a singleton.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -17,25 +17,24 @@
 </ul>
 
 ## Usual workflow
-<ul>
-  <li><a href="/docs/usual-workflow/Top-level%20functions.md">Top-level functions</a></li>
-  <li><a href="/docs/usual-workflow/Top-level%20val%20properties%20(readonly).md">Top-level val properties (readonly)</a></li>
-  <li><a href="/docs/usual-workflow/Top-level%20var%20properties%20(mutable).md">Top-level var properties (mutable)</a></li>
-  <li><a href="/docs/usual-workflow/Extension%20function%20over%20platform%20class.md">Extension function over platform class</a></li>
-  <li><a href="/docs/usual-workflow/Extension%20properties%20over%20platform%20class.md">Extension properties over platform class</a></li>
-  <li><a href="/docs/usual-workflow/Extension%20properties%20for%20companion%20object%20of%20platform%20class.md">Extension properties for companion object of platform class</a></li>
-  <li><a href="/docs/usual-workflow/Extension%20functions%20over%20usual%20class.md">Extension functions over usual class</a></li>
-  <li><a href="/docs/usual-workflow/Extension%20properties%20over%20usual%20class.md">Extension properties over usual class</a><</li>
-  <li><a href="/docs/usual-workflow/Extension%20properties%20for%20companion%20object%20of%20usual%20class.md">Extension properties for companion object of usual class</a></li>
-  <li><a href="/docs/usual-workflow/Usual%20class%20constructor.md">Usual class constructor</a></li>
-  <li><a href="/docs/usual-workflow/Usual%20class%20val%20property%20(readonly).md">Usual class val property (readonly)</a></li>
-  <li><a href="/docs/usual-workflow/Usual%20class%20var property%20(mutable).md">Usual class var property (mutable)</a></li>
-  <li><a href="/docs/usual-workflow/Usual%20class%20functions.md">Usual class functions</a></li>
-  <li><a href="/docs/usual-workflow/Companion%20object.md">Companion object</a></li>
-  <li><a href="/docs/usual-workflow/Objects.md">Objects</a></li>
-  <li><a href="/docs/usual-workflow/DefaultArguments.md">Function with default arguments</a></li>
-  <li><a href="/docs/usual-workflow/DefaultArguments.md">Constructor with default arguments</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/usual-workflow/Companion%20object.md">Companion object</a></td><td>Access to functions and properties is available through the companion auxiliary object.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Constructor%20with%20default%20arguments.md">Constructor with default arguments</a></td><td>You always have to specify all the arguments for a constructor. Improved interop available with SKIE.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Extension%20function%20over%20platform%20class.md">Extension function over platform class</a></td><td>A wrapper class appears with a method that accepts an object of the desired class.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Extension%20properties%20for%20companion%20object%20of%20platform%20class.md">Extension properties for companion object of platform class</a></td><td>There is a property in the .h file, but in Swift it’s impossible to use.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Extension%20properties%20for%20companion%20object%20of%20usual%20class.md">Extension properties for companion object of usual class</a></td><td>The property can be accessed through the companion object.</td>
+  <tr><td><a href="/docs/usual-workflow/Extension%20properties%20over%20platform%20class.md">Extension properties over platform class</a></td><td>A wrapper class appears with a function that accepts an object of the desired class.</td>
+  <tr><td><a href="/docs/usual-workflow/Extension%20properties%20over%20usual%20class.md">Extension properties over usual class</a></td><td>The property can be accessed through the class object.</td>
+  <tr><td><a href="/docs/usual-workflow/Function%20with%20default%20arguments.md">Function with default arguments</a></td><td>You always have to specify all the function arguments. Improved interop available with SKIE.</td>
+  <tr><td><a href="/docs/usual-workflow/Objects.md">Objects</a></td><td>Access is available through the shared auxiliary object.</td>
+  <tr><td><a href="/docs/usual-workflow/Top-level%20functions.md">Top-level functions</a></td><td>A wrapper class appears: TopLevelFunctionKt.topLevelFunction()</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Top-level%20val%20properties%20(readonly).md">Top-level val properties (readonly)</a></td><td>A wrapper class for accessing the property appears: TopLevelPropertyKt.topLevelProperty.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Top-level%20var%20properties%20(mutable).md">Top-level var properties (mutable)</a></td><td>A wrapper class for accessing the property appears: TopLevelPropertyMutable.topLevelPropertyMutable.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Usual%20class%20constructor.md">Usual class constructor</a></td><td>Works the same as Kotlin.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Usual%20class%20functions.md">Usual class function</a></td><td>Works the same as Kotlin.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Usual%20class%20val%20property%20(readonly).md">Usual class val property (readonly)</a></td><td>The property is accessible from the class object and is a readonly property.</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Usual%20class%20var%20property%20(mutable).md">Usual class var property (mutable)</a></td><td>The property is accessible from the class object and is a mutable property.</td></tr>
+</table>
 
 ## Classes
 <table>

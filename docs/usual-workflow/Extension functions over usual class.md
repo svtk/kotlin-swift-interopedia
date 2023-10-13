@@ -1,29 +1,27 @@
 ## Extension function over usual class
 
-| Статус             | Ожидание                                     | Реальность                                  |
-| ------------------ | -------------------------------------------- | ------------------------------------------- |
-| :white_check_mark: | Функцию можно использовать на объекте класса | Реальность совпадает с ожиданием :thumbsup: |
+The function can be used on a class object.
 
-### Пояснения
+### Explanations
 
-Объявим в Kotlin-коде extension-функцию над кастомным типом:
+Let's declare an extension function over a custom type in Kotlin code:
 
 ```kotlin
-// UsualClassExt.kt
+//ExtensionFunctionOverUsualClass.kt
+
+class UsualClass {
+}
 
 fun UsualClass.extensionFunction() {
-    // do something
+    println("Successful call")
 }
-
 ```
 
-На стороне Swift-а мы сможем использовать эту функцию аналогично Kotlin-у, на объекте нужного класса:
+On the Swift side, we can use this function similarly to Kotlin, on an object of the desired class:
 
 ```swift
-func example() {
-   UsualClass().extensionFunction()
-}
+UsualClass().extensionFunction()
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

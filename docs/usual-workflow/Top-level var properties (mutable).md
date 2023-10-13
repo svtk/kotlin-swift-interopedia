@@ -1,36 +1,30 @@
 ## Top-level var properties (mutable)
 
-| Статус      | Ожидание                                                                                    | Реальность                                                             |
-| ----------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| :warning:   | Доступ к свойству можно получить напрямую после импорта, аналогично Kotlin-у / поле mutable | Появляется класс-обёртка для доступа к свойству: UtilityKt.propertyVar |
+A wrapper class for accessing the property appears: TopLevelPropertyMutable.topLevelPropertyMutable.
 
-### Пояснения
+### Explanations
 
-Опишем top-level var свойство в Kotlin в файле `Utils.kt`:
+We describe the top-level var property in Kotlin in file `TopLevelPropertyMutable.kt`:
 
 ```kotlin
-var topLevelProperty = "Some value"
+//TopLevelPropertyMutable.kt
+
+var topLevelPropertyMutable = "Some value"
 ```
 
-В Kotlin-е подобный код можно вызывать напрямую, без указания названия файла, достаточно сделать `import` нужного
-свойства.
+In Kotlin, similar code can be called directly, without specifying the file name, just specify `import` the desired property.
 
-На стороне Swift [мы получаем класс-обёртку `UtilsKt`](https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties) (название файла в Kotlin-е + суффикс `Kt`),
-с помощью которого можно получить доступ к нужному property:
+On the Swift side, [we get a wrapper class `TopLevelPropertyMutableKt`](https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties) (file name in Kotlin + suffix Kt), with which you can access the desired property:
 
 ```swift
-func example() {
-    let _ = UtilsKt.topLevelProperty
-}
+let _ = TopLevelPropertyMutableKt.topLevelPropertyMutable
 ```
 
-Свойство является изменяемым:
+The property is mutable:
 
 ```swift
-func example() {
-    UtilsKt.topLevelProperty = "Changed from Swift"
-}
+TopLevelPropertyMutableKt.topLevelPropertyMutable = "Changed from Swift"
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

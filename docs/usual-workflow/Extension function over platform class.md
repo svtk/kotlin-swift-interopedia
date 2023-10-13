@@ -1,37 +1,29 @@
 ## Extension function over platform class
 
-| Статус    | Ожидание                                                    | Реальность                                                            |
-| --------- | ----------------------------------------------------------- | --------------------------------------------------------------------- |
-| :warning: | Функцию можно использовать на объекте платформенного класса | Появляется класс-обёртка с методом, принимающим объект нужного класса |
+A wrapper class appears with a method that accepts an object of the desired class.
 
-### Пояснения
+### Explanations
 
-Платформенный класс - это, например, какой-то примитивный тип, или же класс, специфичный 
-для определённой платформы (`Bundle` для Android, `UILabel` для iOS, etc.).
+A platform class is, for example, some primitive type, or a class specific to a particular platform (`Bundle` for Android, `UILabel` for iOS, etc.).
 
-В Kotlin-е нет разницы в использовании extension-а над обычным или платформенным классом:
+In Kotlin, there is no difference in using an extension over a regular or platform class:
 
 ```kotlin
-// StringExt.kt
-
-fun String.myExtensionFunction() {
-    // do something
+//ExtensionFunctionOverPlatformClass.kt
+fun String.extensionFunctionOverStringClass() {
+    println(this) //Do something
 }
 
-private fun example() {
-    "123".myExtensionFunction()
+fun extensionFunctionOverPlatformClassExample() {
+    "123".extensionFunctionOverStringClass()
 }
 ```
 
-После перехода в Swift разница проявляется в появлении класса-обёртки для вызова функции:
+After moving to Swift, the difference manifests itself in the appearance of a wrapper class for calling a function:
 
 ```swift
-func example() {
-    StringExtKt.myExtensionFunction(receiver: "123")
-}
+ExtensionFunctionOverPlatformClassKt.extensionFunctionOverStringClass("123")
 ```
 
-См. [moko-kswift overview](/docs/moko-kswift/Overview.md)
-
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

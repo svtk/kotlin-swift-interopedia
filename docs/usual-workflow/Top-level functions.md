@@ -1,30 +1,26 @@
 ## Top-level functions
 
-| Статус      | Ожидание                                                               | Реальность                                             |
-| ----------- | ---------------------------------------------------------------------- | ------------------------------------------------------ |
-| :warning:   | Функцию можно использовать напрямую после импорта, аналогично Kotlin-у | Появляется класс-обёртка: UtilityKt.topLevelFunction() |
+A wrapper class appears: TopLevelFunctionKt.topLevelFunction()
 
-### Пояснения
+### Explanations
 
-Опишем top-level функцию в Kotlin в файле `Utils.kt`:
+Let's describe the top-level function in Kotlin in the file `TopLevelFunction.kt`:
 
 ```kotlin
+//TopLevelFunction.kt
+
 fun topLevelFunction() {
     println("Hello from top-level function")
 }
 ```
 
-В Kotlin-е подобный код можно вызывать напрямую, без указания названия файла, достаточно сделать `import` нужного
-свойства.
+In Kotlin, similar code can be called directly, without specifying the file name, just specify `import` the desired property.
 
-На стороне Swift [мы получаем класс-обёртку `UtilsKt`](https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties) 
-(название файла в Kotlin-е + суффикс `Kt`), с помощью которого можно получить доступ к нужной функции:
+On the Swift side, [we get a wrapper class `TopLevelFunctionKt`](https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties) (file name in Kotlin + suffix Kt), with which you can access the desired function:
 
 ```swift
-func example() {
-    UtilsKt.topLevelFunction()
-}
+TopLevelFunctionKt.topLevelFunction()
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -1,30 +1,26 @@
 ## Top-level val properties (readonly)
 
-| Статус      | Ожидание                                                                                     | Реальность                                                             |
-| ----------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| :warning:   | Доступ к свойству можно получить напрямую после импорта, аналогично Kotlin-у / поле readonly | Появляется класс-обёртка для доступа к свойству: UtilityKt.propertyVal |
+A wrapper class for accessing the property appears: TopLevelPropertyKt.topLevelProperty.
 
-### Пояснения
+### Explanations
 
-Опишем top-level val свойство в Kotlin в файле `Utils.kt`:
+We describe the top-level val property in Kotlin in file `TopLevelProperty.kt`:
 
 ```kotlin
+//TopLevelProperty.kt
+
 val topLevelProperty = "Some value"
 ```
 
-В Kotlin-е подобный код можно вызывать напрямую, без указания названия файла, достаточно сделать `import` нужного
-свойства.
+In Kotlin, similar code can be called directly, without specifying the file name, just specify `import` the desired property.
 
-На стороне Swift [мы получаем класс-обёртку `UtilsKt`](https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties) (название файла в Kotlin-е + суффикс `Kt`),
-с помощью которого можно получить доступ к нужному property:
+On the Swift side, [we get a wrapper class `TopLevelPropertyKt`](https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties) (file name in Kotlin + suffix Kt), with which you can access the desired property:
 
 ```swift
-func example() {
-    let _ = UtilsKt.topLevelProperty
-}
+let _ = TopLevelPropertyKt.topLevelProperty
 ```
 
-Свойство является `readonly`, изменить его не получится.
+The property is `readonly`, it cannot be changed.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

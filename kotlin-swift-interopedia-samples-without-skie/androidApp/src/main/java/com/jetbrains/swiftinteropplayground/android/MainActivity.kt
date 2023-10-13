@@ -34,6 +34,6 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun runTests(){
-        com.jetbrains.swiftinteropplayground.generics.starProjectionExample()
+        com.jetbrains.swiftinteropplayground.usualworkflow.functionWithDefaultArgumentsExample()
     }
 }

@@ -1,47 +1,28 @@
 ## Extension properties over platform class
 
-| Статус    | Ожидание                                                                 | Реальность                                                            |
-| --------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| :warning: | Доступ к свойству можно получить с помощью объекта платформенного класса | Появляется класс-обёртка с методом, принимающим объект нужного класса |
+A wrapper class appears with a function that accepts an object of the desired class.
 
-### Пояснения
+### Explanations
 
-Платформенный класс - это, например, какой-то примитивный тип, или же класс, специфичный
-для определённой платформы (`Bundle` для Android, `UILabel` для iOS, etc.).
+A platform class is, for example, some primitive type, or a class specific to a particular platform (`Bundle` for Android, `UILabel` for iOS, etc.).
 
-В Kotlin-е нет разницы в использовании extension-а над обычным или платформенным классом:
+In Kotlin, there is no difference in using an extension over a regular or platform class:
 
 ```kotlin
-// StringExt.kt
+//ExtensionPropertyPlatformClass.kt
 
-val String.myExtensionProperty: String get() = "123"
+val String.myExtensionProperty: String get() = "789"
 
-private fun example() {
-    val result = "123".myExtensionProperty
+fun extensionPropertyPlatformClassExample() {
+    println("123".myExtensionProperty)
 }
 ```
 
-После перехода в Swift разница проявляется в появлении класса-обёртки для вызова функции, 
-совпадающей по имени с именем свойства:
+After switching to Swift, the difference manifests itself in the appearance of a wrapper class for calling a function that has the same name as the property name:
 
 ```swift
-func example() {
-    let _ = StringExtKt.myExtensionProperty(receiver: "123")
-}
+ExtensionPropertyPlatformClassKt.myExtensionProperty("123")
 ```
-
-Плагин [moko-kswift](https://github.com/icerockdev/moko-kswift) умеет решать эту проблему 
-с помощью [фичи](https://github.com/icerockdev/moko-kswift/blob/master/kswift-gradle-plugin/src/main/kotlin/dev/icerock/moko/kswift/plugin/feature/PlatformExtensionFunctionsFeature.kt):
-
-```kotlin
-kswift {
-	install(
-		dev.icerock.moko.kswift.plugin.feature.PlatformExtensionFunctionsFeature
-	)
-}
-```
-
-Но есть некоторые особенности, см. [moko-kswift overview](/docs/moko-kswift/Overview.md)
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -1,15 +1,13 @@
 ## Usual class val property (readonly)
 
-| Статус             | Ожидание                                                     | Реальность                                  |
-| ------------------ | ------------------------------------------------------------ | ------------------------------------------- |
-| :white_check_mark: | Доступ к свойству есть из объекта класса / свойство readonly | Реальность совпадает с ожиданием :thumbsup: |
+The property is accessible from the class object and is a readonly property.
 
-### Пояснения
+### Explanations
 
-Объявим простой класс на стороне Kotlin-кода:
+Let's declare a simple class on the Kotlin code side:
 
 ```kotlin
-class MyClass(
+class UsualClassValProperty(
     val param: String
 ) {
     
@@ -18,17 +16,14 @@ class MyClass(
 }
 ```
 
-На стороне Swift-а мы можем получить доступ и к полям, объявленным в конструкторе, и к свойствам, 
-описанных внутри класса:
+On the Swift side, we can access both the fields declared in the constructor and the properties declared inside the class:
 
 ```swift
-func example() {
-    let myClass = MyClass(param: "123")
-    
-    let _ = myClass.param
-    let _ = myClass.property
-}
+let myClass = UsualClassValProperty(param: "123")
+
+let _ = myClass.param
+let _ = myClass.property
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

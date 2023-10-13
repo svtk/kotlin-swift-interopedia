@@ -1,15 +1,13 @@
 ## Usual class functions
 
-| Статус             | Ожидание                                                                  | Реальность                                  |
-| ------------------ | ------------------------------------------------------------------------- | ------------------------------------------- |
-| :white_check_mark: | Работа с функциями, объявленными внутри класса, не отличается от Kotlin-а | Реальность совпадает с ожиданием :thumbsup: |
+Works the same as Kotlin.
 
-### Пояснения
+### Explanations
 
-Объявим простой класс на стороне Kotlin-кода:
+Let's declare a simple class on the Kotlin code side:
 
 ```kotlin
-class MyClass {
+class UsualClassFunction {
     
     fun someFunction() {
         // do something
@@ -18,15 +16,12 @@ class MyClass {
 }
 ```
 
-На стороне Swift-а мы получим такой же класс с функцией, совпадающей по сигнатуре:
+On the Swift side, we will get the same class with a function that matches the signature:
 
 ```swift
-func example() {
-    let myClass = MyClass()
-    
-    myClass.someFunction()
-}
+let myClass = UsualClassFunction()
+myClass.someFunction()
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

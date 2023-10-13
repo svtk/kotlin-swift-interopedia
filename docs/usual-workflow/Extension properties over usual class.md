@@ -1,26 +1,24 @@
 ## Extension properties over usual class
 
-| Статус             | Ожидание                                             | Реальность                                  |
-| ------------------ | ---------------------------------------------------- | ------------------------------------------- |
-| :white_check_mark: | Доступ к свойству можно получить через объект класса | Реальность совпадает с ожиданием :thumbsup: |
+The property can be accessed through the class object.
 
-### Пояснения
+### Explanations
 
-Объявим в Kotlin-коде extension-свойство для кастомного типа:
+Let's declare an extension property for a custom type in Kotlin code:
 
 ```kotlin
-// UsualClassExt.kt
+//ExtensionPropertyUsualClass.kt
 
-val UsualClass.extensionProperty: String get() = "123" 
+class ExtensionPropertyUsualClass {}
+
+val ExtensionPropertyUsualClass.extensionProperty: String get() = "123"
 ```
 
-На стороне Swift-а мы сможем использовать это свойство аналогично Kotlin-у, на объекте нужного класса:
+On the Swift side, we can use this property similarly to Kotlin, on an object of the desired class:
 
 ```swift
-func example() {
-   let _ = UsualClass().extensionProperty
-}
+UsualClass().extensionProperty
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
