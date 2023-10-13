@@ -8,7 +8,7 @@
 
 ## Data types
 <ul>
-  <li><a href="/docs/common/Primitive%20types.md">Primitive types</a></li>
+  <li><a href="/docs/types/Primitive%20types.md">Primitive types</a></li>
   <li><a href="/docs/types/Optional%20(nullable)%20primitive%20types.md">Optional (nullable) primitive types</a></li>
   <li><a href="/docs/types/Mutable,%20immutable%20collections.md">Mutable, immutable collections</a></li>
   <li><a href="/docs/types/Collections%20with%20primitive%20types.md">Collections with primitive types</a></li>

@@ -15,7 +15,7 @@ class ExtensionPropertiesCompanionObjectUsualClass {
 val ExtensionPropertiesCompanionObjectUsualClass.Companion.EXT_PROP: String get() = "456"
 ```
 
-From Swift, this property is accessed through an object companion, which [can be accessed through a class]((/docs/usual-workflow/Companion%20object.md)):
+From Swift, this property is accessed through an object companion, which [can be accessed through a class](/docs/usual-workflow/Companion%20object.md):
 
 ```swift
 ExtensionPropertiesCompanionObjectUsualClass.companion.EXT_PROP
