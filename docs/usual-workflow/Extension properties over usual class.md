@@ -17,7 +17,7 @@ val ExtensionPropertyUsualClass.extensionProperty: String get() = "123"
 On the Swift side, we can use this property similarly to Kotlin, on an object of the desired class:
 
 ```swift
-UsualClass().extensionProperty
+ExtensionPropertyUsualClass().extensionProperty
 ```
 
 ---
