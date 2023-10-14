@@ -1,15 +1,13 @@
 ## Interface
 
-| Статус             | Ожидание                                                    | Реальность                                                                |
-| ------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------- |
-| :white_check_mark: | При реализации интерфейса, IDE подставит заглушки для всего | Интерфейс стал @protocol-ом. Но почему-то val-свойство превратилось в var |
+The interface has become @protocol. But for some reason the val property turned into var.
 
-### Пояснения
+### Explanations
 
-Создадим интерфейс на стороне Kotlin-а:
+Let's create an interface on the Kotlin side:
 
 ```kotlin
-interface InterfaceExample {
+interface Interfaces {
 
     val id: String
 
@@ -19,29 +17,31 @@ interface InterfaceExample {
 
 }
 
-class MyInt : InterfaceExample {
-    // Можно руками заменить на var, но изначально сгенерировался val
+class MyInt : Interfaces {
+    // You can manually replace it with var, but val was initially generated
     override var id: String = "1"
 
     override fun simpleFunction(): String {
-        TODO("Not yet implemented")
+        println("simple")
+        return "abc"
     }
 
     override fun functionWithParam(param1: String): String {
-        TODO("Not yet implemented")
+        println("with params")
+        return "123"
     }
 
     override fun defaultParams(param1: String, param2: Int): String {
-        TODO("Not yet implemented")
+        println("with default params")
+        return "234"
     }
-
 }
 ```
 
-На стороне Swift-а интерфейс превратился в `protocol`, и при попытке его реализовать, IDE генерирует нужные заглушки:
+On the Swift side, the interface has turned into `protocol`, and when you try to implement it, the IDE generates the necessary stubs:
 
 ```swift
-class SwiftInterface : InterfaceExample {
+class InterfacesExample : Interfaces {
     func defaultParams(param1: String, param2: Int32) -> String {
         return "param1: \(param1) ; param2: \(param2)"
     }
@@ -54,11 +54,16 @@ class SwiftInterface : InterfaceExample {
         return "simpleFunction()"
     }
     
-    // Из странного -- `val id: String` по умолчанию превратился в `var`. 
-    // Но это можно руками заменить на `let`
+    // From the strange `val id: String` to `var` by default.
+    // But this can be manually replaced with `let`
     let id: String = "default"
 }
+
+let ex = InterfacesExample()
+print(ex.defaultParams(param1: "123", param2: 234))
+print(ex.functionWithParam(param1: "abc"))
+print(ex.simpleFunction())
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -49,11 +49,11 @@
 </table>
 
 ## Interfaces
-<ul>
-  <li><a href="/docs/interfaces/Interface.md">Interface</a></li>
-  <li><a href="/docs/interfaces/Sealed%20interface.md">Sealed interface</a></li>
-  <li><a href="/docs/interfaces/Fun%20interface.md">Fun interface</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/interfaces/Fun%20interface.md">Fun interface</a></td><td>You can't create an anonymous class in Swift.</td></tr>
+  <tr><td><a href="/docs/interfaces/Interface.md">Interface</a></td><td>The interface has become @protocol. But for some reason the val property turned into var.</td></tr>
+  <tr><td><a href="/docs/interfaces/Sealed%20interface.md">Sealed interface</a></td><td>Separate protocols were generated that were not related to each other.</td></tr>
+</table>
 
 ## Functions
 <table>

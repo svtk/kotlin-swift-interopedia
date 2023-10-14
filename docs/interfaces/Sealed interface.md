@@ -1,71 +1,68 @@
 ## Sealed interface
 
-| Статус          | Ожидание                                                        | Реальность                                                    |
-| --------------- | --------------------------------------------------------------- | ------------------------------------------------------------- |
-| :no_entry_sign: | При использовании в switch IDE поможет рассмотреть все варианты | Сгенерировались отдельные протоколы, не связанные между собой |
+Separate protocols were generated that were not related to each other.
 
-### Пояснения
+### Explanations
 
-Опишем sealed interface на стороне Kotlin-а, в выражении when есть автодополнение с рассмотрением всех вариантов:
+Let's describe the sealed interface on the Kotlin side; in the `when` expression there is autocompletion with consideration of all options:
 
 ```kotlin
-sealed interface SealedInterfaceExample {
+sealed interface SealedInterfaces {
 
-    interface First : SealedInterfaceExample {
+    interface First : SealedInterfaces {
         fun firstFunctionExample(): String
     }
 
-    interface Second : SealedInterfaceExample {
+    interface Second : SealedInterfaces {
         fun secondFunctionExample(): String
     }
 }
 
-private fun example(sie: SealedInterfaceExample) {
+fun sealedInterfaceExample(sie: SealedInterfaces) {
     when (sie) {
-        is SealedInterfaceExample.First -> {
+        is SealedInterfaces.First -> {
             sie.firstFunctionExample()
         }
-        is SealedInterfaceExample.Second -> TODO()
+        is SealedInterfaces.Second -> {
+            sie.secondFunctionExample()
+        }
     }
 }
 ```
 
-На стороне Swift-а сгенерировались отдельные протоколы, которые не наследуются друг от друга, 
-это видно из `.h`-файла с Objective-C: 
+On the Swift side, separate protocols were generated that are not inherited from each other, this can be seen from the `.h` Objective-C file: 
 
 ```objective-c
-__attribute__((swift_name("SealedInterfaceExample")))
-@protocol HHMSSealedInterfaceExample
+__attribute__((swift_name("SealedInterfaces")))
+@protocol SharedSealedInterfaces
 @required
-@end;
+@end
 
-__attribute__((swift_name("SealedInterfaceExampleFirst")))
-@protocol HHMSSealedInterfaceExampleFirst <HHMSSealedInterfaceExample>
+__attribute__((swift_name("SealedInterfacesFirst")))
+@protocol SharedSealedInterfacesFirst <SharedSealedInterfaces>
 @required
 - (NSString *)firstFunctionExample __attribute__((swift_name("firstFunctionExample()")));
-@end;
+@end
 
-__attribute__((swift_name("SealedInterfaceExampleSecond")))
-@protocol HHMSSealedInterfaceExampleSecond <HHMSSealedInterfaceExample>
+__attribute__((swift_name("SealedInterfacesSecond")))
+@protocol SharedSealedInterfacesSecond <SharedSealedInterfaces>
 @required
 - (NSString *)secondFunctionExample __attribute__((swift_name("secondFunctionExample()")));
-@end;
+@end
 ```
 
-Соответственно, при подстановке в выражение `switch` IDE не предлагает рассмотреть все варианты веток.
-В Swift-е роль sealed-интерфейсов выполняют enum-ы, и можно было бы написать специальный bridge-код для конвертации
-sealed-интерфейса в Swift-овый enum.
+Accordingly, when substituting into a `switch` the IDE does not offer to consider all branch options.
 
-Плагин [moko-kswift](https://github.com/icerockdev/moko-kswift/) умеет генерировать такой маппинг
-[с помощью фичи](https://github.com/icerockdev/moko-kswift/blob/master/kswift-gradle-plugin/src/main/kotlin/dev/icerock/moko/kswift/plugin/feature/SealedToSwiftEnumFeature.kt).
-
-```kotlin
-kswift {
-    install(dev.icerock.moko.kswift.plugin.feature.SealedToSwiftEnumFeature)
+```swift
+func switchOnSealedInterfaces(sealedInterfaces: SealedInterfaces){
+    switch(sealedInterfaces){
+    case is SealedInterfacesFirst: print((sealedInterfaces as! any SealedInterfacesFirst as SealedInterfacesFirst).firstFunctionExample())
+    case is SealedInterfacesSecond: print((sealedInterfaces as! any SealedInterfacesSecond as SealedInterfacesSecond).secondFunctionExample())
+    default: print("default")
 }
 ```
 
-Но есть некоторые особенности, см. [moko-kswift overview](/docs/moko-kswift/Overview.md)
+In Swift, the role of sealed interfaces is played by enums, and it would be possible to write special bridge code to convert a sealed interface into a Swift enum. See [a possible approach](/docs/classes/Sealed%20class.md).
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

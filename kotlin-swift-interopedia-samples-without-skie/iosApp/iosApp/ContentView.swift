@@ -15,7 +15,9 @@ struct ContentView: View {
                 
                 //testGenerics()
                 
-                testUsualWorkflow()
+                //testUsualWorkflow()
+                
+                testInterfaces()
 
             })
         }
@@ -209,7 +211,21 @@ struct ContentView: View {
         
         //Usual class var property (mutable)
         //The property is accessible from the class object and is a mutable property
-        UsualClassPropertyMutableExample().example()
+        //UsualClassPropertyMutableExample().example()
+    }
+    
+    func testInterfaces(){
+        //Fun interfaces
+        //You can't create an anonymous class in Swift.
+        //FunInterfacesExample().example()
+        
+        //Interfaces
+        //The interface has become @protocol. But for some reason the val property turned into var.
+        //InterfacesExample().example()
+        
+        //Sealed interfaes
+        //Separate protocols were generated that were not related to each other.
+        SealedInterfacesExample().example()
     }
 }
 

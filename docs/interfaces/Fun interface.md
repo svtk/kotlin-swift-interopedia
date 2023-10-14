@@ -1,12 +1,10 @@
 ## Fun interface
 
-| Статус          | Ожидание                                                                  | Реальность                             |
-| --------------- | ------------------------------------------------------------------------- | -------------------------------------- |
-| :no_entry_sign: | С помощью такого протокола можно более простым синтаксисом описать лямбду | В Swift нельзя создать анонимный класс |
+You can't create an anonymous class in Swift.
 
-### Пояснения
+### Explanations
 
-В Kotlin-е при помощи `fun interface`-ов можно более удобным синтаксисом описывать создание анонимных лямбд:
+In Kotlin, using `fun interface`-s you can use a more convenient syntax to describe the creation of anonymous lambdas:
 
 ```kotlin
 fun interface FunInterfaceExample {
@@ -17,12 +15,11 @@ interface NotFunInterface {
     fun singleFunctionInInterface(funInterfaceExample: String): String
 }
 
-private fun example() {
+fun example() {
     val notFun = object : NotFunInterface {
         override fun singleFunctionInInterface(funInterfaceExample: String): String {
             return "return"
         }
-
     }
 
     val listener = FunInterfaceExample {
@@ -32,15 +29,14 @@ private fun example() {
 }
 ```
 
-В [Swift нет аналогичного синтаксиса для описания анонимных классов](https://stackoverflow.com/questions/24408068/anonymous-class-in-swift). 
-Можно, конечно, делать как в одном из ответов на StackOverflow, но это кажется каким-то большим overhead-ом:
+Swift [does not have a similar syntax for describing anonymous classes]((https://stackoverflow.com/questions/24408068/anonymous-class-in-swift)). You can, of course, do it as in one of the answers on StackOverflow, but it seems like some kind of big overhead:
 
 ```swift
 class EmptyClass {
 
     var someFunc: () -> () = { }
 
-    init(overrides: EmptyClass -> EmptyClass) {
+    init(overrides: (EmptyClass) -> EmptyClass) {
         overrides(self)
     }
 }
@@ -49,7 +45,7 @@ class EmptyClass {
 // whatever variable properties you want to override:
 
 let workingClass = EmptyClass { ec in
-    ec.someFunc = { println("It worked!") }
+    ec.someFunc = { print("It worked!") }
     return ec
 }
 
@@ -57,4 +53,4 @@ workingClass.someFunc()  // Outputs: "It worked!"
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
