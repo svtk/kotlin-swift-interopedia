@@ -29,7 +29,7 @@ fun example() {
 }
 ```
 
-Swift [does not have a similar syntax for describing anonymous classes]((https://stackoverflow.com/questions/24408068/anonymous-class-in-swift)). You can, of course, do it as in one of the answers on StackOverflow, but it seems like some kind of big overhead:
+Swift [does not have a similar syntax for describing anonymous classes](https://stackoverflow.com/questions/24408068/anonymous-class-in-swift). You can, of course, do it as in one of the answers on StackOverflow, but it seems like some kind of big overhead:
 
 ```swift
 class EmptyClass {
