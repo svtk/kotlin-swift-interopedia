@@ -8,13 +8,13 @@ In Kotlin, working with a companion object is reminiscent of working with static
 
 ```kotlin
 class CompanionObjectClass {
-	companion object {
-		const val CONST_VAL_EXAMPLE = "123"
-	}
+    companion object {
+        const val CONST_VAL_EXAMPLE = "123"
+    }
 }
 
-fun example() { 
-	println(CompanionObjectClass.CONST_VAL_EXAMPLE)
+fun example() {     
+    println(CompanionObjectClass.CONST_VAL_EXAMPLE)
 }
 ```
 
