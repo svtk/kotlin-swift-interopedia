@@ -1,14 +1,14 @@
 ## Collections with custom types data
 
-| Статус             | Ожидание                                                                   | Реальность                       |
-| ------------------ | -------------------------------------------------------------------------- | -------------------------------- |
-| :white_check_mark: | Коллекции с элементами кастомных типов не требуют дополнительных маппингов | Маппинги не требуются :thumbsup: |
+Collections with elements of custom types do not require additional mappings.
 
-### Пояснения
+### Explanations
 
-Пусть на стороне Kotlin-а был объявлен следующий код:
+Let the following code be declared on the Kotlin side:
 
 ```kotlin
+//CollectionsWithCustomTypesData.kt
+
 data class NotPrimitiveType(
     val item: String
 )
@@ -26,15 +26,13 @@ fun notPrimitiveTypeMap(map: Map<String, NotPrimitiveType>): Map<String, NotPrim
 }
 ```
 
-На стороне Swift коллекции с кастомными типами данных можно использовать без специальных маппингов:
+On the Swift side, collections with custom data types can be used without special mappings:
 
 ```swift
-func notPrimitiveCollections(list: [NotPrimitiveType], set: Set<NotPrimitiveType>, map: [String: NotPrimitiveType]) {
-    let myList: [NotPrimitiveType] = NotPrimitiveTypeKt.notPrimitiveTypeList(list: list)
-    let mySet: Set<NotPrimitiveType> = NotPrimitiveTypeKt.notPrimitiveTypeSet(set: set)
-    let myMap: [String: NotPrimitiveType] = NotPrimitiveTypeKt.notPrimitiveTypeMap(map: map)
-}
+let myList: [NotPrimitiveType] = CollectionsWithCustomTypesDataKt.notPrimitiveTypeList(list: inList)
+let mySet: Set<NotPrimitiveType> = CollectionsWithCustomTypesDataKt.notPrimitiveTypeSet(set: inSet)
+let myMap: [String: NotPrimitiveType] = CollectionsWithCustomTypesDataKt.notPrimitiveTypeMap(map: inMap)  
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

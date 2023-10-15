@@ -7,14 +7,14 @@
 </table>
 
 ## Data types
-<ul>
-  <li><a href="/docs/types/Primitive%20types.md">Primitive types</a></li>
-  <li><a href="/docs/types/Optional%20(nullable)%20primitive%20types.md">Optional (nullable) primitive types</a></li>
-  <li><a href="/docs/types/Mutable,%20immutable%20collections.md">Mutable, immutable collections</a></li>
-  <li><a href="/docs/types/Collections%20with%20primitive%20types.md">Collections with primitive types</a></li>
-  <li><a href="/docs/types/Collections%20with%20custom%20types%20data.md">Collections with custom types data</a></li>
-  <li><a href="/docs/types/Unit%20and%20Nothing.md">Unit and Nothing</a></li>
-</ul>
+<table>
+  <tr><td><a href="/docs/types/Collections%20with%20custom%20types%20data.md">Collections with custom types data</a></td><td>Collections with elements of custom types do not require additional mappings.</td></tr>
+  <tr><td><a href="/docs/types/Collections%20with%20primitive%20types.md">Collections with primitive types</a></td><td>Collections with elements of primitive types (except String) require a wrapper.</td></tr>
+  <tr><td><a href="/docs/types/Primitive%20types.md">Primitive types</a></td><td>May require mapping for integer data types and mapping for Char.</td></tr>
+  <tr><td><a href="/docs/types/Optional%20(nullable)%20primitive%20types.md">Optional (nullable) primitive types</a></td><td>Some primitive types require mapping into special optional types.</td></tr>
+  <tr><td><a href="/docs/types/Mutable,%20immutable%20collections.md">Mutable, immutable collections</a></td><td>To adjust mutability, the let and var keywords are used. Additional mappings are required for mutable collections.</td></tr>
+  <tr><td><a href="/docs/types/Unit%20and%20Nothing.md">Unit and Nothing</a></td><td>The Unit and Nothing types can be used in the same way as in Kotlin: Unit as an object or void, Nothing cannot be created.</td></tr>
+</table>
 
 ## Usual workflow
 <table>

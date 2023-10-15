@@ -1,23 +1,14 @@
 ## Optional (nullable) primitive types
 
-| Статус    | Ожидание                                                                                                              | Реальность                                                                                |
-| --------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| :warning: | Тип, объявленный как Nullable, является таковым и на стороне Swift / Пользоваться nullable-типами можно без изменений | Для примитивных типов требуется маппинг в специальные optional-типы / особенности с Char? |
-
-### Пояснения
-
-Напишем код, использующий nullable-типы в Kotlin-е:
-
-```kotlin
-class NullableExample(
-    val optionalByte: Byte?,
-    val optionalShort: Short?,
-    val optionalInt: Int?,
-    val optionalLong: Long?,
-    val optionalFloat: Float?,
-    val optionalDouble: Double?,
-    val optionalString: String?,
-    val optionalBoolean: Boolean?
+Some primitive types require mapping into special optional types.class OptionalPrimitives(
+val optionalByte: Byte?,
+val optionalShort: Short?,
+val optionalInt: Int?,
+val optionalLong: Long?,
+val optionalFloat: Float?,
+val optionalDouble: Double?,
+val optionalString: String?,
+val optionalBoolean: Boolean?
 ) {
 
     fun optionalByteType(b: Byte?): Byte? {
@@ -48,15 +39,10 @@ class NullableExample(
         return b
     }
 
-    fun optionalCustomClassType(customClass: OptionalDataHolder?): OptionalDataHolder? {
-        return customClass
-    }
-    
 }
 ```
 
-На стороне Swift-а nullable-типы Kotlin-а (за исключением `String?` и `Char?`) 
-представлены [специальными типами данных](https://kotlinlang.org/docs/apple-framework.html#kotlin-numbers-and-nsnumber):
+On the Swift side, Kotlin nullable types (with the exception of `String?` and `Char?`) are represented by [special data types][специальными типами данных](https://kotlinlang.org/docs/apple-framework.html#kotlin-numbers-and-nsnumber):
 
 - `Byte?` -> `KotlinByte?`
 - `UByte?` -> `KotlinUByte?`
@@ -70,36 +56,35 @@ class NullableExample(
 - `Double?` -> `KotlinDouble?`
 - `Boolean?` -> `KotlinBoolean?`
 
-И есть два отдельных кейса с `String?` и `Char?`:
+And there are two separate cases with `String?` and `Char?`:
 
 - `String?` -> `String?`
 - `Char?` -> `Any?`
 
-#### Использование литералов и nil-значений
+#### Using literals and nil values
 
-При передаче в аргументах литералов или nil-значений использование этих типов не отличается от Kotlin-а:
+When passing literals or nil values as arguments, the use of these types is no different from Kotlin:
 
 ```swift
 func optionalTypesExample3() {
-    let _ = OptionalParamsConstructorClass(
+    let _ = OptionalPrimitives(
         optionalByte: 1,
         optionalShort: 1,
         optionalInt: 1,
         optionalLong: 1,
         optionalFloat: 1.0,
         optionalDouble: 1.0,
-        optionalParam: "123",
+        optionalString: "123",
         optionalBoolean: true
     )
 }
 ```
 
-Так как `Char?` превратился в `Any?`, можно передать в качестве значения всё что угодно, 
-и это НЕ сломает программу.
+Since `Char?` is turned into `Any?`, you can pass anything as a value, and it will NOT break the program.
 
-#### Использование not-null Swift-типов
+#### Using not-null Swift types
 
-При использовании Swift-овых типов данных требуется дополнительный маппинг:
+When using Swift data types, additional mapping is required:
 
 ```swift
 func optionalTypesExample2(
@@ -112,22 +97,22 @@ func optionalTypesExample2(
     stringType: String,
     booleanType: Bool
 ) {
-    let _ = OptionalParamsConstructorClass(
+    let _ = OptionalPrimitives(
         optionalByte: KotlinByte(value: byteType),
         optionalShort: KotlinShort(value: shortType),
         optionalInt: KotlinInt(value: intType),
         optionalLong: KotlinLong(value: longType),
         optionalFloat: KotlinFloat(value: floatType),
         optionalDouble: KotlinDouble(value: doubleType),
-        optionalParam: stringType,
+        optionalString: stringType,
         optionalBoolean: KotlinBoolean(value: booleanType)
     )
 }
 ```
 
-#### Использование optional Swift-типов
+#### Using optional Swift types
 
-При использовании optional-типов Swift-а маппинг становится более громоздким за счёт проверки на nil:
+When using optional Swift types, mapping becomes more cumbersome due to checking for nil:
 
 ```swift
 func optionalTypesExample(
@@ -140,7 +125,7 @@ func optionalTypesExample(
     optionalString: String?,
     optionalBoolean: Bool?
 ) {
-    let _ = OptionalParamsConstructorClass(
+    let _ = OptionalPrimitives(
         optionalByte: (optionalByte != nil) ? KotlinByte(value: optionalByte!) : nil,
         optionalShort: (optionalShort != nil) ? KotlinShort(value: optionalShort!) : nil,
         optionalInt: (optionalInt != nil) ? KotlinInt(value: optionalInt!) : nil,
@@ -148,10 +133,10 @@ func optionalTypesExample(
         optionalFloat: (optionalFloat != nil) ? KotlinFloat(value: optionalFloat!) : nil,
         optionalDouble: (optionalDouble != nil) ? KotlinDouble(value: optionalDouble!) : nil,
         optionalString: optionalString,
-        optionalBoolean: (optionalBoolean != nil) ? KotlinBoolean(value: optionalBoolean!) : nil,
+        optionalBoolean: (optionalBoolean != nil) ? KotlinBoolean(value: optionalBoolean!) : nil
     )
 }
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

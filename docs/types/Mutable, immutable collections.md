@@ -1,65 +1,63 @@
 ## Mutable, immutable collections
 
-| Статус    | Ожидание                                                                                                                                         | Реальность                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| :warning: | Сигнатуры List / MutableList / etc имеют значение в Swift-мире и тоже регулируют мутабельность ; Использование коллекций не отличается от Kotlin | Для регулировки мутабельности используются ключевые слова let, var / Для мутабельных коллекций требуются дополнительные маппинги |
+To adjust mutability, the let and var keywords are used. Additional mappings are required for mutable collections.
 
-### Пояснения
+### Explanations
 
-Вне зависимости от того, какую сигнатуру объявили на стороне Kotlin-а, мутабельную (`MutableList`) или нет (`List`), 
-на стороне Swift-а можно передать и изменяемую, и неизменяемую коллекции.
+Regardless of what signature is declared on the Kotlin side, mutable (`MutableList`) or not (`List`), both mutable and immutable collections can be passed on the Swift side.
 
-Был вот такой код на стороне Kotlin-а:
+There was this code on the Kotlin side:
 
 ```kotlin
-fun listType(list: List<Int>): List<Int> {  
-    return mutableListOf(1, 2, 3).also { it.addAll(list) }  
-}  
+//MutableImmutableCollections.kt
 
-fun mutableListType(list: MutableList<Int>): MutableList<Int> {  
-    return mutableListOf(4, 5, 6).also { it.addAll(list) }  
+fun mutableListType(list: MutableList<Int>): MutableList<Int> {
+    return mutableListOf(4, 5, 6).also { it.addAll(list) }
 }
 ```
 
-В Swift регулировка мутабельности делается ключевыми словами `var` и `let`:
+In Swift, mutability adjustment is done using the keywords `var` and `let`:
 
 ```swift
-private func collectionsMutability() {
-	let types = PrimitiveTypesClass()
+func collectionsMutabilityExample() {
+    var mutableList: [KotlinInt] = [1, 2, 3]
+    let notMutableList: [KotlinInt] = [1, 2, 3]
 
-	var mutableList: [KotlinInt] = [1, 2, 3]
-	let notMutableList: [KotlinInt] = [1, 2, 3]
-
-	mutableList = types.listType(list: mutableList)
-	let _ = types.listType(list: notMutableList)
+    mutableList = CommonTypesKt.listType(list: mutableList)
+    let _ = CommonTypesKt.listType(list: notMutableList)
 }
 ```
 
-Кстати, если записать результат функции, возвращающей `List` в `var`-переменную, то можно спокойно изменять эту 
-коллекцию, крашей не будет:
+By the way, if you write the result of a function that returns `List` in a `var` variable, then you can safely change this collection, there will be no crashes:
 
 ```swift
-var list = typeClass.listType(list: [12, 34])
-list.append(2)
+func listTypeNoCrashes(){
+    var list = CommonTypesKt.listType(list: [12, 34])
+    list.append(2)
+}
 ```
 
 #### List / MutableList
 
-С мутабельными коллекциями уже другие правила и [другие типы](https://kotlinlang.org/docs/native-objc-interop.html#collections). 
-`MutableList` превращается в `NSMutableArray`, но можно использовать простой способ превращения `[KotlinInt]` в `NSMutableArray`.
+With mutable collections there are different rules and different types. `MutableList` turns into `NSMutableArray`, but you can use a simple method of turning `[KotlinInt]` into `NSMutableArray`.
 
 ```swift
-var mutableList: [KotlinInt] = [1, 2, 3]
-let notMutableList: [KotlinInt] = [1, 2, 3]
+func listMutableListExample(){
+    var mutableList: [KotlinInt] = [1, 2, 3]
+    let notMutableList: [KotlinInt] = [1, 2, 3]
 
-let _ = types.mutableListType(list: NSMutableArray(array: notMutableList))
-let _ = types.mutableListType(list: NSMutableArray(array: mutableList))
+    let _ = MutableImmutableCollectionsKt.mutableListType(list: NSMutableArray(array: notMutableList))
+    let _ = MutableImmutableCollectionsKt.mutableListType(list: NSMutableArray(array: mutableList))
+}
 ```
 
 #### Set / MutableSet
-Пусть на стороне Kotlin-а у нас будет объявлено две функции, использующие `Set` и `MutableSet`:
+
+Let us declare two functions on the Kotlin side that use `Set` and `MutableSet`:
 
 ```kotlin
+//MutableImmutableCollections.kt
+
 fun setType(set: Set<Int>): Set<Int> {  
     return mutableSetOf(1, 2, 3).also { it.addAll(set) }  
 }  
@@ -69,37 +67,42 @@ fun mutableSetType(set: MutableSet<Int>): MutableSet<Int> {
 }
 ```
 
-С immutable-версией ничего примечательного, с mutable - на стороне Swift 
-[потребуется приведение типов](https://kotlinlang.org/docs/native-objc-interop.html#collections) 
-к `KotlinMutableSet`:
+
+With the immutable version there is nothing remarkable, with mutable - on the Swift side [you will need to cast types](https://kotlinlang.org/docs/native-objc-interop.html#collections)  to `KotlinMutableSet`:
 
 ```swift
-var mutableSet: Set<KotlinInt> = Set(arrayLiteral: 1, 2, 3)
-let notMutableSet: Set<KotlinInt> = Set(arrayLiteral: 1, 2, 3)
+ func setMutableSetExample(){
+    var mutableSet: Set<KotlinInt> = Set(arrayLiteral: 1, 2, 3)
+    let notMutableSet: Set<KotlinInt> = Set(arrayLiteral: 1, 2, 3)
 
-mutableSet = types.setType(set: mutableSet)
-let _ = types.setType(set: notMutableSet)
+    mutableSet = MutableImmutableCollectionsKt.setType(set: mutableSet)
+    let _ = MutableImmutableCollectionsKt.setType(set: notMutableSet)
 
-let _ = types.mutableSetType(set: KotlinMutableSet(set: mutableSet))
-let _ = types.mutableSetType(set: KotlinMutableSet(set: notMutableSet))
+    let _ = MutableImmutableCollectionsKt.mutableSetType(set: KotlinMutableSet(set: mutableSet))
+    let _ = MutableImmutableCollectionsKt.mutableSetType(set: KotlinMutableSet(set: notMutableSet))
+}
 ```
 
-Если нужно привести `KotlinMutableSet` к Swift-овому `Set`-у, нужно делать явный cast:
+If you need to cast `KotlinMutableSet` to Swift `Set`, you need to do an explicit cast:
 
 ```swift
-var mutableSet: Set<KotlinInt> = Set(arrayLiteral: 1, 2, 3)
+func mutableSetExample(){
+    var mutableSet: Set<KotlinInt> = Set(arrayLiteral: 1, 2, 3)
 
-mutableSet = types.mutableSetType(
-	set: KotlinMutableSet(set: mutableSet)
-) as! Set<KotlinInt>
+    mutableSet = MutableImmutableCollectionsKt.mutableSetType(
+        set: KotlinMutableSet(set: mutableSet)
+    ) as! Set<KotlinInt>
+}
 ```
 
-Это возможно, потому что `KotlinMutableSet` == `NSMutableSet`.
+This is possible because `KotlinMutableSet` == `NSMutableSet`.
 
 #### Map / MutableMap
-Пусть на стороне Kotlin-а у нас будет объявлено две функции, использующие `Map` и `MutableMap`:
+Let us declare two functions on the Kotlin side that use `Map` and `MutableMap`:
 
 ```kotlin
+//MutableImmutableCollections.kt
+
 fun mapType(map: Map<String, Int>): Map<String, Int> {  
     return mutableMapOf(  
         "1" to 1,  
@@ -117,46 +120,46 @@ fun mutableMapType(map: MutableMap<String, Int>): MutableMap<String, Int> {
 }
 ```
 
-С immutable-версией ничего примечательного, с mutable - на стороне Swift
-[потребуется приведение типов](https://kotlinlang.org/docs/native-objc-interop.html#collections)
-к `KotlinMutableDictionary`:
+With the immutable version there is nothing remarkable, with mutable - on the Swift side [you will need to cast types](https://kotlinlang.org/docs/native-objc-interop.html#collections) to KotlinMutableDictionary:
 
 ```swift
-var mutableMap: Dictionary<String, KotlinInt> = Dictionary(dictionaryLiteral: ("1", 1), ("2", 2), ("3", 3))
-var mutableMapLiteral: [String: KotlinInt] = [
-	"1": 1,
-	"2": 2,
-	"3": 3
-]
-let notMutableMap: Dictionary<String, KotlinInt> = Dictionary(
-	dictionaryLiteral: ("1", 1), ("2", 2), ("3", 3)
-)
-let notMutableMapLiteral: [String: KotlinInt] = [
-	"1": 1,
-	"2": 2,
-	"3": 3
-]
-
-mutableMap = types.mapType(map: mutableMap)
-mutableMapLiteral = types.mapType(map: mutableMapLiteral)
-let _ = types.mapType(map: notMutableMap)
-let _ = types.mapType(map: notMutableMapLiteral)
-
-let _ = types.mutableMapType(
-	map: KotlinMutableDictionary(dictionary: mutableMap)
-)
-let _ = types.mutableMapType(
-	map: KotlinMutableDictionary(dictionary: mutableMapLiteral)
-)
-let _ = types.mutableMapType(
-	map: KotlinMutableDictionary(dictionary: notMutableMap)
-)
-let _ = types.mutableMapType(
-	map: KotlinMutableDictionary(dictionary: notMutableMapLiteral)
-)
+func mapMutableMapExample(){
+    var mutableMap: Dictionary<String, KotlinInt> = Dictionary(dictionaryLiteral: ("1", 1), ("2", 2), ("3", 3))
+    var mutableMapLiteral: [String: KotlinInt] = [
+        "1": 1,
+        "2": 2,
+        "3": 3
+    ]
+    let notMutableMap: Dictionary<String, KotlinInt> = Dictionary(
+        dictionaryLiteral: ("1", 1), ("2", 2), ("3", 3)
+    )
+    let notMutableMapLiteral: [String: KotlinInt] = [
+        "1": 1,
+        "2": 2,
+        "3": 3
+    ]
+    
+    mutableMap = MutableImmutableCollectionsKt.mapType(map: mutableMap)
+    mutableMapLiteral = MutableImmutableCollectionsKt.mapType(map: mutableMapLiteral)
+    let _ = MutableImmutableCollectionsKt.mapType(map: notMutableMap)
+    let _ = MutableImmutableCollectionsKt.mapType(map: notMutableMapLiteral)
+    
+    let _ = MutableImmutableCollectionsKt.mutableMapType(
+        map: KotlinMutableDictionary(dictionary: mutableMap)
+    )
+    let _ = MutableImmutableCollectionsKt.mutableMapType(
+        map: KotlinMutableDictionary(dictionary: mutableMapLiteral)
+    )
+    let _ = MutableImmutableCollectionsKt.mutableMapType(
+        map: KotlinMutableDictionary(dictionary: notMutableMap)
+    )
+    let _ = MutableImmutableCollectionsKt.mutableMapType(
+        map: KotlinMutableDictionary(dictionary: notMutableMapLiteral)
+    )
+}
 ```
 
-Если нужно привести `KotlinMutableDictionary` к Swift-овому `Dictionary`-у, нужно делать явный cast:
+If you need to cast `KotlinMutableDictionary` to Swift `Dictionary`, you need to do an explicit cast:
 
 ```swift
 mutableMap = types.mutableMapType(
@@ -164,7 +167,7 @@ mutableMap = types.mutableMapType(
 ) as! Dictionary<String, KotlinInt>
 ```
 
-Это возможно, потому что `KotlinMutableDictionary` == `NSMutableDictionary`.
+This is possible because `KotlinMutableDictionary` == `NSMutableDictionary`.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

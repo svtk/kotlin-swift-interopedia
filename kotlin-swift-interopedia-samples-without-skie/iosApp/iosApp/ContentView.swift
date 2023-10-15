@@ -17,8 +17,9 @@ struct ContentView: View {
                 
                 //testUsualWorkflow()
                 
-                testInterfaces()
-
+                //testInterfaces()
+                
+                testTypes()
             })
         }
 	}
@@ -225,7 +226,49 @@ struct ContentView: View {
         
         //Sealed interfaes
         //Separate protocols were generated that were not related to each other.
-        SealedInterfacesExample().example()
+        //SealedInterfacesExample().example()
+    }
+    
+    func testTypes(){
+        //Collections with custom types data
+        //Collections with elements of custom types do not require additional mappings.
+        //CollectionsWithCustomTypesDataExample().example()
+        
+        //Collections with primitive types
+        //Collections with elements of primitive types (except String) require a wrapper.
+        //CollectionsWithPrimitiveTypesExample().example()
+        
+        //Mutable, immutable collections
+        //To adjust mutability, the let, var keywords are used. Additional mappings are required for mutable collections
+        //let example = MutableImmutableCollectionsExample()
+        //example.collectionsMutabilityExample()
+        //example.listTypeNoCrashes()
+        //example.listMutableListExample()
+        //example.setMutableSetExample()
+        //example.mutableSetExample()
+        //example.mapMutableMapExample()
+        
+        //Optional primitives
+        //Some primitive types require mapping into special optional types.
+        //let example = OptionalPrimitivesExample()
+        //example.optionalTypesExample(optionalByte: nil, optionalShort: nil, optionalInt: nil, optionalLong: nil, optionalFloat: nil, optionalDouble: nil, optionalString: nil, optionalBoolean: nil)
+        //example.optionalTypesExample2(byteType: Int8(1), shortType: Int16(2), intType: 3, longType: 10_211_420_262_370_680, floatType: 5.002, doubleType: 12121.9, stringType: "asdf", booleanType: false)
+        //example.optionalTypesExample3()
+        
+        //Primitive types
+        //May require mapping for integer data types and mapping for Char.
+        //let example = PrimitiveTypesExample()
+        //example.boolTypeExample(boolType: false)
+        //example.charTypeExample(unicharType: 64, stringType: "123")
+        //example.integerTypesExample(byteType: Int8(1), shortType: Int16(2), intType: 3, longType: 10_211_420_262_370_680)
+        //example.realTypesExample(floatType: 31.5, doubleType: 12121.9)
+        //example.stringTypeExample(stringType: "def")
+        //example.swiftIntTypeExample(swiftIntType: 42)
+        
+        //Unit and Nothing
+        //The Unit and Nothing types can be used in the same way as in Kotlin: Unit as an object or void, Nothing cannot be created.
+        //NB: some lines in the examples are commented out as they (correctly) do not compile / crash the app. Uncomment at own risk
+        //UnitNothingExample().example()
     }
 }
 

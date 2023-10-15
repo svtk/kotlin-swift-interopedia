@@ -1,14 +1,10 @@
 ## Collections with primitive types
 
-| Статус    | Ожидание                                                                     | Реальность                                   |
-| --------- | ---------------------------------------------------------------------------- | -------------------------------------------- |
-| :warning: | Коллекции с элементами примитивных типов не требуют дополнительных маппингов | Маппинги не требуются только для String-типа |
+Collections with elements of primitive types (except String) require a wrapper.
 
-### Пояснения
+### Explanations
 
-Примитивные типы Kotlin-а, указанные в generic-ах, 
-[превращаются в специальные обёртки](https://kotlinlang.org/docs/apple-framework.html#kotlin-numbers-and-nsnumber) 
-над примитивными типами:
+Kotlin primitive types specified in generics [are turned into special wrappers](https://kotlinlang.org/docs/apple-framework.html#kotlin-numbers-and-nsnumber) over primitive types:
 
 - `List<Byte>` -> `[KotlinByte]`
 - `List<UByte>` -> `[KotlinUByte]`
@@ -22,24 +18,22 @@
 - `List<Double>` -> `[KotlinDouble]`
 - `List<Boolean>` -> `[KotlinBoolean]`
 
-И два исключения ([аналогично optional-ам](/docs/types/Optional%20(nullable)%20primitive%20types.md):
+And two exceptions [(similar to optional ones)](/docs/types/Optional%20(nullable)%20primitive%20types.md):
 
 - `List<String>` -> `[String]`
 - `List<Char>` -> `[Any]`
 
-Чтобы передать Swift-типы (не литералы) в качестве аргументов в Kotlin-функции, придётся писать маппинги:
+To pass Swift types (not literals) as arguments to a Kotlin function, you will have to write mappings:
 
 ```swift
-func collectionsExample(intList: [Int]) {
-    let _: [KotlinInt] = types.intList(list: [1,2,3])					// ok
-    let _: [KotlinInt] = [1, 2, 3] + types.listType(list: [1, 3, 4])	// ok
-    
-    // Маппинг
-    let li2: [KotlinInt] = types.listType(
-	    list: intList.map({ p in KotlinInt(value: p) })
-	)
-}
+CollectionWithPrimitiveTypesKt.intList(list: [1, 2, 3]) // ok
+let result2: [KotlinInt] = [1, 2, 3] + CommonTypeKt.listType(list: [1, 3, 4]) // ok
+
+// Mapping
+let li2: [KotlinInt] = CommonType.listType(
+    list: intList.map({ p in KotlinInt(value: Int32(p)) })
+)
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

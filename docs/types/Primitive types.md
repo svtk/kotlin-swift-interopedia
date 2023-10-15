@@ -1,12 +1,10 @@
 ## Primitive types
 
-| Статус      | Ожидание                                                             | Реальность                                                                     |
-| ----------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| :warning:   | Типы, объявленные в Kotlin, можно без изменений использовать в Swift | Может требоваться маппинг для целочисленных типов данных / маппинги для Char-а |
+May require mapping for integer data types and mapping for Char.
 
-### Пояснения
+### Explanations
 
-Опишем Kotlin-класс, использующий различные примитивные типы Kotlin-а:
+Let's describe a Kotlin class that uses various Kotlin primitive types:
 
 ```kotlin
 class PrimitiveTypesClass {
@@ -43,12 +41,16 @@ class PrimitiveTypesClass {
         return b
     }
 
+    fun charType(c: Char): Char {
+        return c
+    }
+
 }
 ```
 
-#### Целочисленные типы данных (Byte / Short / Int / Long)
+#### Integer data types (Byte/Short/Int/Long)
 
-Целочисленные типы данных Kotlin-а конвертируются в Swift-типы следующим образом:
+Kotlin integer data types are converted to Swift types as follows:
 
 - `Byte` -> `Int8`
 - `UByte` -> `UInt8`
@@ -59,7 +61,7 @@ class PrimitiveTypesClass {
 - `Long` -> `Int64`
 - `ULong` -> `UInt64`
 
-Если использовать литералы или же аргументы указанных Swift-овых типов, дополнительных усилий не требуется:
+If you use literals or arguments of the specified Swift types, no additional effort is required:
 
 ```swift
 func integerTypesExample(
@@ -79,12 +81,12 @@ func integerTypesExample(
     let _: Int32 = types.intType(i: 1)
     let _: Int32 = types.intType(i: intType)
     
-    let _: Int64 = types.longType(i: 1)
+    let _: Int64 = types.longType(l: 1)
     let _: Int64 = types.longType(l: longType)
 }
 ```
 
-Если же нужно использовать Swift-овый тип `Int`, потребуются дополнительные маппинги:
+If you need to use a Swift type `Int`, additional mappings will be required:
 
 ```swift
 func swiftIntTypeExample(swiftIntType: Int) {
@@ -97,10 +99,9 @@ func swiftIntTypeExample(swiftIntType: Int) {
 }
 ```
 
-#### Вещественные типы данных (Float / Double)
+#### Real data types (Float / Double)
 
-Вещественные типы Kotlin-а конвертируются в соответствующие вещественные типы 
-Swift-а (`Float` -> `Float`, `Double` -> `Double`), дополнительные маппинги не требуются:
+Kotlin real types are converted to the corresponding Swift real types (`Float`-> `Float`, `Double`-> `Double`), no additional mappings are required:
 
 ```swift
 func realTypesExample(
@@ -117,9 +118,9 @@ func realTypesExample(
 }
 ```
 
-#### Символьный тип данных (Char)
+#### Character data type (Char)
 
-Тип `Char` на стороне Swift-а конвертируется в тип `unichar`, с которым не очень удобно работать:
+The type `Char` on the Swift side is converted into a type `unichar`, which is not very convenient to work with:
 
 ```swift
 func charTypeExample(
@@ -134,9 +135,9 @@ func charTypeExample(
 }
 ```
 
-#### Строки (String)
+#### Strings (String)
 
-С типом данных `String` нет проблем, он конвертируется в Swift-овый тип `String` без дополнительных маппингов:
+There are no problems with the data type `String`; it is converted to a Swift type `String` without additional mappings:
 
 ```swift
 func stringTypeExample(stringType: String) {
@@ -148,9 +149,9 @@ func stringTypeExample(stringType: String) {
 }
 ```
 
-#### Логический тип данных (Boolean)
+#### Boolean data type
 
-С `Boolean`-ом нет проблем, он конвертируется в Swift-овый тип `Bool` без дополнительных маппингов:
+There are no problems with `Boolean`-, it is converted to Swift type `Bool` without additional mappings:
 
 ```swift
 func boolTypeExample(boolType: Bool) {
@@ -164,4 +165,4 @@ func boolTypeExample(boolType: Bool) {
 ```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

@@ -1,37 +1,40 @@
 ## Unit and Nothing
 
-| Статус             | Ожидание                                                                                                        | Реальность                                    |
-| ------------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| :white_check_mark: | Типы Unit и Nothing можно использовать так же, как в Kotlin: Unit как объект или void, Nothing - нельзя создать | Реальность соответствует ожиданиям :thumbsup: |
+The Unit and Nothing types can be used in the same way as in Kotlin: Unit as an object or void, Nothing cannot be created.
 
-### Пояснения
+### Explanations
 
-Пусть у нас есть такой класс на Kotlin-е:
+Let us have a class like this in Kotlin:
 
 ```kotlin
-class UnitNothingExample {
+class UnitNothing {
 
     fun unitType(p: Unit) {
-
     }
 
     fun nothingType(n: Nothing) {
-
     }
 
-    fun returnUnit(): Unit {
-
+    fun returnUnit() {
     }
 
     fun returnNothing(): Nothing {
         throw IllegalStateException()
     }
-
 }
 ```
 
-После перехода в Swift мы получаем из типов `Unit` и `Nothing` типы `KotlinUnit` и `KotlinNothing`.
-При этом можно создать объект класса `KotlinUnit`, и нельзя создать объект типа `KotlinNothing`.
+After moving to Swift, we get from types `Unit` and `Nothing` types `KotlinUnit` and `KotlinNothing`. In this case, you can create an object of the class `KotlinUnit`, but you cannot create an object of the type `KotlinNothing`.
+
+```swift
+let example = UnitNothing()
+example.unitType(p: KotlinUnit())
+//Doesn't compile - no init() function
+//example.nothingType(n: KotlinNothing())
+print(example.returnUnit())
+//Crashes app - exception
+//example.returnNothing()
+```
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)
