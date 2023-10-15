@@ -17,7 +17,7 @@ private fun example(example: InGenericItem<SuperClass>) {
 }
 ```
 
-In objective-c `in` we generated a generic with an indication of its contravariant:
+In Objective-c `in` we generated a generic with an indication of its contravariant:
 
 ```objective-c
 __attribute__((objc_subclassing_restricted))
@@ -35,7 +35,7 @@ open class SuperClass {}
 class ChildClass : SuperClass {}
 
 private func inGenericUsage(generic: InGenericItem<SuperClass>) {
-	let _: InGenericItem<ChildClass> = generic
+    let _: InGenericItem<ChildClass> = generic
 }
 ```
 
@@ -43,19 +43,18 @@ But it doesn't compile, and gives the error:
 
 ```
 Cannot assign value of type 'InGenericItem<SuperClass>' to type 'InGenericItem<ChildClass>'
-
 ```
 
 Through type casting it works:
 
 ```swift
 inGenericUsage(
-	generic: InGenericItem<ChildClass>() as! InGenericItem<SuperClass>
+    generic: InGenericItem<ChildClass>() as! InGenericItem<SuperClass>
 )
 
 private func inGenericUsage(generic: InGenericItem<SuperClass>) {
-	let _: InGenericItem<ChildClass> = generic as! InGenericItem<ChildClass>
-	print("inGenericUsage - ok")
+    let _: InGenericItem<ChildClass> = generic as! InGenericItem<ChildClass>
+    print("inGenericUsage - ok")
 }
 ```
 

@@ -4,7 +4,7 @@ There are some features of using types.
 
 ### Explanations
 
-Let's describe a generic-class in Kotlin:
+Let's describe a generic class in Kotlin:
 
 ```kotlin
 class StateHolderWithoutAny<T>(data: T) {
@@ -13,7 +13,7 @@ class StateHolderWithoutAny<T>(data: T) {
 }
 ```
 
-[You can't make generic over primitive types](https://stackoverflow.com/questions/51196984/objective-c-generic-containing-a-scalar/51197180#51197180). The interop is carried out through Objective-c, which does not allow this to be done.
+[You can't make generics over primitive types](https://stackoverflow.com/questions/51196984/objective-c-generic-containing-a-scalar/51197180#51197180). The interop is carried out through Objective-c, which does not allow this to be done.
 
 What types cannot be substituted:
 

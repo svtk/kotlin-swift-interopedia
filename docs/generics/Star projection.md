@@ -40,12 +40,10 @@ On the Swift side we use type casts:
 
 ```swift
 private func starGenericProjecton() {
-	let starProj = MyGeneric(data: NSNumber(12))
-
-	starProj.someStarProjection(myGeneric: starProj as! MyGeneric<AnyObject>)
-	starProj.someStarProjection(
-		myGeneric: MyGeneric<AnyObject>(data: NSString("111"))
-	)
+    let starProj = MyGeneric(data: NSNumber(12))
+    
+    starProj.someStarProjection(myGeneric: starProj as! MyGeneric<AnyObject>)
+    starProj.someStarProjection(myGeneric: MyGeneric<AnyObject>(data: NSString("111")))
 }
 ```
 

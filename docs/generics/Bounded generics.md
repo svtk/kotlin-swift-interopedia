@@ -14,18 +14,18 @@ class ChildStricted : ForStricted()
 class StrictedGeneric<T : ForStricted>(val data: T) {  
     fun fetch(): T {  
         return data  
- 	}  
+    }  
 }  
   
 private fun example() {  
     val s1 = StrictedGeneric(ForStricted())  
     val s2 = StrictedGeneric(ChildStricted())  
 	
-	// val s3 = StrictedGeneric("123") // Doesn't compile
+    // val s3 = StrictedGeneric("123") // Doesn't compile
 }
 ```
 
-.h There is no information about the generic limitation in the Objective-C file:
+There is no information about the generic limitation in the Objective-C file:
 
 ```objectivec
 __attribute__((objc_subclassing_restricted))

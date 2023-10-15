@@ -32,7 +32,7 @@ But in Swift this covariance is lost, you have to use type casting:
 
 ```swift
 private func outGenericUsage(generic: OutGeneric<NSString>) {
-	let _: OutGeneric<AnyObject> = generic as! OutGeneric<AnyObject>
+    let _: OutGeneric<AnyObject> = generic as! OutGeneric<AnyObject>
 }
 ```
 

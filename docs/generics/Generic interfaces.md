@@ -22,7 +22,7 @@ __attribute__((swift_name("SocketConverter")))
 @end
 ```
 
-But generics are [not yet supported](https://kotlinlang.org/docs/native-objc-interop.html#generics) on interfaces. In Swift itself, you can create a protocol with a generic one.
+But generics are [not yet supported](https://kotlinlang.org/docs/native-objc-interop.html#generics) on interfaces. In Swift itself, you can create a protocol with a generic parameter.
 
 ---
 [Table of contents](/README.md)

@@ -36,7 +36,7 @@ fun objectsExample() {
 }
 ```
 
-In Swift, to access the internals of an object, [an object appears `shared`](https://kotlinlang.org/docs/whatsnew1530.html#improved-swift-objective-c-mapping-for-objects-and-companion-objects), which can be accessed through a class:
+In Swift, to access the internals of an object, [an called `shared` appears](https://kotlinlang.org/docs/whatsnew1530.html#improved-swift-objective-c-mapping-for-objects-and-companion-objects), which can be accessed through a class:
 
 ```swift
 ObjectExample.shared.CONST_VAL_EXAMPLE

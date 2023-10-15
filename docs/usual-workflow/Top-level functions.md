@@ -1,6 +1,6 @@
 ## Top-level functions
 
-A wrapper class appears: TopLevelFunctionKt.topLevelFunction()
+A wrapper class appears: TopLevelFunctionKt.topLevelFunction().
 
 ### Explanations
 

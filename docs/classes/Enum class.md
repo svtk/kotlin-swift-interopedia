@@ -21,7 +21,7 @@ enum class EnumClass(val type: String) {
 
 No enum was generated on the Swift side, and as a result, the class cannot be conveniently used in a switch expression and therefore it is necessary to specify a default case.
 
-But there is access to the elements of the enum, there is access to the function inside the companion object, it is possible to call the values().
+But there is access to the elements of the enum, there is access to the function inside the companion object, it is possible to call the values() function.
 
 ```swift
 func useEnumClass() {
@@ -47,7 +47,7 @@ private func switchEnumClass(enumClassExample: EnumClass) {
 }
 ```
 
-[Kotlin/Native does not yet support enum generation.](https://youtrack.jetbrains.com/issue/KT-48068).
+[Kotlin/Native does not yet support enum generation](https://youtrack.jetbrains.com/issue/KT-48068).
 
 ### SKIE
 

@@ -10,6 +10,7 @@ In Kotlin, there is no difference in using an extension over a regular or platfo
 
 ```kotlin
 //ExtensionFunctionOverPlatformClass.kt
+
 fun String.extensionFunctionOverStringClass() {
     println(this) //Do something
 }

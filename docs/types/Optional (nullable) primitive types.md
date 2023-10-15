@@ -2,6 +2,8 @@
 
 Some primitive types require mapping into special optional types.
 
+### Explanations
+
 ```kotlin
 class OptionalPrimitives(
     val optionalByte: Byte?,

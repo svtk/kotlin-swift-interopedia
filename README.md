@@ -27,7 +27,7 @@
   <tr><td><a href="/docs/usual-workflow/Extension%20properties%20over%20usual%20class.md">Extension properties over usual class</a></td><td>The property can be accessed through the class object.</td>
   <tr><td><a href="/docs/usual-workflow/Function%20with%20default%20arguments.md">Function with default arguments</a></td><td>You always have to specify all the function arguments. Improved interop available with SKIE.</td>
   <tr><td><a href="/docs/usual-workflow/Objects.md">Objects</a></td><td>Access is available through the shared auxiliary object.</td>
-  <tr><td><a href="/docs/usual-workflow/Top-level%20functions.md">Top-level functions</a></td><td>A wrapper class appears: TopLevelFunctionKt.topLevelFunction()</td></tr>
+  <tr><td><a href="/docs/usual-workflow/Top-level%20functions.md">Top-level functions</a></td><td>A wrapper class appears: TopLevelFunctionKt.topLevelFunction().</td></tr>
   <tr><td><a href="/docs/usual-workflow/Top-level%20val%20properties%20(readonly).md">Top-level val properties (readonly)</a></td><td>A wrapper class for accessing the property appears: TopLevelPropertyKt.topLevelProperty.</td></tr>
   <tr><td><a href="/docs/usual-workflow/Top-level%20var%20properties%20(mutable).md">Top-level var properties (mutable)</a></td><td>A wrapper class for accessing the property appears: TopLevelPropertyMutableKt.topLevelPropertyMutable.</td></tr>
   <tr><td><a href="/docs/usual-workflow/Usual%20class%20constructor.md">Usual class constructor</a></td><td>Works the same as Kotlin.</td></tr>
