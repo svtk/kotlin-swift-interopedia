@@ -4,7 +4,7 @@ Translated into callback, experimentally - into async / await. Libraries like SK
 
 ### Explanations
 
-Let's describe a class that uses Kotlin suspend functions:
+Let's describe a class that uses Kotlin `suspend` functions:
 
 ```kotlin
 data class Thing(val item: Int)
@@ -87,4 +87,4 @@ Task {
 Please follow the setup instructions on the SKIE landing page.
 
 ---
-[Оглавление](/README.md)
+[Table of contents](/README.md)

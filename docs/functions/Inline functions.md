@@ -4,7 +4,7 @@ Inline functions are in the .h file, they can be called.
 
 ### Explanations
 
-Let's describe an inline function in Kotlin:
+Let's describe an `inline` function in Kotlin:
 
 ```kotlin
 // InlineFunction.kt

@@ -7,6 +7,7 @@ Let's describe several functions that use lambdas from their arguments in Kotlin
 
 ```kotlin
 // FunctionWithLambdaArgs.kt
+
 fun funcWithLambda(calculation: () -> Int): Int {
     return 100 + calculation.invoke()
 }

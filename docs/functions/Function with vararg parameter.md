@@ -1,6 +1,6 @@
 ## Function with vararg parameter
 
-varargs are not mapped to Swift's variardic parameters, but instead to KotlinArray.
+varargs are not mapped to Swift's variardic parameters, but instead to `KotlinArray`.
 
 ### Explanations
 

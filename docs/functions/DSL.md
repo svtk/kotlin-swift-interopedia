@@ -57,7 +57,7 @@ func example(){
 }
 ```
 
-In Swift, you can find an [article](https://habr.com/ru/company/tinkoff/blog/455760/) on Habr about DSL in Swift, and there is also a [GitHub repository](https://github.com/carson-katri/awesome-result-builders) with a list of Swift libraries built on DSL.
+In Swift, you can find an [article](https://habr.com/ru/company/tinkoff/blog/455760/) on Habr about DSL in Swift, and there is also a [GitHub repository](https://github.com/carson-katri/awesome-result-builders) with a list of Swift libraries built on DSLs.
 
 ---
 [Table of contents](/README.md)
