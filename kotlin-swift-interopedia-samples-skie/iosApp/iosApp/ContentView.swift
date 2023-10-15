@@ -10,7 +10,7 @@ struct ContentView: View {
                 
                 //testFunctions()
                 
-                testUsualWorkflow()
+                //testUsualWorkflow()
             })
         }
 	}

@@ -34,6 +34,6 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun runTests(){
-        com.jetbrains.swiftinteropplayground.usualworkflow.functionWithDefaultArgumentsExample()
+        //Add a test
     }
 }
