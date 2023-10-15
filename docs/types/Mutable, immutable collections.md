@@ -1,6 +1,6 @@
 ## Mutable, immutable collections
 
-To adjust mutability, the let and var keywords are used. Additional mappings are required for mutable collections.
+To adjust mutability, the `let` and `var` keywords are used. Additional mappings are required for mutable collections.
 
 ### Explanations
 

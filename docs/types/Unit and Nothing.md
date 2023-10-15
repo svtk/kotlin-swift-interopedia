@@ -1,6 +1,6 @@
 ## Unit and Nothing
 
-The Unit and Nothing types can be used in the same way as in Kotlin: Unit as an object or void, Nothing cannot be created.
+The `Unit` and `Nothing` types can be used in the same way as in Kotlin: `Unit` as an object or void, `Nothing` cannot be created.
 
 ### Explanations
 

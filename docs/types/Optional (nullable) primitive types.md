@@ -117,7 +117,7 @@ func optionalTypesExample2(
 
 #### Using optional Swift types
 
-When using optional Swift types, mapping becomes more cumbersome due to checking for nil:
+When using optional Swift types, mapping becomes more cumbersome due to checking for `nil`:
 
 ```swift
 func optionalTypesExample(
