@@ -26,7 +26,7 @@ private fun example(s: SealedClass) {
 
 But in Swift, such a class will be converted as a normal class with descendants, and a default case is required for a switch statement.
 
-```switch
+```swift
 func example(s: SealedClass) {
     switch s {
     case is SealedClass.Object: print("object")
@@ -75,7 +75,7 @@ func switchUsage(sealedClass: SealedClass) {
 
 ### SKIE
 
-SKIE creates Swift enum hierarchies to match the sealed class, and a function (onEnum) to access them. Access a sealed class in Swift as if it was an enum.
+SKIE creates Swift enum hierarchies to match the sealed class, and a function (`onEnum`) to access them. Access a sealed class in Swift as if it was an enum.
 
 ```swift
 func example(s: SealedClass) {

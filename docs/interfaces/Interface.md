@@ -1,10 +1,10 @@
 ## Interface
 
-The interface has become @protocol. But for some reason the val property turned into var.
+The interface has become `@protocol`. But for some reason the `val` property turned into `var`.
 
 ### Explanations
 
-Let's create an interface on the Kotlin side:
+Let's create an `interface` on the Kotlin side:
 
 ```kotlin
 interface Interfaces {
