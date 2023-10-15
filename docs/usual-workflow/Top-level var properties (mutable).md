@@ -1,6 +1,6 @@
 ## Top-level var properties (mutable)
 
-A wrapper class for accessing the property appears: TopLevelPropertyMutable.topLevelPropertyMutable.
+A wrapper class for accessing the property appears: TopLevelPropertyMutableKt.topLevelPropertyMutable.
 
 ### Explanations
 

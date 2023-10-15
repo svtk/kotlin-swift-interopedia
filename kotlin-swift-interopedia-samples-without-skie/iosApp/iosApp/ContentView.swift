@@ -236,7 +236,7 @@ struct ContentView: View {
         
         //Collections with primitive types
         //Collections with elements of primitive types (except String) require a wrapper.
-        //CollectionsWithPrimitiveTypesExample().example()
+        CollectionsWithPrimitiveTypesExample().example()
         
         //Mutable, immutable collections
         //To adjust mutability, the let, var keywords are used. Additional mappings are required for mutable collections

@@ -1,14 +1,17 @@
 ## Optional (nullable) primitive types
 
-Some primitive types require mapping into special optional types.class OptionalPrimitives(
-val optionalByte: Byte?,
-val optionalShort: Short?,
-val optionalInt: Int?,
-val optionalLong: Long?,
-val optionalFloat: Float?,
-val optionalDouble: Double?,
-val optionalString: String?,
-val optionalBoolean: Boolean?
+Some primitive types require mapping into special optional types.
+
+```kotlin
+class OptionalPrimitives(
+    val optionalByte: Byte?,
+    val optionalShort: Short?,
+    val optionalInt: Int?,
+    val optionalLong: Long?,
+    val optionalFloat: Float?,
+    val optionalDouble: Double?,
+    val optionalString: String?,
+    val optionalBoolean: Boolean?
 ) {
 
     fun optionalByteType(b: Byte?): Byte? {
