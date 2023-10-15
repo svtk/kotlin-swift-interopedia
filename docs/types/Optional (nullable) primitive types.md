@@ -45,7 +45,7 @@ class OptionalPrimitives(
 }
 ```
 
-On the Swift side, Kotlin nullable types (with the exception of `String?` and `Char?`) are represented by [special data types][специальными типами данных](https://kotlinlang.org/docs/apple-framework.html#kotlin-numbers-and-nsnumber):
+On the Swift side, Kotlin nullable types (with the exception of `String?` and `Char?`) are represented by [special data types](https://kotlinlang.org/docs/apple-framework.html#kotlin-numbers-and-nsnumber):
 
 - `Byte?` -> `KotlinByte?`
 - `UByte?` -> `KotlinUByte?`
