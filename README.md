@@ -67,7 +67,6 @@
   <tr><td><a href="/docs/functions/Function%20with%20vararg%20parameter.md">Function with vararg parameter</a></td><td>varargs are not mapped to Swift's variardic parameters, but instead to KotlinArray.</td></tr>
   <tr><td><a href="/docs/functions/Functions%20with%20overloads.md">Functions with overloads</a></td><td>There are some peculiarities when using the same parameter names.</td></tr>
   <tr><td><a href="/docs/functions/Inline%20functions.md">Inline functions</a></td><td>Inline functions are in the .h file, they can be called.</td></tr>
-  <tr><td><a href="/docs/functions/Suspend%20functions.md">Suspend functions</a></td><td>Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.</td></tr>
 </table>
 
 ## Generics
@@ -80,4 +79,10 @@
   <tr><td><a href="/docs/generics/Generic%20interfaces.md">Generic interfaces</a></td><td>Generic interfaces are not supported.</td></tr>
   <tr><td><a href="/docs/generics/Reified%20functions.md">Reified functions</a></td><td>The reified function crashes at runtime.</td></tr>
   <tr><td><a href="/docs/generics/Star%20projection.md">Star projection</a></td><td>Doesn't work as expected, you have to use a type cast.</td></tr>
- </table>
+</table>
+
+## Coroutines
+<table>
+  <tr><td><a href="/docs/coroutines/Suspend%20functions.md">Suspend functions</a></td><td>Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop and provide cancellation support.</td></tr>
+  <tr><td><a href="/docs/coroutines/Flows.md">Flows</a></td><td>Translated into callback, experimentally - into async / await. Generic type arguments are lost. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop and provide cancellation support.</td></tr>
+</table>

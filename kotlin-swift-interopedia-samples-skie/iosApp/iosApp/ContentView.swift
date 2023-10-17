@@ -8,7 +8,7 @@ struct ContentView: View {
             Button("Go", action: {
                 //testClasses()
                 
-                //testFunctions()
+                //testCoroutines()
                 
                 //testUsualWorkflow()
             })
@@ -29,10 +29,14 @@ struct ContentView: View {
         //SealedClassExample().example(s: SealedClass.Data(param1: "param1", param2: true))
 	}
     
-    @MainActor func testFunctions(){
+    @MainActor func testCoroutines(){
         //Suspend functions
         //Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
         //SuspendFunctionExample().example()
+        
+        //Flows
+        //Translated into callback, experimentally - into async / await. Generic type arguments are lost. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop and provide cancellation support.
+        //FlowExample().example()
     }
     
     func testUsualWorkflow(){

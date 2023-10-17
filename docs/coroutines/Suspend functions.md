@@ -1,6 +1,6 @@
 ## Suspend functions
 
-Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
+Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop and provide cancellation support.
 
 ### Explanations
 
@@ -29,10 +29,12 @@ ThingRepository().getThing(succeed: true, completionHandler: { thing, error in
 })
 ```
 
-With Kotlin 1.5.30, [an experimental opportunity has appeared to map suspend functions as async/await](https://kotlinlang.org/docs/whatsnew1530.html#experimental-interoperability-with-swift-5-5-async-await). 
+With Kotlin 1.5.30, [an experimental opportunity has appeared to map suspend functions as async/await](https://kotlinlang.org/docs/whatsnew1530.html#experimental-interoperability-with-swift-5-5-async-await).
+
+However, neither these approaches have cancellation support.
 
 ## KMP-NativeCoroutines
-[KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) is a library that can improve the interop. It is compatible with async/await, Combine, and RxSwift.
+[KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) is a library that can improve the interop and provides cancellation support. It is compatible with async/await, Combine, and RxSwift approaches to concurrency on iOS.
 
 In Kotlin it is:
 ```kotlin
@@ -59,12 +61,13 @@ Task {
 }
 ```
 
-Please follow the setup instructions on the KMP-NativeCoroutines landing page. 
+Please follow [the setup instructions](https://github.com/rickclephas/KMP-NativeCoroutines#installation) in the KMP-NativeCoroutines documentation for the Gradle setup instructions. 
 
 ## SKIE
-SKIE is only compatible with async/await. 
+SKIE is also improves the interop and provides cancellation support. SKIE is only compatible with async/await. 
 
 In Kotlin it is the same as the original:
+
 ```kotlin
 suspend fun getThing(succeed: Boolean): Thing {
     delay(100.milliseconds)
@@ -84,7 +87,7 @@ Task {
 }
 ```
 
-Please follow the setup instructions on the SKIE landing page.
+Please follow [the setup instructions](https://skie.touchlab.co/Installation) in the SKIE documentation for the Gradle setup instructions.
 
 ---
 [Table of contents](/README.md)

@@ -67,6 +67,8 @@
 		66D4CD3C2ADB50F200552E0E /* UnitNothingExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD3B2ADB50F200552E0E /* UnitNothingExample.swift */; };
 		66D4CD3E2ADB548B00552E0E /* PrimitiveTypesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD3D2ADB548B00552E0E /* PrimitiveTypesExample.swift */; };
 		66D4CD402ADB5A8200552E0E /* OptionalPrimitivesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD3F2ADB5A8200552E0E /* OptionalPrimitivesExample.swift */; };
+		66D4CD442ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD432ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift */; };
+		66D4CD482ADD784F00552E0E /* FlowExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD472ADD784F00552E0E /* FlowExample.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +142,8 @@
 		66D4CD3B2ADB50F200552E0E /* UnitNothingExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitNothingExample.swift; sourceTree = "<group>"; };
 		66D4CD3D2ADB548B00552E0E /* PrimitiveTypesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveTypesExample.swift; sourceTree = "<group>"; };
 		66D4CD3F2ADB5A8200552E0E /* OptionalPrimitivesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPrimitivesExample.swift; sourceTree = "<group>"; };
+		66D4CD432ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowKMPNativeCoroutinesExample.swift; sourceTree = "<group>"; };
+		66D4CD472ADD784F00552E0E /* FlowExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowExample.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,8 +231,6 @@
 				66D4CCDF2AD6BDA400552E0E /* FunctionsWithOverloadsExample.swift */,
 				66D4CCE12AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift */,
 				66D4CCE32AD6D4C100552E0E /* InlineFunctionExample.swift */,
-				66D4CCE52AD6DDC400552E0E /* SuspendFunctionExample.swift */,
-				66D4CCE72AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -270,6 +272,17 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
+		66D4CD412ADD6CC700552E0E /* Coroutines */ = {
+			isa = PBXGroup;
+			children = (
+				66D4CCE52AD6DDC400552E0E /* SuspendFunctionExample.swift */,
+				66D4CCE72AD6E26900552E0E /* SuspendFunctionKMPNativeCoroutinesExample.swift */,
+				66D4CD432ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift */,
+				66D4CD472ADD784F00552E0E /* FlowExample.swift */,
+			);
+			path = Coroutines;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +303,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				66D4CD412ADD6CC700552E0E /* Coroutines */,
 				66D4CD322ADAC62800552E0E /* Types */,
 				66D4CD2B2AD9810E00552E0E /* Interfaces */,
 				66D4CCF42AD7EADC00552E0E /* Generics */,
@@ -422,6 +436,7 @@
 				66D4CD282AD97BBD00552E0E /* UsualClassValPropertyExample.swift in Sources */,
 				66D4CD1E2AD9587900552E0E /* TopLevelFunctionExample.swift in Sources */,
 				66D4CCFC2AD8095400552E0E /* GenericsClassesExample.swift in Sources */,
+				66D4CD442ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift in Sources */,
 				66CD090E2A79052C00D66EFD /* EnumClass.swift in Sources */,
 				66D4CD262AD97A4200552E0E /* UsualClassFunctionExample.swift in Sources */,
 				66D4CCF62AD7EAF000552E0E /* BoundedGenericsExample.swift in Sources */,
@@ -455,6 +470,7 @@
 				66D4CD3C2ADB50F200552E0E /* UnitNothingExample.swift in Sources */,
 				66D4CCE22AD6BF4700552E0E /* FunctionsWithOverloadsExample2.swift in Sources */,
 				66D4CCFA2AD7F24E00552E0E /* CovariantGenericsExample.swift in Sources */,
+				66D4CD482ADD784F00552E0E /* FlowExample.swift in Sources */,
 				66D4CD362ADAC66700552E0E /* CollectionsWithCustomTypesDataExample.swift in Sources */,
 				66D4CD022AD813F700552E0E /* ReifiedFunctionsExample.swift in Sources */,
 				66D4CD382ADACB4B00552E0E /* CollectionsWithPrimitiveTypesExample.swift in Sources */,

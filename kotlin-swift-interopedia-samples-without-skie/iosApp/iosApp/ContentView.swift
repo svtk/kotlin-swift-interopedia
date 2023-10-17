@@ -20,6 +20,8 @@ struct ContentView: View {
                 //testInterfaces()
                 
                 //testTypes()
+                
+                //testCoroutines()
             })
         }
 	}
@@ -67,7 +69,7 @@ struct ContentView: View {
         //SealedClassExample().switchUsage(sealedClass: SealedClass.Data(param1: "param1", param2: true))
     }
     
-    @MainActor func testFunctions(){
+    func testFunctions(){
         //DSL
         //Functions with receivers have been generated, it doesn’t look as convenient as we would like.
         //DslExample().example()
@@ -109,10 +111,6 @@ struct ContentView: View {
         //Inline functions are in the .h file, they can be called.
         //InlineFunctionExample().example()
         
-        //Suspend function
-        //Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
-        //SuspendFunctionExample().example() (Needs to be uncommented in file)
-        //SuspendFunctionKMPNativeCoroutinesExample().example()
     }
     
     func testGenerics(){
@@ -269,6 +267,18 @@ struct ContentView: View {
         //The Unit and Nothing types can be used in the same way as in Kotlin: Unit as an object or void, Nothing cannot be created.
         //NB: some lines in the examples are commented out as they (correctly) do not compile / crash the app. Uncomment at own risk
         //UnitNothingExample().example()
+    }
+    
+    @MainActor func testCoroutines(){
+        //Suspend function
+        //Translated into callback, experimentally - into async / await. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop.
+        //SuspendFunctionExample().example() //(Needs to be uncommented in file, @NativeCoroutines annotation removed)
+        //SuspendFunctionKMPNativeCoroutinesExample().example()
+        
+        //Flows
+        //Translated into callback, experimentally - into async / await. Generic type arguments are lost. Libraries like SKIE and KMP-NativeCoroutines can be used to improve the interop and provide cancellation support.
+        //FlowExample().example() //(Needs to be uncommented in file, @NativeCoroutines annotation removed)
+        //FlowKMPNativeCoroutinesExample().example()
     }
 }
 

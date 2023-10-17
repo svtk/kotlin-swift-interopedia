@@ -17,7 +17,7 @@ private fun example(example: InGenericItem<SuperClass>) {
 }
 ```
 
-In Objective-c `in` we generated a generic with an indication of its contravariant:
+In Objective-C `in` we generated a generic with an indication of its contravariant:
 
 ```objective-c
 __attribute__((objc_subclassing_restricted))
