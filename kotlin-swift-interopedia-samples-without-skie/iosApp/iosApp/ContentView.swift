@@ -28,10 +28,16 @@ struct ContentView: View {
 
     func testCommon(){
         //JavaDoc Comments
-
         //Note: This behaviour is only observable at development time using Option+Double left click to see the docs.
         //TDLR: Classes and functions are supported, properties on constructors (@property) are not.
         //testJavaDocCommentsExample()
+        
+        //Exceptions and errors
+        //let example = ExceptionsErrorsExample()
+        //Converted to NSError and must be handled.
+        //example.checkedExample()
+        //Not converted and causes app crash.
+        //example.uncheckedExample()
     }
 
     func testClasses() {

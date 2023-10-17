@@ -69,6 +69,7 @@
 		66D4CD402ADB5A8200552E0E /* OptionalPrimitivesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD3F2ADB5A8200552E0E /* OptionalPrimitivesExample.swift */; };
 		66D4CD442ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD432ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift */; };
 		66D4CD482ADD784F00552E0E /* FlowExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD472ADD784F00552E0E /* FlowExample.swift */; };
+		66D4CD4C2ADEA4C000552E0E /* ExceptionsErrorsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D4CD4B2ADEA4C000552E0E /* ExceptionsErrorsExample.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		66D4CD3F2ADB5A8200552E0E /* OptionalPrimitivesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPrimitivesExample.swift; sourceTree = "<group>"; };
 		66D4CD432ADD715400552E0E /* FlowKMPNativeCoroutinesExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowKMPNativeCoroutinesExample.swift; sourceTree = "<group>"; };
 		66D4CD472ADD784F00552E0E /* FlowExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowExample.swift; sourceTree = "<group>"; };
+		66D4CD4B2ADEA4C000552E0E /* ExceptionsErrorsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionsErrorsExample.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				66CD08FE2A71559000D66EFD /* JavaDocComments.swift */,
+				66D4CD4B2ADEA4C000552E0E /* ExceptionsErrorsExample.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				66D4CD022AD813F700552E0E /* ReifiedFunctionsExample.swift in Sources */,
 				66D4CD382ADACB4B00552E0E /* CollectionsWithPrimitiveTypesExample.swift in Sources */,
 				66CD09102A790BEC00D66EFD /* InnerClass.swift in Sources */,
+				66D4CD4C2ADEA4C000552E0E /* ExceptionsErrorsExample.swift in Sources */,
 				66D4CCF82AD7EF7600552E0E /* ContravariantGenericsExample.swift in Sources */,
 				66D4CD3A2ADAD3B200552E0E /* MutableImmutableCollectionsExample.swift in Sources */,
 				66D4CCDE2AD6BB2C00552E0E /* FunctionWithVarargParameterExample.swift in Sources */,
