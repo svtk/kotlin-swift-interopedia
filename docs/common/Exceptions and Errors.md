@@ -1,6 +1,6 @@
 ## Exceptions
 
-Exceptions declared with `@Throws` is represented with `NSError` and must be handled. Exceptions not declared cannot be converted and will cause a program termination.
+Exceptions declared with `@Throws` is represented with `NSError` and must be handled. Exceptions not declared will cause a program termination.
 
 ### Explanations
 
