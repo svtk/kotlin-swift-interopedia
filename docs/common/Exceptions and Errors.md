@@ -1,6 +1,6 @@
 ## Exceptions
 
-Exceptions declared with `@Throws` is represented with `NSError` and must be handled. Exceptions not declared will cause a program termination.
+Exceptions declared with `@Throws` are represented with `NSError` and must be handled. Not declared exceptions will cause a program termination.
 
 ### Explanations
 
@@ -16,6 +16,7 @@ fun functionThrowsDeclaredException(){
 ```
 
 In Swift:
+
 ```swift
 do {
     try ExceptionsErrorsKt.functionThrowsDeclaredException()
@@ -26,6 +27,7 @@ catch {
 ```
 
 However, calling the following code from Swift will cause a program termination:
+
 ```kotlin
 fun functionThrowsUndeclaredException(){
     throw Exception("Oops!")
