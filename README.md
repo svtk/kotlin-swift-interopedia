@@ -4,6 +4,7 @@
 <table>
   <tr><td><a href="/docs/common/InternalModifier.md">Internal modifier</a></td><td>Internal functions and classes are not visible in Swift.</td></tr>
   <tr><td><a href="/docs/common/JavaDocComments.md">JavaDoc comments</a></td><td>Some KDoc comments are visible if you add a special compiler argument.</td></tr>
+  <tr><td><a href="/docs/common/Exceptions%20and%20Errors.md">Exceptions and errors</a></td><td>Exceptions declared with `@Throws` is represented with `NSError` and must be handled. Exceptions not declared cannot be converted and will cause a program termination.</td></tr>
 </table>
 
 ## Data types
