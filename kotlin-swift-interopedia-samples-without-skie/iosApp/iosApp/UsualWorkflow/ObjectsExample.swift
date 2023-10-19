@@ -1,11 +1,9 @@
 import Foundation
 import shared
 
-class ObjectsExample {
-    func example(){
-        ObjectExample.shared.CONST_VAL_EXAMPLE
-        ObjectExample.shared.someVal
-        ObjectExample.shared.functionExample()
-        ObjectExample.shared.paramFunctionExample(funcParam1: "123")
-    }
+func objectsExample() {
+    print(MyKotlinObject.shared.CONST_VAL_EXAMPLE)
+    print(MyKotlinObject.shared.myProperty.param1)
+    print(MyKotlinObject.shared.functionExample())
+    print(MyKotlinObject.shared.paramFunctionExample(funcParam1: "123"))
 }

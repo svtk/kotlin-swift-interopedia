@@ -1,9 +1,10 @@
 import Foundation
 import shared
 
-class UsualClassFunctionExample {
-    func example(){
-        let myClass = UsualClassFunction()
-        myClass.someFunction()
-    }
+func memberFunctionExample() {
+    let myClass = MyKotlinClass()
+
+//     myClass.kotlinInternalFunction(),
+//     myClass.kotlinPrivateFunction(),
+    print("Calling \(myClass.kotlinPublicFunction())")
 }

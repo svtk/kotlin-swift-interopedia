@@ -1,17 +1,9 @@
 package com.jetbrains.swiftinteropplayground.functions
 
-fun returnLambda(): () -> Unit {
-    println("Function that returns lambda")
-
-    return {
-        println("Lambda inside return")
-    }
+fun returnLambda(): () -> String {
+    return { "Kotlin Lambda" }
 }
 
-fun returnParametrizedLambda(): (String) -> Unit {
-    println("Function that returns parametrized lambda")
-
-    return {
-        println("returnParametrizedLambda | it: $it")
-    }
+fun returnParametrizedLambda(): (String) -> String {
+    return { s -> "Kotlin Lambda taking a String argument: $s" }
 }

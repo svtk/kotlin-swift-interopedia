@@ -1,8 +1,6 @@
 import Foundation
 import shared
 
-class TopLevelFunctionExample {
-    func example(){
-        TopLevelFunctionKt.topLevelFunction()
-    }
+func topLevelFunctionExample() {
+    TopLevelFunctionKt.topLevelFunction()
 }

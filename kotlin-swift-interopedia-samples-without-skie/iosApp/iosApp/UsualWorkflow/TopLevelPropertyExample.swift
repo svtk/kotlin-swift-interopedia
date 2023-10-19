@@ -1,8 +1,6 @@
 import Foundation
 import shared
 
-class TopLevelPropertyExample {
-    func example(){
-        let _ = TopLevelPropertyKt.topLevelProperty
-    }
+func topLevelPropertyExample() {
+    print(TopLevelPropertyKt.topLevelProperty)
 }

@@ -1,5 +1,7 @@
 package com.jetbrains.swiftinteropplayground.functions
 
-fun simpleFunction(): String {
-    return "FunctionsReturnsPrimitive.simpleFunction()"
+class SimpleKotlinClass {
+    fun simpleKotlinFunction(): String {
+        return "Kotlin member function in Kotlin class returning String value"
+    }
 }

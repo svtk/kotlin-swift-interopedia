@@ -1,10 +1,9 @@
 import Foundation
 import shared
 
-class TopLevelPropertyMutableExample {
-    func example(){
-        let _ = TopLevelPropertyMutableKt.topLevelPropertyMutable
-        TopLevelPropertyMutableKt.topLevelPropertyMutable = "Changed from Swift"
-        print(TopLevelPropertyMutableKt.topLevelPropertyMutable)
-    }
+func topLevelPropertyMutableExample() {
+    let initial = TopLevelPropertyMutableKt.topLevelPropertyMutable
+    print(initial)
+    TopLevelPropertyMutableKt.topLevelPropertyMutable = "Property changed from Swift"
+    print(TopLevelPropertyMutableKt.topLevelPropertyMutable)
 }

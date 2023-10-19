@@ -1,3 +1,3 @@
 package com.jetbrains.swiftinteropplayground.usualworkflow
 
-var topLevelPropertyMutable = "Some value"
+var topLevelPropertyMutable = "Initial value set in Kotlin"

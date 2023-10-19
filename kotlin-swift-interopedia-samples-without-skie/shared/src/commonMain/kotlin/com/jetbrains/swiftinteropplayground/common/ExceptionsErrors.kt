@@ -1,10 +1,10 @@
 package com.jetbrains.swiftinteropplayground.common
 
-fun functionThrowsUndeclaredException(){
+fun functionThrowsUndeclaredException() {
     throw Exception("Oops!")
 }
 
 @Throws(Exception::class)
-fun functionThrowsDeclaredException(){
+fun functionThrowsDeclaredException() {
     throw Exception("Oops!")
 }

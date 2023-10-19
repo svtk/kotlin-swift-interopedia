@@ -5,8 +5,8 @@ class OuterClass(
 ) {
     fun parentFunc() {}
     inner class InnerClass {
-        fun useSomeFunction() {
-            println("this@OuterClass.param == ${this@OuterClass.param}")
+        fun useSomeFunction(): String {
+            return "this@OuterClass.param == $param"
         }
     }
 }

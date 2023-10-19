@@ -1,3 +1,3 @@
 package com.jetbrains.swiftinteropplayground.usualworkflow
 
-val topLevelProperty = "Some value"
+val topLevelProperty = "A top-level property"

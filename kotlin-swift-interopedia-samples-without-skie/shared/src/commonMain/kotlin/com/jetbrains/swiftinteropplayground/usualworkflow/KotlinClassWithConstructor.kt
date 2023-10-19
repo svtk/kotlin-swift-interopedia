@@ -1,9 +1,5 @@
 package com.jetbrains.swiftinteropplayground.usualworkflow
 
-class UsualClassValProperty(
+class KotlinClassWithConstructor(
     val param: String
-) {
-
-    val property: String get() = "123"
-
-}
+)

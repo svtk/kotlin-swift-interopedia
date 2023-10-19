@@ -3,18 +3,16 @@ import shared
 import KMPNativeCoroutinesAsync
 import KMPNativeCoroutinesCore
 
-class FlowKMPNativeCoroutinesExample {
-    @MainActor
-    func example(){
-        Task {
-            do {
-                let sequence = asyncSequence(for: NumberFlowRepository().getNumbers())
-                for try await number in sequence {
-                    print("Got number: \(number)")
-                }
-            } catch {
-                print("Failed with error: \(error)")
+@MainActor
+func flowKMPNativeCoroutinesExample() {
+    Task {
+        do {
+            let sequence = asyncSequence(for: NumberFlowRepository().getNumbersAnnotated())
+            for try await number in sequence {
+                print("Got number: \(number)")
             }
+        } catch {
+            print("Failed with error: \(error)")
         }
     }
 }

@@ -1,19 +1,21 @@
 import Foundation
 import shared
 
-class OpenClassExample : OpenClassWithConstructorParams {
-//    override func finalFunctionInClass() {
-//        print("Final function was overridden")
+class OpenClassExample: OpenClassWithConstructorParams {
+//    // Overriding leads to an exception at runtime on instantiation 
+//    override func finalFunctionInClass() -> String {
+//        "Final function can't be overridden"
 //    }
-    
-    override func functionCanBeOverridden() {
-        print("Open function was overridden")
+
+    override func functionCanBeOverridden() -> String {
+        "Open function overridden from Swift"
     }
-    
-    static func example() {
-        let example = OpenClassExample(param1: "123", param2: true)
-        print(example.someField)
-        example.finalFunctionInClass()
-        example.functionCanBeOverridden()
-    }
+}
+
+func openClassExample() {
+    let openClass = OpenClassExample(param1: "123", param2: true)
+
+    print("Accessing field: \(openClass.someField)")
+    print("Calling \(openClass.finalFunctionInClass())")
+    print("Calling \(openClass.functionCanBeOverridden())")
 }

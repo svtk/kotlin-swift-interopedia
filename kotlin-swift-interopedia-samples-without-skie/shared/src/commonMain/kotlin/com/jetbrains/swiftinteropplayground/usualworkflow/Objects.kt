@@ -1,12 +1,12 @@
 package com.jetbrains.swiftinteropplayground.usualworkflow
 
-class DataClassExample(param1: String, param2: Int, param3: Boolean)
+data class MyDataClass(val param1: String, val param2: Int, val param3: Boolean)
 
-object ObjectExample {
+object MyKotlinObject {
 
     const val CONST_VAL_EXAMPLE = "ObjectExample.CONST_VAL_EXAMPLE"
 
-    val someVal = DataClassExample(
+    val myProperty = MyDataClass(
         param1 = "someVal.param1",
         param2 = 200,
         param3 = false
@@ -23,8 +23,8 @@ object ObjectExample {
 }
 
 fun objectsExample() {
-    ObjectExample.CONST_VAL_EXAMPLE
-    ObjectExample.someVal
-    ObjectExample.functionExample()
-    ObjectExample.paramFunctionExample("123")
+    MyKotlinObject.CONST_VAL_EXAMPLE
+    MyKotlinObject.myProperty
+    MyKotlinObject.functionExample()
+    MyKotlinObject.paramFunctionExample("123")
 }

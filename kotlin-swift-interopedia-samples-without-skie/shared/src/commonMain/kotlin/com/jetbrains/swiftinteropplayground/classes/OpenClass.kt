@@ -6,12 +6,7 @@ open class OpenClassWithConstructorParams(
 ) {
     protected val someField: String get() = "14"
 
-    fun finalFunctionInClass() {
-        println("Final method in open class")
-    }
+    fun finalFunctionInClass(): String = "Final method in open class"
 
-    open fun functionCanBeOverridden() {
-        println("Open method in open class")
-    }
-
+    open fun functionCanBeOverridden(): String = "Open method in open class"
 }
